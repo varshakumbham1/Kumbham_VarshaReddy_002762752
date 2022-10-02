@@ -352,7 +352,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
             if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || jStartDate.getDate() .equals("")|| 
                     tfAge.getText().equals("") || level.isEmpty() || teamInfo.isEmpty() || 
-                    positionTitle.isEmpty() || cellPhone.isEmpty() || email.isEmpty()){
+                    positionTitle.isEmpty() || cellPhone.isEmpty() || email.isEmpty() || chosenImagePath.isEmpty()){
                     
                 JOptionPane.showMessageDialog(this,
                             "Please enter all fields",
@@ -365,7 +365,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                         "Try Again", 
                         JOptionPane.ERROR_MESSAGE);
             }
-            else if(cellPhone.length()!= 10 || !cellPhone.matches("\\+\\d(-\\d{3}){2}-\\d{4}")){
+            else if(cellPhone.length()!= 10 || !cellPhone.matches("\\d{10}")){
                 JOptionPane.showMessageDialog(this,
                         "Please Enter Valid Phone Number",
                         "Try Again", 
