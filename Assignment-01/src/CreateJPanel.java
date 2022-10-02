@@ -347,6 +347,8 @@ public class CreateJPanel extends javax.swing.JPanel {
             String positionTitle = tfPositionTitle.getText();
             String cellPhone = tfCellPhone.getText();
             String email = tfEmail.getText();
+            
+            
 
             if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || jStartDate.getDate() .equals("")|| 
                     tfAge.getText().equals("") || level.isEmpty() || teamInfo.isEmpty() || 
@@ -378,18 +380,42 @@ public class CreateJPanel extends javax.swing.JPanel {
             else {
                  if (evt.getSource() == btnSave)
                     {
-                        System.out.println("chosen image:"+chosenImagePath);
-                        Employee emp = new Employee(name, eid, age, gender, startDate,
-                            level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
-                        empObjs.add(emp);
+                        if(empObjs.size() > 0) {
+                            for(Employee e: empObjs) {
+                                //e.getEid()
+                                if(e.getEid().equals(eid)) {
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Already Exists!",
+                            "Try Again", 
+                            JOptionPane.ERROR_MESSAGE);
+                                    break;
+                                }
+                                else {
+                                    Employee emp = new Employee(name, eid, age, gender, startDate,
+                                level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
+                                    empObjs.add(emp);
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Saved",
+                            "Done", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                        }
+                        else {
+                                    Employee emp = new Employee(name, eid, age, gender, startDate,
+                                level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
+                                    empObjs.add(emp);
+                                    JOptionPane.showMessageDialog(this,
+                            "Employee Data Saved",
+                            "Done", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                                   
+                                }
+                        
                     }
             }
         }
         catch(Exception ex) {
-            JOptionPane.showMessageDialog(this,
-                            "Please enter all fields",
-                            "Try Again",
-                            JOptionPane.ERROR_MESSAGE);
                 }
     }//GEN-LAST:event_btnSaveActionPerformed
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
