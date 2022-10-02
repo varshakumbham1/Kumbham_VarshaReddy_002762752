@@ -357,6 +357,24 @@ public class CreateJPanel extends javax.swing.JPanel {
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);       
             }
+            if(!name.matches("^[A-Z][a-z]+[ ]*[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if(cellPhone.length()!= 10 && !cellPhone.matches("\\+\\d(-\\d{3}){2}-\\d{4}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            if(!email.matches("^[a-z0-9]+@[a-z]+\\.[a-z]+$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Email Address",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else {
                  if (evt.getSource() == btnSave)
                     {
