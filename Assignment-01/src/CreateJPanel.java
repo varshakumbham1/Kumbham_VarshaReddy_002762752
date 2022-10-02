@@ -394,7 +394,6 @@ public class CreateJPanel extends javax.swing.JPanel {
             Image l_image = chosenImage.getImage().getScaledInstance(jLabelPhoto.getWidth(), 
                     jLabelPhoto.getHeight(), Image.SCALE_SMOOTH);
             jLabelPhoto.setIcon(new ImageIcon(l_image));
-        //l_history.
         }
     }//GEN-LAST:event_btnUploadPhotoActionPerformed
 
