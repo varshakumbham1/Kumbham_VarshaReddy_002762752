@@ -487,6 +487,9 @@ public class DisplayJPanel extends javax.swing.JPanel {
         
         ArrayList<Employee> filteredEmployees = new ArrayList<Employee>();
         for(Employee emp: CreateJPanel.empObjs){
+            
+            
+                
             if((emp.getName().equals(nameSearch) && 
                     emp.getEid().equals(eidSearch) && 
                     emp.getCellPhone().equals(cellPhoneSearch)) ||
@@ -622,7 +625,7 @@ public class DisplayJPanel extends javax.swing.JPanel {
             tfLevel.setEditable(false);
             tfPositionTitle.setText(positionTitle);
             tfPositionTitle.setEditable(false);
-            tfCellPhone.setText(phNo);
+            tfCellPhone_update.setText(phNo);
             tfCellPhone_update.setEditable(false);
             tfEmail.setText(emailid);
             tfEmail.setEditable(false);
@@ -676,6 +679,18 @@ public class DisplayJPanel extends javax.swing.JPanel {
         Object[] empData = {name, empId, age, gender, startDate, level, teamInfo, 
         positionTitle, phoneNo, emailId, imgUrl};
         tableModel.insertRow(row, empData);
+        
+        ArrayList <Employee> empList = CreateJPanel.empObjs;
+        Employee updatedEmp = new Employee(name, empId, age, gender, startDate, level, 
+            teamInfo, positionTitle, phoneNo, emailId, imgUrl);
+        for(Employee emp : empList) {
+            if(emp.getEid().equals(empId)){
+                int index = empList.indexOf(emp);
+                empList.remove(index);
+                empList.add(index, updatedEmp);
+                break;
+            }
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

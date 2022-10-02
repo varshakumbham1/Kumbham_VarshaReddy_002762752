@@ -38,8 +38,9 @@ public class HomeFrame extends javax.swing.JFrame {
         btnDisplay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanelRight.setBackground(new java.awt.Color(255, 255, 204));
+        jSplitPane.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
         jPanelRight.setLayout(jPanelRightLayout);
@@ -54,7 +55,6 @@ public class HomeFrame extends javax.swing.JFrame {
 
         jSplitPane.setRightComponent(jPanelRight);
 
-        jPanelLeft.setBackground(new java.awt.Color(255, 255, 204));
         jPanelLeft.setPreferredSize(new java.awt.Dimension(400, 629));
 
         btnCreate.setText("Create Employee Profile");
