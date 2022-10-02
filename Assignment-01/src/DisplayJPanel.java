@@ -487,27 +487,38 @@ public class DisplayJPanel extends javax.swing.JPanel {
         
         ArrayList<Employee> filteredEmployees = new ArrayList<Employee>();
         for(Employee emp: CreateJPanel.empObjs){
-            
-            
-                
             if((emp.getName().equals(nameSearch) && 
                     emp.getEid().equals(eidSearch) && 
                     emp.getCellPhone().equals(cellPhoneSearch)) ||
                     
                     (emp.getName().equals(nameSearch) && 
-                    emp.getEid().equals(eidSearch)) ||
+                    emp.getEid().equals(eidSearch) &&
+                    cellPhoneSearch.isEmpty()) ||
                     
                     (emp.getEid().equals(eidSearch) && 
-                    emp.getCellPhone().equals(cellPhoneSearch)) ||
+                    emp.getCellPhone().equals(cellPhoneSearch) &&
+                    nameSearch.isEmpty()) ||
                     
                     (emp.getName().equals(nameSearch) && 
-                    emp.getCellPhone().equals(cellPhoneSearch)) ||
+                    emp.getCellPhone().equals(cellPhoneSearch) &&
+                    eidSearch.isEmpty()) ||
                     
-                    emp.getName().equals(nameSearch) ||
-                    emp.getEid().equals(eidSearch) ||
-                    emp.getCellPhone().equals(cellPhoneSearch)) {
+                    (emp.getName().equals(nameSearch) &&
+                    eidSearch.isEmpty() &&
+                    cellPhoneSearch.isEmpty()) ||
+                    
+                    (emp.getEid().equals(eidSearch) &&
+                    nameSearch.isEmpty() &&
+                    cellPhoneSearch.isEmpty()) ||
+                    
+                    (emp.getCellPhone().equals(cellPhoneSearch) &&
+                    eidSearch.isEmpty() &&
+                    nameSearch.isEmpty()))
+            {
                 filteredEmployees.add(emp);
-            }
+                    }
+            
+            
             
         }
         
