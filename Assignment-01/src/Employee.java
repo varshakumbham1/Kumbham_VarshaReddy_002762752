@@ -26,6 +26,7 @@ public class Employee {
     private String eid;
     private int age;
     private String gender;
+    private String startDate;
     private String level;
     private String teamInfo;
     private String positionTitle;
@@ -37,12 +38,13 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String name, String eid, int age, String gender, String level, 
+    public Employee(String name, String eid, int age, String gender, String startDate, String level, 
             String teamInfo, String positionTitle, String cellPhone, String email, String imageUrl) {
         this.name = name;
         this.eid = eid;
         this.age = age;
         this.gender = gender;
+        this.startDate = startDate;
         this.level = level;
         this.teamInfo = teamInfo;
         this.positionTitle = positionTitle;
@@ -79,6 +81,14 @@ public class Employee {
         return gender;
     }
     
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
     }

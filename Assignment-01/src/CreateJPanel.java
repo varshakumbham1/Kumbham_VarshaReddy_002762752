@@ -67,6 +67,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         tfEmail = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jStartDate = new com.toedter.calendar.JDateChooser();
         btnUploadPhoto = new javax.swing.JButton();
         jLabelPhoto = new javax.swing.JLabel();
 
@@ -165,6 +166,8 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        jStartDate.setDateFormatString("dd-MM-yyyy");
+
         btnUploadPhoto.setText("Upload Photo");
         btnUploadPhoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,11 +214,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(tfLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rdMale)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rdFemale)
-                                        .addGap(40, 40, 40))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(rdMale)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(rdFemale)
+                                            .addGap(13, 13, 13))
+                                        .addComponent(jStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(tfTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tfPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
@@ -249,8 +254,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(rdMale)
                     .addComponent(rdFemale))
                 .addGap(24, 24, 24)
-                .addComponent(jLabelStartDate)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelStartDate)
+                    .addComponent(jStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelLevel)
                     .addComponent(tfLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -333,6 +340,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             String gender = btnGenderGroup.getSelection().getActionCommand();
             
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy");  
+            String startDate = dateFormat.format(jStartDate.getDate());
             
             String level = tfLevel.getText();
             String teamInfo = tfTeamInfo.getText();
@@ -340,8 +348,8 @@ public class CreateJPanel extends javax.swing.JPanel {
             String cellPhone = tfCellPhone.getText();
             String email = tfEmail.getText();
 
-            if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || tfAge.getText().equals("") || 
-                    level.isEmpty() || teamInfo.isEmpty() || 
+            if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || jStartDate.getDate() .equals("")|| 
+                    tfAge.getText().equals("") || level.isEmpty() || teamInfo.isEmpty() || 
                     positionTitle.isEmpty() || cellPhone.isEmpty() || email.isEmpty()){
                     
                 JOptionPane.showMessageDialog(this,
@@ -353,7 +361,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                  if (evt.getSource() == btnSave)
                     {
                         System.out.println("chosen image:"+chosenImagePath);
-                        Employee emp = new Employee(name, eid, age, gender,
+                        Employee emp = new Employee(name, eid, age, gender, startDate,
                             level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
                         empObjs.add(emp);
                     }
@@ -408,6 +416,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPositionTitle;
     private javax.swing.JLabel jLabelStartDate;
     private javax.swing.JLabel jLabelTeamInfo;
+    private com.toedter.calendar.JDateChooser jStartDate;
     private javax.swing.JRadioButton rdFemale;
     private javax.swing.JRadioButton rdMale;
     private javax.swing.JTextField tfAge;

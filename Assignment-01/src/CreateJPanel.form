@@ -62,11 +62,14 @@
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="tfLevel" min="-2" pref="162" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="rdMale" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="rdFemale" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="rdMale" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="rdFemale" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jStartDate" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="tfTeamInfo" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
                                   <Component id="tfPositionTitle" alignment="1" min="-2" pref="162" max="-2" attributes="0"/>
@@ -114,8 +117,11 @@
                   <Component id="rdFemale" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jLabelStartDate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelStartDate" min="-2" max="-2" attributes="0"/>
+                  <Component id="jStartDate" min="-2" pref="23" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelLevel" min="-2" max="-2" attributes="0"/>
                   <Component id="tfLevel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -291,6 +297,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jStartDate">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnUploadPhoto">
       <Properties>
