@@ -350,7 +350,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             
             
 
-            if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || jStartDate.getDate() .equals("")|| 
+            if(name.isEmpty() || eid.isEmpty() || gender.isEmpty() || startDate.isEmpty()|| 
                     tfAge.getText().equals("") || level.isEmpty() || teamInfo.isEmpty() || 
                     positionTitle.isEmpty() || cellPhone.isEmpty() || email.isEmpty() || chosenImagePath.isEmpty()){
                     
@@ -378,45 +378,60 @@ public class CreateJPanel extends javax.swing.JPanel {
                         JOptionPane.ERROR_MESSAGE);
             }
             else {
-                 if (evt.getSource() == btnSave)
-                    {
-                        if(empObjs.size() > 0) {
-                            for(Employee e: empObjs) {
-                                //e.getEid()
-                                if(e.getEid().equals(eid)) {
-                                    JOptionPane.showMessageDialog(this,
-                            "Employee Data Already Exists!",
-                            "Try Again", 
-                            JOptionPane.ERROR_MESSAGE);
-                                    break;
-                                }
-                                else {
-                                    Employee emp = new Employee(name, eid, age, gender, startDate,
+                Employee emp = new Employee(name, eid, age, gender, startDate,
                                 level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
                                     empObjs.add(emp);
                                     JOptionPane.showMessageDialog(this,
                             "Employee Data Saved",
                             "Done", 
                             JOptionPane.INFORMATION_MESSAGE);
-                                }
-                            }
-                        }
-                        else {
-                                    Employee emp = new Employee(name, eid, age, gender, startDate,
-                                level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
-                                    empObjs.add(emp);
-                                    JOptionPane.showMessageDialog(this,
-                            "Employee Data Saved",
-                            "Done", 
-                            JOptionPane.INFORMATION_MESSAGE);
-                                   
-                                }
+//                 if (evt.getSource() == btnSave)
+//                    {
+//                        if(empObjs.size() > 0) {
+//                            for(Employee e: empObjs) {
+//                                //e.getEid()
+//                                if(e.getEid().equals(eid)) {
+//                                    JOptionPane.showMessageDialog(this,
+//                            "Employee Data Already Exists!",
+//                            "Try Again", 
+//                            JOptionPane.ERROR_MESSAGE);
+//                                    break;
+//                                }
+//                                
+//                                else {
+//                                    Employee emp = new Employee(name, eid, age, gender, startDate,
+//                                level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
+//                                    empObjs.add(emp);
+//                                    JOptionPane.showMessageDialog(this,
+//                            "Employee Data Saved",
+//                            "Done", 
+//                            JOptionPane.INFORMATION_MESSAGE);
+//                                    break;
+//                                }
+//                            }
+//                        }
+//                        else {
+//                                    Employee emp = new Employee(name, eid, age, gender, startDate,
+//                                level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
+//                                    empObjs.add(emp);
+//                                    JOptionPane.showMessageDialog(this,
+//                            "Employee Data Saved",
+//                            "Done", 
+//                            JOptionPane.INFORMATION_MESSAGE);
+//                                   
+//                                }
                         
                     }
             }
-        }
         catch(Exception ex) {
-                }
+            
+            JOptionPane.showMessageDialog(this,
+                        "Enter all fields",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            System.out.println(ex);
+              }
+
     }//GEN-LAST:event_btnSaveActionPerformed
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
