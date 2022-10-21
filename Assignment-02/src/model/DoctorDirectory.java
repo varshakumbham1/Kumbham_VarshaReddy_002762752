@@ -12,7 +12,7 @@ import java.util.List;
  * @author varshareddykumbham
  */
 public class DoctorDirectory {
-    List<Doctor> listOfDoctors;
+    private List<Doctor> listOfDoctors;
 
     public DoctorDirectory() {
     }
