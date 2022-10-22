@@ -17,13 +17,13 @@ public class Hospital {
     private String hospitalCommunity;
     private Long hospitalCode;
     private String hospitalCity;
-    private String postalCode;
+    private Long postalCode;
     //private List<Doctor> doctor;
     
     public Hospital() {
     }
 
-    public Hospital(String hospitalName, String hospitalCommunity, Long hospitalCode, String hospitalCity, String postalCode) {
+    public Hospital(String hospitalName, String hospitalCommunity, Long hospitalCode, String hospitalCity, Long postalCode) {
         this.hospitalName = hospitalName;
         this.hospitalCommunity = hospitalCommunity;
         this.hospitalCode = hospitalCode;
@@ -63,11 +63,11 @@ public class Hospital {
         this.hospitalCity = hospitalCity;
     }
 
-    public String getPostalCode() {
+    public Long getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(String postalCode) {
+    public void setPostalCode(Long postalCode) {
         this.postalCode = postalCode;
     }
     

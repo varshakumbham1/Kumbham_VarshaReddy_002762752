@@ -382,9 +382,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 level, teamInfo, positionTitle, cellPhone, email, chosenImagePath);
                                     empObjs.add(emp);
                                     JOptionPane.showMessageDialog(this,
-                            "Employee Data Saved",
-                            "Done", 
-                            JOptionPane.INFORMATION_MESSAGE);
+                                    "Employee Data Saved",
+                                    "Done", 
+                                    JOptionPane.INFORMATION_MESSAGE);
 //                 if (evt.getSource() == btnSave)
 //                    {
 //                        if(empObjs.size() > 0) {

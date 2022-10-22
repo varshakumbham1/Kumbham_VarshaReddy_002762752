@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -12,5 +13,20 @@ import java.util.List;
  * @author varshareddykumbham
  */
 public class HospitalDirectory {
-    private List<Hospital> listOfHospitals;  
+    private ArrayList<Hospital> listOfHospitals;  
+
+    public HospitalDirectory() {
+    }
+
+    public HospitalDirectory(ArrayList<Hospital> listOfHospitals) {
+        this.listOfHospitals = listOfHospitals;
+    }
+
+    public List<Hospital> getListOfHospitals() {
+        return listOfHospitals;
+    }
+
+    public void setListOfHospitals(ArrayList<Hospital> listOfHospitals) {
+        this.listOfHospitals = listOfHospitals;
+    }
 }

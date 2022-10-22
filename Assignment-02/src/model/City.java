@@ -13,16 +13,15 @@ import java.util.List;
  */
 public class City {
     private String cityName;
-    private List<Community> communities;
+    //private List<Community> communities;
     private String cityState;
     
     public City() {
 
     }
 
-    public City(String cityName, List communities, String cityState) {
+    public City(String cityName, String cityState) {
         this.cityName = cityName;
-        this.communities = communities;
         this.cityState = cityState;
     }
 
@@ -30,9 +29,6 @@ public class City {
         this.cityName = cityName;
     }
 
-    public void setCommunities(List<Community> communities) {
-        this.communities = communities;
-    }
 
     public void setCityState(String cityState) {
         this.cityState = cityState;
@@ -42,9 +38,6 @@ public class City {
         return cityName;
     }
 
-    public List<Community> getCommunities() {
-        return communities;
-    }
 
     public String getCityState() {
         return cityState;
