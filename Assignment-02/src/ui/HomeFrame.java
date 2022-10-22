@@ -7,6 +7,7 @@ package ui;
 import ui.Community.CommunityAdminPanel;
 import javax.swing.BoxLayout;
 import javax.swing.border.EmptyBorder;
+import ui.Hospital.HospitalAdminPanel;
 
 /**
  *
@@ -153,11 +154,17 @@ public class HomeFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUsernameActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        CommunityAdminPanel comAdminPanel = new CommunityAdminPanel();
-        setContentPane(comAdminPanel);
-        revalidate();
-        
-        
+        String role = (String) jComboBoxRole.getSelectedItem();
+        if(role.equals("Community Admin")) {
+            CommunityAdminPanel comAdminPanel = new CommunityAdminPanel();
+            setContentPane(comAdminPanel);
+            revalidate();
+        }
+        else if (role.equals("Hospital Admin")) {
+            HospitalAdminPanel hospitalAdminPanel = new HospitalAdminPanel();
+            setContentPane(hospitalAdminPanel);
+            revalidate();
+        } 
     }//GEN-LAST:event_btnLoginActionPerformed
     
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed

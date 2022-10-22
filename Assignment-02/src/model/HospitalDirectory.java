@@ -16,6 +16,7 @@ public class HospitalDirectory {
     private ArrayList<Hospital> listOfHospitals;  
 
     public HospitalDirectory() {
+        listOfHospitals = new ArrayList<Hospital>();
     }
 
     public HospitalDirectory(ArrayList<Hospital> listOfHospitals) {
