@@ -27,8 +27,8 @@ public class Patient extends Person{
         this.postalCode = postalCode;
     }
 
-    public Patient(String phoneNumber, String streetAddress, String community, String city, Long postalCode, String name, String id, String age, String gender, String role, String userName, String passWord) {
-        super(name, id, age, gender, role, userName, passWord);
+    public Patient(String phoneNumber, String streetAddress, String community, String city, Long postalCode, String name, String id, int age, String gender, String role, String userName, String passWord) {
+        super(name, id, age, gender, userName, passWord);
         this.phoneNumber = phoneNumber;
         this.streetAddress = streetAddress;
         this.community = community;

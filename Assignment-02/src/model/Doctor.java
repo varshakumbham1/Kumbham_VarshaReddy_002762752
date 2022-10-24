@@ -27,8 +27,8 @@ public class Doctor extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public Doctor(String hospitalName, String hospitalDepartment, String phoneNumber, String name, String id, String age, String gender, String role, String userName, String passWord) {
-        super(name, id, age, gender, role, userName, passWord);
+    public Doctor(String hospitalName, String hospitalDepartment, String phoneNumber, String name, String id, int age, String gender, String userName, String passWord) {
+        super(name, id, age, gender, userName, passWord);
         this.hospitalName = hospitalName;
         this.hospitalDepartment = hospitalDepartment;
         this.phoneNumber = phoneNumber;

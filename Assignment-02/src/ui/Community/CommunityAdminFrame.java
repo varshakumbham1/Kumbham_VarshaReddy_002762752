@@ -5,6 +5,8 @@
 package ui.Community;
 
 import javax.swing.JPanel;
+import model.City;
+import model.Community;
 import ui.HomeFrame;
 
 /**

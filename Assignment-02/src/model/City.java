@@ -13,16 +13,25 @@ import java.util.List;
  */
 public class City {
     private String cityName;
-    //private List<Community> communities;
+    private List<Community> communities;
     private String cityState;
     
     public City() {
 
     }
 
-    public City(String cityName, String cityState) {
+    public City(String cityName, List<Community> communities, String cityState) {
         this.cityName = cityName;
+        this.communities = communities;
         this.cityState = cityState;
+    }
+
+    public List<Community> getCommunities() {
+        return communities;
+    }
+
+    public void setCommunities(List<Community> communities) {
+        this.communities = communities;
     }
 
     public void setCityName(String cityName) {

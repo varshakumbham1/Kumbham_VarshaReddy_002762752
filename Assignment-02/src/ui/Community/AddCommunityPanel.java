@@ -5,6 +5,7 @@
 package ui.Community;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.Community;
@@ -20,8 +21,9 @@ public class AddCommunityPanel extends javax.swing.JPanel {
      */
     Community comm;
     DefaultTableModel tblModel;
-    public static ArrayList<Community> communities = new ArrayList<>();
+    public static List<Community> communities;
     public void setCityCombobox(){
+        
         jComboBoxCity.removeAllItems();
         for(City city: AddCityPanel.cities){
             jComboBoxCity.addItem(city.getCityName());
@@ -142,12 +144,21 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCommunityActionPerformed
-        // TODO add your handling code here:
+
         String community = tfCommunityName.getText();
         String city = (String) jComboBoxCity.getSelectedItem();
         Long postalCode = Long.valueOf(tfPostalCode.getText());
-        comm = new Community(community, postalCode, city);
-        communities.add(comm);
+        for(City c: AddCityPanel.cities) {
+            if(c.getCityName().equals(city)) {
+                communities = c.getCommunities();
+                communities.add(new Community(community, postalCode, city));
+                c.setCommunities(communities);  
+            }
+            else {
+                communities = new ArrayList();
+            }
+        }
+        
         Object[] data = {community, postalCode, city};
         tblModel.addRow(data);
     }//GEN-LAST:event_jButtonAddCommunityActionPerformed

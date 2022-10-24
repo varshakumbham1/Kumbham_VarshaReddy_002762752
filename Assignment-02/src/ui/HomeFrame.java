@@ -169,9 +169,6 @@ public class HomeFrame extends javax.swing.JFrame {
         for(City city : AddCityPanel.cities) {
             System.out.println(city.getCityName());
         }
-        for(Community community : AddCommunityPanel.communities) {
-            System.out.println(community.getCommunityName());
-        }
         
         
         

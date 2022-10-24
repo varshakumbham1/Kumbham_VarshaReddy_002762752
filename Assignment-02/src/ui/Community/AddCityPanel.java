@@ -5,8 +5,10 @@
 package ui.Community;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.City;
+import model.Community;
 import ui.HomeFrame;
 
 /**
@@ -118,7 +120,8 @@ public class AddCityPanel extends javax.swing.JPanel {
     private void btnAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCityActionPerformed
         String cityName = tfCity.getText();
         String cityState = tfState.getText();
-        city = new City(cityName, cityState);
+        List<Community> communities = new ArrayList();
+        city = new City(cityName, communities, cityState);
         cities.add(city);
         Object[] data = {cityName, cityState};
         tblModel.addRow(data);

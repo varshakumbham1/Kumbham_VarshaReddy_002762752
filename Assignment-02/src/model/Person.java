@@ -12,21 +12,19 @@ package model;
 public class Person {
     private String name;
     private String id;
-    private String age;
+    private int age;
     private String gender;
-    private String role;
     private String userName;
     private String passWord;
 
     public Person() {
     }
 
-    public Person(String name, String id, String age, String gender, String role, String userName, String passWord) {
+    public Person(String name, String id, int age, String gender, String userName, String passWord) {
         this.name = name;
         this.id = id;
         this.age = age;
         this.gender = gender;
-        this.role = role;
         this.userName = userName;
         this.passWord = passWord;
     }
@@ -47,11 +45,11 @@ public class Person {
         this.id = id;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -61,14 +59,6 @@ public class Person {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getUserName() {

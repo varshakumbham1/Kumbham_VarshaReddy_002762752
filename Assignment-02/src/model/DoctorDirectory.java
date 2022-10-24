@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -15,6 +16,7 @@ public class DoctorDirectory {
     private List<Doctor> listOfDoctors;
 
     public DoctorDirectory() {
+        listOfDoctors = new ArrayList<Doctor>();
     }
 
     public DoctorDirectory(List<Doctor> listOfDoctors) {
