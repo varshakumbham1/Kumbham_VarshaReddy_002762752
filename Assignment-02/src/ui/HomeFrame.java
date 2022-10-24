@@ -4,10 +4,15 @@
  */
 package ui;
 
-import ui.Community.CommunityAdminPanel;
 import javax.swing.BoxLayout;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import ui.Hospital.HospitalAdminPanel;
+import model.City;
+import model.Community;
+import ui.Community.AddCityPanel;
+import ui.Community.AddCommunityPanel;
+import ui.Community.CommunityAdminFrame;
+import ui.Hospital.HospitalAdminFrame;
 
 /**
  *
@@ -143,10 +148,6 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void jComboBoxRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRoleActionPerformed
         // TODO add your handling code here:
-//        for(String role: roles){
-//            jComboBoxRole.addItem(role);
-//        }
-
     }//GEN-LAST:event_jComboBoxRoleActionPerformed
 
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
@@ -155,18 +156,27 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String role = (String) jComboBoxRole.getSelectedItem();
+        this.setVisible(false);
         if(role.equals("Community Admin")) {
-            CommunityAdminPanel comAdminPanel = new CommunityAdminPanel();
-            setContentPane(comAdminPanel);
-            revalidate();
+            CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
+            communityAdminFrame.setVisible(true);
         }
         else if (role.equals("Hospital Admin")) {
-            HospitalAdminPanel hospitalAdminPanel = new HospitalAdminPanel();
-            setContentPane(hospitalAdminPanel);
-            revalidate();
-        } 
+            HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
+            hospitalAdminFrame.setVisible(true);
+        }
+        revalidate();
+        for(City city : AddCityPanel.cities) {
+            System.out.println(city.getCityName());
+        }
+        for(Community community : AddCommunityPanel.communities) {
+            System.out.println(community.getCommunityName());
+        }
+        
+        
+        
     }//GEN-LAST:event_btnLoginActionPerformed
-    
+
     private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldActionPerformed

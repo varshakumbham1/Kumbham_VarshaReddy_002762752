@@ -20,7 +20,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
      */
     Community comm;
     DefaultTableModel tblModel;
-    static ArrayList<Community> communities = new ArrayList<>();
+    public static ArrayList<Community> communities = new ArrayList<>();
     public void setCityCombobox(){
         jComboBoxCity.removeAllItems();
         for(City city: AddCityPanel.cities){

@@ -7,6 +7,7 @@ package ui.Community;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.City;
+import ui.HomeFrame;
 
 /**
  *
@@ -19,7 +20,8 @@ public class AddCityPanel extends javax.swing.JPanel {
      */
     City city;
     DefaultTableModel tblModel;
-    static ArrayList<City> cities = new ArrayList<>();
+    HomeFrame homeFrame;
+    public static ArrayList<City> cities = new ArrayList<>();
     public AddCityPanel() {
         initComponents();
         tblModel = (DefaultTableModel)tableCities.getModel();
