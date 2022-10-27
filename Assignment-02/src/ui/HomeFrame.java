@@ -18,6 +18,7 @@ import ui.Community.AddCommunityPanel;
 import ui.Community.CommunityAdminFrame;
 import ui.Hospital.HospitalAdminFrame;
 import ui.Patient.PatientFrame;
+import ui.Patient.PatientPanel;
 
 /**
  *
@@ -190,6 +191,8 @@ public class HomeFrame extends javax.swing.JFrame {
                 for(Patient p: PatientDirectory.getPatients()) {
                     if(username.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) {
                         PatientFrame patientFrame = new PatientFrame();
+                        PatientPanel patientPanel = new PatientPanel(p);
+                        patientFrame.setContentPane(patientPanel);
                         patientFrame.setVisible(true);
                     }
                 }

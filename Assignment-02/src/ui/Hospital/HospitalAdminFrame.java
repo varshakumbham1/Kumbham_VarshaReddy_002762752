@@ -1106,9 +1106,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                                 .addComponent(lblEncounterDate_U))
                             .addComponent(dcEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddEncountersLayout.createSequentialGroup()
-                        .addComponent(dcEncounterDate_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(dcEncounterDate_U, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTemperature)
@@ -1321,7 +1319,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                                 en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(), 
                                 en.getVitalSigns().getHeartRate(), en.getDoctorName()};
                             tblEncounterModel.addRow(data);
-                            System.out.println(en.getPatientId());
+                            //System.out.println(en.getPatientId());
                         }
                     }
                 }

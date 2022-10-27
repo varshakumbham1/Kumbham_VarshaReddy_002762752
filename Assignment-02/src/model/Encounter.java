@@ -9,7 +9,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author sahithigaddam
+ * @author varshareddykumbham
  */
 public class Encounter {
     private String encounterId;

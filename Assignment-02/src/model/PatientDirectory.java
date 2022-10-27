@@ -11,7 +11,7 @@ import model.Patient;
 
 /**
  *
- * @author sahithigaddam
+ * @author varshareddykumbham
  */
 public class PatientDirectory {
     private static List<Patient> patients;

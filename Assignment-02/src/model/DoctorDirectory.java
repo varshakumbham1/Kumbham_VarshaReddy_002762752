@@ -13,7 +13,7 @@ import java.util.List;
  * @author varshareddykumbham
  */
 public class DoctorDirectory {
-    private List<Doctor> listOfDoctors;
+    private static List<Doctor> listOfDoctors;
 
     public DoctorDirectory() {
         listOfDoctors = new ArrayList<Doctor>();
@@ -23,7 +23,7 @@ public class DoctorDirectory {
         this.listOfDoctors = listOfDoctors;
     }
 
-    public List<Doctor> getListOfDoctors() {
+    public static List<Doctor> getListOfDoctors() {
         return listOfDoctors;
     }
 
