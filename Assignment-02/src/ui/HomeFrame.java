@@ -4,15 +4,20 @@
  */
 package ui;
 
+import java.awt.LayoutManager;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import model.City;
 import model.Community;
+import model.Patient;
+import model.PatientDirectory;
 import ui.Community.AddCityPanel;
 import ui.Community.AddCommunityPanel;
 import ui.Community.CommunityAdminFrame;
 import ui.Hospital.HospitalAdminFrame;
+import ui.Patient.PatientFrame;
 
 /**
  *
@@ -43,7 +48,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabelRole = new javax.swing.JLabel();
         jComboBoxRole = new javax.swing.JComboBox<>();
         btnLogin = new javax.swing.JButton();
-        jPasswordField = new javax.swing.JPasswordField();
+        tfPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,9 +78,9 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldActionPerformed(evt);
+                tfPasswordActionPerformed(evt);
             }
         });
 
@@ -94,7 +99,7 @@ public class HomeFrame extends javax.swing.JFrame {
                             .addGroup(jHomePanelLayout.createSequentialGroup()
                                 .addComponent(jLabelPassword)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jHomePanelLayout.createSequentialGroup()
                                 .addComponent(jLabelRole)
                                 .addGap(55, 55, 55)
@@ -121,7 +126,7 @@ public class HomeFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
-                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
                 .addContainerGap(207, Short.MAX_VALUE))
@@ -156,27 +161,54 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String role = (String) jComboBoxRole.getSelectedItem();
-        this.setVisible(false);
-        if(role.equals("Community Admin")) {
-            CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
-            communityAdminFrame.setVisible(true);
+        String username = tfUsername.getText();
+        char[] password = tfPassword.getPassword();
+        String passwordString = String.valueOf(password);
+        HospitalAdminFrame hospitalAdminFrame;
+        if(username.isEmpty() || password.length == 0) {
+            JOptionPane.showMessageDialog(this,
+                        "Enter username & password",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
-        else if (role.equals("Hospital Admin")) {
-            HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
-            hospitalAdminFrame.setVisible(true);
+        else {
+            this.setVisible(false);
+            if(role.equals("Community Admin") 
+                    && username.equals("commadmin")
+                    && passwordString.equals("commadmin")) {
+                CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
+                communityAdminFrame.setVisible(true);
+            }
+            else if (role.equals("Hospital Admin")
+                    && username.equals("hadmin")
+                    && passwordString.equals("hadmin")) {
+                hospitalAdminFrame = new HospitalAdminFrame();
+                hospitalAdminFrame.setVisible(true);
+                
+            }
+            else if (role.equals("Patient")) {
+                for(Patient p: PatientDirectory.getPatients()) {
+                    if(username.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) {
+                        PatientFrame patientFrame = new PatientFrame();
+                        patientFrame.setVisible(true);
+                    }
+                }
+            }
+            else {
+                this.setVisible(true);
+                JOptionPane.showMessageDialog(this,
+                        "Incorrect username or password",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            revalidate();
         }
-        revalidate();
-        for(City city : AddCityPanel.cities) {
-            System.out.println(city.getCityName());
-        }
-        
-        
-        
+            
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldActionPerformed
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldActionPerformed
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,7 +252,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelRole;
     private javax.swing.JLabel jLabelUsername;
-    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JPasswordField tfPassword;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }

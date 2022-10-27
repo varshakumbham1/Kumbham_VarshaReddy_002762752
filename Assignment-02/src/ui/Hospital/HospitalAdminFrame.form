@@ -39,7 +39,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="2043" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="2063" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -176,7 +176,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnAddHospital" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1811" max="32767" attributes="0"/>
+                          <EmptySpace pref="1831" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -422,7 +422,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="btnAddDoctor" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1694" max="32767" attributes="0"/>
+                          <EmptySpace pref="1714" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -581,6 +581,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxHospitalNameActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -860,7 +863,7 @@
                                   <Component id="rdOther_update" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="1213" max="32767" attributes="0"/>
+                          <EmptySpace pref="1233" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1006,6 +1009,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbPatientCityActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -1105,25 +1111,16 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdMale_update">
                   <Properties>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupGender"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Male"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdFemale_update">
                   <Properties>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupGender"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Female"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="rdOther_update">
                   <Properties>
-                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroupGender"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Other"/>
                   </Properties>
                 </Component>
@@ -1216,15 +1213,436 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="827" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblEncounterDoctorName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              <Component id="txtPatientID" min="-2" pref="113" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="lblEncounterPatientName" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblEncounterPatientAge" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel2" alignment="0" pref="101" max="32767" attributes="0"/>
+                                              <Component id="lblTemperature" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblBP" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblHR" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="btnGetPatientID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtEncounterPatientAge" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtEncounterID" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtBP" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtHR" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="cmbBoxEncounterDoctorName" alignment="0" pref="105" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                                                          <Component id="btnViewEncounter" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                                          <Component id="btnEditEncounter" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                                          <Component id="btnUpdateEncounter" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="lblTemperature_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblBP_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblHeartRate_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblEncounterDoctorName_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblEncounterPatientAge_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblEncounterDate_U" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="lblEncounterId_U" alignment="1" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                                          <Component id="dcEncounterDate_U" min="-2" pref="130" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="txtEncounterPatientName" min="-2" pref="105" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                                                  <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                  <Component id="txtEncounterId_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                                  <Component id="txtEncounterPatientAge_U" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                                  <Component id="dcEncounterDate" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="396" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txtBP_U" pref="114" max="32767" attributes="0"/>
+                                                      <Component id="txtHeartRate_U" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtEncounterDoctorName_U" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtTemperature_U" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="txtEncounterPatientName_U" min="-2" pref="91" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="286" max="-2" attributes="0"/>
+                                              <Component id="jLabel25" min="-2" pref="207" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="btnAddEncounter" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" min="-2" pref="771" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="txtPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnGetPatientID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel25" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblEncounterPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEncounterPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEncountePatientName_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtEncounterPatientName_U" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblEncounterPatientAge" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="txtEncounterPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEncounterID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEncounterId_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEncounterId_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEncounterDate_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="dcEncounterDate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="dcEncounterDate_U" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTemperature_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTemperature_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="lblBP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtBP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBP_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtBP_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="lblHR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtHR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHeartRate_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtHeartRate_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="lblEncounterDoctorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbBoxEncounterDoctorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEncounterDoctorName_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtEncounterDoctorName_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnAddEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnViewEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdateEncounter" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="314" max="-2" attributes="0"/>
+                          <EmptySpace pref="1285" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="txtPatientID">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGetPatientID">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Get Patient"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGetPatientIDActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterPatientName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Patient Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterPatientName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterPatientAge">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Patient Age"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterPatientAge">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encounter ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encounter Date"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterID">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTemperature">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Temperature"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblBP">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Blood Pressure"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHR">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Heart Rate"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtTemperature">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBP">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHR">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterDoctorName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Doctor Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cmbBoxEncounterDoctorName">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnAddEncounter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Add Encounter"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddEncounterActionPerformed"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tableEncounterHistory">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="8" rowCount="0">
+                            <Column editable="true" title="Encounter Id" type="java.lang.Object"/>
+                            <Column editable="true" title="Encounter Date" type="java.lang.Object"/>
+                            <Column editable="true" title="Name" type="java.lang.Object"/>
+                            <Column editable="true" title="Age" type="java.lang.Object"/>
+                            <Column editable="true" title="Temperature" type="java.lang.Object"/>
+                            <Column editable="true" title="BP" type="java.lang.Object"/>
+                            <Column editable="true" title="Heart Rate" type="java.lang.Object"/>
+                            <Column editable="true" title="Doctor Name" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel25">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Monaco" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value=" View &amp; Update Encounter"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncountePatientName_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Patient Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterPatientName_U">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterPatientAge_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Patient Age"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterPatientAge_U">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterId_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encounter ID"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterId_U">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterDate_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Encounter Date"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtTemperature_U">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTemperature_UActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTemperature_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Temperature"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblBP_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Blood Pressure"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBP_U">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblHeartRate_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Heart Rate"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtHeartRate_U">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHeartRate_UActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEncounterDoctorName_U">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Doctor Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEncounterDoctorName_U">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEncounterDoctorName_UActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnViewEncounter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="View"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewEncounterActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnEditEncounter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditEncounterActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnUpdateEncounter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateEncounterActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="dcEncounterDate">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
+                  </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="dcEncounterDate_U">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy&#xa;"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>

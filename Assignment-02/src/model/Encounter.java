@@ -1,34 +1,39 @@
 package model;
-
-import java.util.Date;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import java.util.Date;
+import model.VitalSigns;
+
 /**
  *
- * @author varshareddykumbham
+ * @author sahithigaddam
  */
 public class Encounter {
     private String encounterId;
-    private VitalSigns vitalSigns;
-    private Date encounterDate;
     private String patientName;
+    private int patientAge;
     private String patientId;
+    private VitalSigns vitalSigns;
     private String doctorName;
+    private Date encounterDate;
+    private EncounterHistory encounterHistory;
 
     public Encounter() {
     }
 
-    public Encounter(String encounterId, VitalSigns vitalSigns, Date encounterDate, String patientName, String patientId, String doctorName) {
+    public Encounter(String encounterId, String patientName, int patientAge, String patientId, VitalSigns vitalSigns, 
+            String doctorName, Date encounterDate) {
         this.encounterId = encounterId;
-        this.vitalSigns = vitalSigns;
-        this.encounterDate = encounterDate;
         this.patientName = patientName;
+        this.patientAge = patientAge;
         this.patientId = patientId;
+        this.vitalSigns = vitalSigns;
         this.doctorName = doctorName;
+        this.encounterDate = encounterDate;
+        this.encounterHistory = encounterHistory;
     }
 
     public String getEncounterId() {
@@ -39,28 +44,20 @@ public class Encounter {
         this.encounterId = encounterId;
     }
 
-    public VitalSigns getVitalSigns() {
-        return vitalSigns;
-    }
-
-    public void setVitalSigns(VitalSigns vitalSigns) {
-        this.vitalSigns = vitalSigns;
-    }
-
-    public Date getEncounterDate() {
-        return encounterDate;
-    }
-
-    public void setEncounterDate(Date encounterDate) {
-        this.encounterDate = encounterDate;
-    }
-
     public String getPatientName() {
         return patientName;
     }
 
     public void setPatientName(String patientName) {
         this.patientName = patientName;
+    }
+    
+    public int getPatientAge() {
+        return patientAge;
+    }
+
+    public void setPatientAge(int patientAge) {
+        this.patientAge = patientAge;
     }
 
     public String getPatientId() {
@@ -71,12 +68,35 @@ public class Encounter {
         this.patientId = patientId;
     }
 
+    public VitalSigns getVitalSigns() {
+        return vitalSigns;
+    }
+
+    public void setVitalSigns(VitalSigns vitalSigns) {
+        this.vitalSigns = vitalSigns;
+    }
+
     public String getDoctorName() {
         return doctorName;
     }
 
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
+    }
+    public void setEncounterDate(Date encounterDate) {
+        this.encounterDate = encounterDate;
+    }
+
+    public Date getEncounterDate() {
+        return encounterDate;
+    }
+    
+    public void setEncounterHistory(EncounterHistory encounterHistory) {
+        this.encounterHistory = encounterHistory;
+    }
+
+    public EncounterHistory getEncounterHistory() {
+        return encounterHistory;
     }
     
 }

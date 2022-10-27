@@ -14,7 +14,7 @@ import model.Patient;
  * @author sahithigaddam
  */
 public class PatientDirectory {
-    private List<Patient> patients;
+    private static List<Patient> patients;
 
     public PatientDirectory() {
     }
@@ -23,7 +23,7 @@ public class PatientDirectory {
         this.patients = patients;
     }
 
-    public List<Patient> getPatients() {
+    public static List<Patient> getPatients() {
         return patients;
     }
 
