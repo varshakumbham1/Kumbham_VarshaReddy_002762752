@@ -897,9 +897,20 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         lblHR.setText("Heart Rate");
 
+        txtHR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHRActionPerformed(evt);
+            }
+        });
+
         lblEncounterDoctorName.setText("Doctor Name");
 
         cmbBoxEncounterDoctorName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbBoxEncounterDoctorName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBoxEncounterDoctorNameActionPerformed(evt);
+            }
+        });
 
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
@@ -1598,6 +1609,14 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private void txtTemperature_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemperature_UActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTemperature_UActionPerformed
+
+    private void cmbBoxEncounterDoctorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBoxEncounterDoctorNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbBoxEncounterDoctorNameActionPerformed
+
+    private void txtHRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHRActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,11 +11,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import model.City;
 import model.Community;
+import model.Doctor;
+import model.DoctorDirectory;
 import model.Patient;
 import model.PatientDirectory;
 import ui.Community.AddCityPanel;
 import ui.Community.AddCommunityPanel;
 import ui.Community.CommunityAdminFrame;
+import ui.Doctor.DoctorFrame;
+import ui.Doctor.DoctorPanel;
 import ui.Hospital.HospitalAdminFrame;
 import ui.Patient.PatientFrame;
 import ui.Patient.PatientPanel;
@@ -194,6 +198,16 @@ public class HomeFrame extends javax.swing.JFrame {
                         PatientPanel patientPanel = new PatientPanel(p);
                         patientFrame.setContentPane(patientPanel);
                         patientFrame.setVisible(true);
+                    }
+                }
+            }
+            else if (role.equals("Doctor")) {
+                for(Doctor d: DoctorDirectory.getListOfDoctors()) {
+                    if(username.equals(d.getUserName()) && passwordString.equals(d.getPassWord())) {
+                        DoctorFrame doctorFrame = new DoctorFrame();
+                        DoctorPanel doctorPanel = new DoctorPanel(d);
+                        doctorFrame.setContentPane(doctorPanel);
+                        doctorFrame.setVisible(true);
                     }
                 }
             }
