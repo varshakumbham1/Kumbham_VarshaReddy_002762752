@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class PatientDirectory {
     private static ArrayList<Patient> listOfPatients;

@@ -11,7 +11,7 @@ import ui.HomeFrame;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class CommunityAdminFrame extends javax.swing.JFrame {
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class House {
     private String HouseNo;

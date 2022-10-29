@@ -16,7 +16,7 @@ import model.VitalSigns;
 import static ui.Hospital.HospitalAdminFrame.encounterList;
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class DoctorPanel extends javax.swing.JPanel {
 

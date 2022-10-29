@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class City {
     private String cityName;

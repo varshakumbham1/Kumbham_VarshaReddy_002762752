@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class Community {
     private String communityName;

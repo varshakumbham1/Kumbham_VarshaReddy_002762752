@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class Patient extends Person {
     private String phoneNumber;

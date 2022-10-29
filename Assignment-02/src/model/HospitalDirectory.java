@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class HospitalDirectory {
     public static ArrayList<Hospital> listOfHospitals;  

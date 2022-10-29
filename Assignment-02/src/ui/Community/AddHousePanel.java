@@ -16,7 +16,7 @@ import static ui.Community.AddCommunityPanel.communitiesListForCity;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class AddHousePanel extends javax.swing.JPanel {
 

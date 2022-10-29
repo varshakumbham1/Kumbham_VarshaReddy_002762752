@@ -30,7 +30,7 @@ import ui.HomeFrame;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class HospitalAdminFrame extends javax.swing.JFrame {
 

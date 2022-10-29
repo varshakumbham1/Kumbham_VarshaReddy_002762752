@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class DoctorDirectory {
     private static List<Doctor> listOfDoctors;
