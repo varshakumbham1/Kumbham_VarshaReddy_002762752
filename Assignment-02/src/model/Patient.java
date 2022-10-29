@@ -1,5 +1,4 @@
 package model;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -9,41 +8,33 @@ package model;
  *
  * @author varshareddykumbham
  */
-public class Patient extends Person {
+public class Patient extends Person{
     private String phoneNumber;
     private String streetAddress;
     private String community;
     private String city;
-    private Long postalCode;
+    private Long zipcode;
     private EncounterHistory encounterHistory;
 
     public Patient() {
     }
 
-    public Patient(String phoneNumber, String streetAddress, String community, String city, Long postalCode, EncounterHistory encounterHistory) {
+    public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, EncounterHistory encounterHistory) {
         this.phoneNumber = phoneNumber;
         this.streetAddress = streetAddress;
         this.community = community;
         this.city = city;
-        this.postalCode = postalCode;
+        this.zipcode = zipcode;
         this.encounterHistory = encounterHistory;
     }
 
-    public Patient(String phoneNumber, String streetAddress, String community, String city, Long postalCode, String name, String id, int age, String gender, String userName, String passWord, EncounterHistory encounterHistory) {
-        super(name, id, age, gender, userName, passWord);
+    public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, String name, String id, int age, String gender, String role, String userName, String password, EncounterHistory encounterHistory) {
+        super(name, id, age, gender, role, userName, password);
         this.phoneNumber = phoneNumber;
         this.streetAddress = streetAddress;
         this.community = community;
         this.city = city;
-        this.postalCode = postalCode;
-        this.encounterHistory = encounterHistory;
-    }
-
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
-    }
-
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
+        this.zipcode = zipcode;
         this.encounterHistory = encounterHistory;
     }
 
@@ -80,11 +71,18 @@ public class Patient extends Person {
     }
 
     public Long getPostalCode() {
-        return postalCode;
+        return zipcode;
     }
 
-    public void setPostalCode(Long postalCode) {
-        this.postalCode = postalCode;
+    public void setPostalCode(Long zipcode) {
+        this.zipcode = zipcode;
     }
     
+    public EncounterHistory getEncounterHistory() {
+        return encounterHistory;
+    }
+
+    public void setEncounterHistory(EncounterHistory encounterHistory) {
+        this.encounterHistory = encounterHistory;
+    }
 }

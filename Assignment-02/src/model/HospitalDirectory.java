@@ -13,21 +13,22 @@ import java.util.List;
  * @author varshareddykumbham
  */
 public class HospitalDirectory {
-    public static ArrayList<Hospital> listOfHospitals;  
+    private static List<Hospital> hospitals;
 
     public HospitalDirectory() {
-        listOfHospitals = new ArrayList<Hospital>();
+        hospitals = new ArrayList<Hospital>();
     }
 
-    public HospitalDirectory(ArrayList<Hospital> listOfHospitals) {
-        this.listOfHospitals = listOfHospitals;
+    public HospitalDirectory(List<Hospital> hospitals) {
+        this.hospitals = hospitals;
     }
 
-    public static List<Hospital> getListOfHospitals() {
-        return listOfHospitals;
+    public static List<Hospital> getHospitals() {
+        return hospitals;
     }
 
-    public void setListOfHospitals(ArrayList<Hospital> listOfHospitals) {
-        this.listOfHospitals = listOfHospitals;
+    public void setHospitals(List<Hospital> hospitals) {
+        this.hospitals = hospitals;
     }
+    
 }

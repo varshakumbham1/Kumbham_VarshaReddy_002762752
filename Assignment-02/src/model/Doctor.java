@@ -1,5 +1,4 @@
 package model;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -10,10 +9,6 @@ package model;
  * @author varshareddykumbham
  */
 public class Doctor extends Person{
-//    private String name;
-//    private String id;
-//    private String age;
-//    private String gender;
     private String hospitalName;
     private String hospitalDepartment;
     private String phoneNumber;
@@ -27,8 +22,8 @@ public class Doctor extends Person{
         this.phoneNumber = phoneNumber;
     }
 
-    public Doctor(String hospitalName, String hospitalDepartment, String phoneNumber, String name, String id, int age, String gender, String userName, String passWord) {
-        super(name, id, age, gender, userName, passWord);
+    public Doctor(String hospitalName, String hospitalDepartment, String phoneNumber, String name, String id, int age, String gender, String role, String userName, String passWord) {
+        super(name, id, age, gender, role, userName, passWord);
         this.hospitalName = hospitalName;
         this.hospitalDepartment = hospitalDepartment;
         this.phoneNumber = phoneNumber;
@@ -57,6 +52,4 @@ public class Doctor extends Person{
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
-    
 }

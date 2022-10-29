@@ -8,42 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import model.City;
 import model.Community;
-import model.House;
-import static ui.Community.AddHousePanel.housesListForCommunity;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddykumbham
  */
 public class AddCommunityPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddCommunityPanel
      */
-    Community comm;
-    int flag;
-    DefaultTableModel tblModel;
-    public static List<Community> communitiesListForCity;
-    //= new ArrayList<>();
-    
-    public static List<Community> communities = new ArrayList<>();
-    public void setCityCombobox(){
-        jComboBoxCity.removeAllItems();
-        jComboBoxCity_update.removeAllItems();
-        for(City city: AddCityPanel.cities){
-            jComboBoxCity.addItem(city.getCityName());
-            jComboBoxCity_update.addItem(city.getCityName());
-        }
-    }
+    public static List<Community> communities;
+    DefaultTableModel tableModel;
+    static ArrayList<Community> communityList = new ArrayList<Community>();
     public AddCommunityPanel() {
         initComponents();
-        setCityCombobox();
-        tblModel = (DefaultTableModel)tableCommunities.getModel();
+        tableModel = (DefaultTableModel)tableCommunityDetails.getModel();
+        loadComboBoxData();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,326 +38,248 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelCity = new javax.swing.JLabel();
-        tfPostalCode = new javax.swing.JTextField();
-        jLabelCommunityName = new javax.swing.JLabel();
-        jLabelPostalCode = new javax.swing.JLabel();
-        tfCommunityName = new javax.swing.JTextField();
-        jComboBoxCity = new javax.swing.JComboBox<>();
-        jButtonAddCommunity = new javax.swing.JButton();
-        jLabelCommunityName1 = new javax.swing.JLabel();
-        jLabelCommunityName2 = new javax.swing.JLabel();
-        jLabelCommunityName3 = new javax.swing.JLabel();
-        tfCommunityName_update = new javax.swing.JTextField();
-        jComboBoxCity_update = new javax.swing.JComboBox<>();
-        tfPostalCode_update = new javax.swing.JTextField();
-        btnCommunityView = new javax.swing.JButton();
-        btnCommunityEdit = new javax.swing.JButton();
-        btnCommunityUpdate = new javax.swing.JButton();
+        lblCommunityName = new javax.swing.JLabel();
+        txtCommunityName = new javax.swing.JTextField();
+        lblSelectCity = new javax.swing.JLabel();
+        cmbBoxSelectCity = new javax.swing.JComboBox<>();
+        lblZipCode = new javax.swing.JLabel();
+        txtZipCode = new javax.swing.JTextField();
+        btnAddCommunity = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableCommunities = new javax.swing.JTable();
+        tableCommunityDetails = new javax.swing.JTable();
+        btnViewCommunity = new javax.swing.JButton();
+        btnEditCommunity = new javax.swing.JButton();
+        btnUpdateCommunity = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCommunityName_U = new javax.swing.JTextField();
+        txtZipCode_U = new javax.swing.JTextField();
+        cmbBoxSelectCity_U = new javax.swing.JComboBox<>();
 
-        jLabelCity.setText("City");
+        lblCommunityName.setText("Community Name");
 
-        jLabelCommunityName.setText("Community Name");
+        lblSelectCity.setText("Select City");
 
-        jLabelPostalCode.setText("Postal Code");
-
-        jComboBoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCity.addActionListener(new java.awt.event.ActionListener() {
+        cmbBoxSelectCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbBoxSelectCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCityActionPerformed(evt);
+                cmbBoxSelectCityActionPerformed(evt);
             }
         });
 
-        jButtonAddCommunity.setText("Add Community");
-        jButtonAddCommunity.addActionListener(new java.awt.event.ActionListener() {
+        lblZipCode.setText("Zip Code");
+
+        btnAddCommunity.setText("Add Community");
+        btnAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddCommunityActionPerformed(evt);
+                btnAddCommunityActionPerformed(evt);
             }
         });
 
-        jLabelCommunityName1.setText("Community Name");
-
-        jLabelCommunityName2.setText("City");
-
-        jLabelCommunityName3.setText("Postal Code");
-
-        jComboBoxCity_update.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCity_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCity_updateActionPerformed(evt);
-            }
-        });
-
-        tfPostalCode_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPostalCode_updateActionPerformed(evt);
-            }
-        });
-
-        btnCommunityView.setText("View");
-        btnCommunityView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommunityViewActionPerformed(evt);
-            }
-        });
-
-        btnCommunityEdit.setText("Edit");
-        btnCommunityEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommunityEditActionPerformed(evt);
-            }
-        });
-
-        btnCommunityUpdate.setText("Update");
-        btnCommunityUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCommunityUpdateActionPerformed(evt);
-            }
-        });
-
-        tableCommunities.setModel(new javax.swing.table.DefaultTableModel(
+        tableCommunityDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Community Name", "City", "Postal Code"
+                "Community Name", "ZipCode", "City"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
+        ));
+        jScrollPane1.setViewportView(tableCommunityDetails);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btnViewCommunity.setText("View");
+        btnViewCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCommunityActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(tableCommunities);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
-        jLabel1.setText("Update Details:");
+        btnEditCommunity.setText("Edit");
+
+        btnUpdateCommunity.setText("Update");
+
+        jLabel1.setText("City");
+
+        jLabel2.setText("Community");
+
+        jLabel3.setText("Zip Code");
+
+        cmbBoxSelectCity_U.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCommunityName1)
-                                    .addComponent(jLabelCommunityName2)
-                                    .addComponent(jLabelCommunityName3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfCommunityName_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxCity_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfPostalCode_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1))
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCommunityView)
-                            .addComponent(btnCommunityEdit)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelPostalCode)
-                                .addGap(39, 39, 39)
-                                .addComponent(tfPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCommunityName)
-                                    .addComponent(jLabelCity))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfCommunityName, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                    .addComponent(jComboBoxCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jButtonAddCommunity))
+                        .addGap(14, 14, 14)
+                        .addComponent(lblSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCommunityUpdate))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addComponent(cmbBoxSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                    .addComponent(btnEditCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnViewCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(86, 86, 86)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtZipCode_U, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCommunityName_U, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbBoxSelectCity_U, javax.swing.GroupLayout.Alignment.LEADING, 0, 117, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCommunityName)
-                            .addComponent(tfCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbBoxSelectCity, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCity)
-                            .addComponent(jComboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPostalCode))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonAddCommunity))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCommunityName1)
-                    .addComponent(tfCommunityName_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCommunityView))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnViewCommunity)
+                    .addComponent(jLabel1)
+                    .addComponent(cmbBoxSelectCity_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxCity_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCommunityName2)
-                    .addComponent(btnCommunityEdit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnEditCommunity)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfPostalCode_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCommunityName3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCommunityUpdate)
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateCommunity))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCommunityActionPerformed
-        flag=0;
-        String community = tfCommunityName.getText();
-        String city = (String) jComboBoxCity.getSelectedItem();
-        Long postalCode = Long.valueOf(tfPostalCode.getText());
-        
-        if( tfCommunityName.getText().equals("")||tfPostalCode.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Please enter Community & Postal Code Data!");
-            flag=1;
+    private void cmbBoxSelectCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBoxSelectCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbBoxSelectCityActionPerformed
+
+    private void btnAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCommunityActionPerformed
+        // TODO add your handling code here:
+        try{
+            String communityName = txtCommunityName.getText();
+        String zipCode = txtZipCode.getText();
+        String city = (String)cmbBoxSelectCity.getSelectedItem();
+        System.out.println(city);
+        if(communityName.isEmpty() || zipCode.isEmpty() || city.isEmpty()){
+            JOptionPane.showMessageDialog(this,
+                        "Enter all Fields",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
         }
         else{
-            for(Community c : communities){
-                if(c.getCommunityName().equals(community)||c.getPostalCode().equals(postalCode)){
-                    JOptionPane.showMessageDialog(this, "Community already exists!");
-                    flag=2;
-                }
+            Community community = new Community(communityName, Long.parseLong(zipCode), city);
+            communityList.add(community);
+            for(City c: AddCityPanel.cityList) {
+            if(c.getCityName().equals(city)) {
+                communities = c.getCommunities();
+                communities.add(community);
+                c.setCommunities(communities);  
+            }
+            else {
+                communities = new ArrayList();
             }
         }
-       if(flag==0){
-           List<House> housesListForCommunity = new ArrayList();
-            comm = new Community(community, postalCode,city,housesListForCommunity);
-            //comm = new Community(community, postalCode, city);
-            communities.add(comm);
+            Object[] data = {communityName, zipCode, city};
+            tableModel.addRow(data);
+            //System.out.println(communityList.size());
+            JOptionPane.showMessageDialog(this,
+                        "Community Data Saved",
+                        "Success", 
+                        JOptionPane.INFORMATION_MESSAGE);
+        }
+        }
+        catch(Exception ex){
             
-            for(City c: AddCityPanel.cities) {
-                 if(c.getCityName().equals(city)) {
-                     communitiesListForCity =  c.getCommunities();
-                     communitiesListForCity.add(new Community(community, postalCode, city, housesListForCommunity));
-                     c.setCommunities(communitiesListForCity);  
-                 }
-                 else {
-                     communitiesListForCity = new ArrayList();
-                 }
-             }
-            Object[] data = {community,city, postalCode};
-            tblModel.addRow(data);
-            JOptionPane.showMessageDialog(this, "Community information saved!");
-       }
-       tfCommunityName.setText("");
-       tfPostalCode.setText("");
-    }//GEN-LAST:event_jButtonAddCommunityActionPerformed
+        }      
+    }//GEN-LAST:event_btnAddCommunityActionPerformed
 
-    private void jComboBoxCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCityActionPerformed
+    private void btnViewCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCommunityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxCityActionPerformed
-
-    private void tfPostalCode_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPostalCode_updateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPostalCode_updateActionPerformed
-
-    private void btnCommunityUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityUpdateActionPerformed
-        // TODO add your handling code here:
-        if(tfCommunityName_update.getText().equals("")||tfPostalCode_update.getText().equals("")){
-           JOptionPane.showMessageDialog(this, "Please enter All Data!");
+        try {
+            int row = tableCommunityDetails.getSelectedRow();
+            String community = tableModel.getValueAt(row, 0).toString();
+            String zipcode = tableModel.getValueAt(row, 1).toString();
+            String city = tableModel.getValueAt(row, 2).toString();
+            
+//            cmbBoxSelectCity_U.setName(city);
+//            cmbBoxSelectCity_U.setEnabled(false);
+            
+            txtCommunityName_U.setText(community);
+            txtCommunityName_U.setEditable(false);
+            
+            txtZipCode_U.setText(zipcode);
+            txtZipCode_U.setEditable(false);
         }
-        String community = tfCommunityName_update.getText();
-        String city = (String)jComboBoxCity_update.getSelectedItem();
-        Long postalCode = Long.valueOf(tfPostalCode_update.getText());
-        
-        DefaultTableModel tableModel = (DefaultTableModel) tableCommunities.getModel();
-        int row=tableCommunities.getSelectedRow();
-        tableModel.removeRow(row);
-        Object[] communityData = {community, city, postalCode }; 
-        tableModel.insertRow(row, communityData);
-        
-        Community updatedCommunity = new Community(community,postalCode, city);
-        for(Community c: AddCommunityPanel.communities){
-            if(c.getCommunityName().equals(community)){
-                int index = AddCommunityPanel.communities.indexOf(c);
-                AddCommunityPanel.communities.remove(index);
-                AddCommunityPanel.communities.add(index, updatedCommunity);
-                break;
-            }
+        catch(Exception ex){
+            
         }
-        JOptionPane.showMessageDialog(this, "Community Information updated!");
-    }//GEN-LAST:event_btnCommunityUpdateActionPerformed
+    }//GEN-LAST:event_btnViewCommunityActionPerformed
 
-    private void btnCommunityViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityViewActionPerformed
-        // TODO add your handling code here:
-        int row = tableCommunities.getSelectedRow();
-        try{
-            TableModel model = tableCommunities.getModel();
-            String community = model.getValueAt(row, 0).toString();
-            String city = model.getValueAt(row, 1).toString();
-            String postalCode = model.getValueAt(row, 2).toString();
-            tfCommunityName_update.setText(community);
-            tfCommunityName_update.setEditable(false);
-            jComboBoxCity_update.setEnabled(false);
-            tfPostalCode_update.setText(postalCode);
-            tfPostalCode_update.setEditable(false);   
+    private void loadComboBoxData(){
+        cmbBoxSelectCity.removeAllItems();
+        for(City city: AddCityPanel.cityList){
+            cmbBoxSelectCity.addItem(city.getCityName());
         }
-        catch(Exception e){
-            if(row==-1) {
-                JOptionPane.showMessageDialog(this,
-                            "Please Select a row",
-                            "Try Again",
-                            JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnCommunityViewActionPerformed
-
-    private void jComboBoxCity_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCity_updateActionPerformed
-        // TODO add your handling code here:
-         
-    }//GEN-LAST:event_jComboBoxCity_updateActionPerformed
-
-    private void btnCommunityEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityEditActionPerformed
-        // TODO add your handling code here:
-        tfCommunityName_update.setEditable(true);
-        tfPostalCode_update.setEditable(true);  
-         jComboBoxCity_update.setEnabled(true);
-    }//GEN-LAST:event_btnCommunityEditActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCommunityEdit;
-    private javax.swing.JButton btnCommunityUpdate;
-    private javax.swing.JButton btnCommunityView;
-    private javax.swing.JButton jButtonAddCommunity;
-    private javax.swing.JComboBox<String> jComboBoxCity;
-    private javax.swing.JComboBox<String> jComboBoxCity_update;
+    private javax.swing.JButton btnAddCommunity;
+    private javax.swing.JButton btnEditCommunity;
+    private javax.swing.JButton btnUpdateCommunity;
+    private javax.swing.JButton btnViewCommunity;
+    private javax.swing.JComboBox<String> cmbBoxSelectCity;
+    private javax.swing.JComboBox<String> cmbBoxSelectCity_U;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelCity;
-    private javax.swing.JLabel jLabelCommunityName;
-    private javax.swing.JLabel jLabelCommunityName1;
-    private javax.swing.JLabel jLabelCommunityName2;
-    private javax.swing.JLabel jLabelCommunityName3;
-    private javax.swing.JLabel jLabelPostalCode;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableCommunities;
-    private javax.swing.JTextField tfCommunityName;
-    private javax.swing.JTextField tfCommunityName_update;
-    private javax.swing.JTextField tfPostalCode;
-    private javax.swing.JTextField tfPostalCode_update;
+    private javax.swing.JLabel lblCommunityName;
+    private javax.swing.JLabel lblSelectCity;
+    private javax.swing.JLabel lblZipCode;
+    private javax.swing.JTable tableCommunityDetails;
+    private javax.swing.JTextField txtCommunityName;
+    private javax.swing.JTextField txtCommunityName_U;
+    private javax.swing.JTextField txtZipCode;
+    private javax.swing.JTextField txtZipCode_U;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,11 +1,10 @@
-package model;
-
-import java.util.Date;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package model;
+
+import java.util.Date;
 
 /**
  *
@@ -19,7 +18,6 @@ public class Encounter {
     private VitalSigns vitalSigns;
     private String doctorName;
     private Date encounterDate;
-    private EncounterHistory encounterHistory;
 
     public Encounter() {
     }
@@ -33,7 +31,6 @@ public class Encounter {
         this.vitalSigns = vitalSigns;
         this.doctorName = doctorName;
         this.encounterDate = encounterDate;
-        //this.encounterHistory = encounterHistory;
     }
 
     public String getEncounterId() {
@@ -90,13 +87,4 @@ public class Encounter {
     public Date getEncounterDate() {
         return encounterDate;
     }
-    
-    public void setEncounterHistory(EncounterHistory encounterHistory) {
-        this.encounterHistory = encounterHistory;
-    }
-
-    public EncounterHistory getEncounterHistory() {
-        return encounterHistory;
-    }
-    
 }

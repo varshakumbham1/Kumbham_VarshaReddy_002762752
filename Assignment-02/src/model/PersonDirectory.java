@@ -1,8 +1,6 @@
 package model;
 
-
 import java.util.List;
-import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,20 +12,22 @@ import java.util.logging.Logger;
  * @author varshareddykumbham
  */
 public class PersonDirectory {
-    List<Person> listOfPersons;
+    private List<Person> persons;
 
     public PersonDirectory() {
     }
 
-    public PersonDirectory(List<Person> listOfPersons) {
-        this.listOfPersons = listOfPersons;
+    public PersonDirectory(List<Person> persons) {
+        this.persons = persons;
     }
 
-    public List<Person> getListOfPersons() {
-        return listOfPersons;
+    public List<Person> getPersons() {
+        return persons;
     }
 
-    public void setListOfPersons(List<Person> listOfPersons) {
-        this.listOfPersons = listOfPersons;
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
     }
+    
+    
 }

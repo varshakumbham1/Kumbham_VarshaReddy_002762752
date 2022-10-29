@@ -1,6 +1,5 @@
 package model;
 
-
 import java.util.List;
 
 /*
@@ -12,23 +11,22 @@ import java.util.List;
  *
  * @author varshareddykumbham
  */
-public class Hospital  {
+public class Hospital {
     private String hospitalName;
-    private String hospitalCommunity;
-    private Long hospitalCode;
-    private String hospitalCity;
-    private Long postalCode;
-    //private List<Doctor> doctor;
-    
+    private String community;
+    private Long zipcode;
+    private String city;
+    private Long hospitalId;
+
     public Hospital() {
     }
 
-    public Hospital(String hospitalName, String hospitalCommunity, Long hospitalCode, String hospitalCity, Long postalCode) {
+    public Hospital(String hospitalName, String community, Long zipcode, String city, Long hospitalId) {
         this.hospitalName = hospitalName;
-        this.hospitalCommunity = hospitalCommunity;
-        this.hospitalCode = hospitalCode;
-        this.hospitalCity = hospitalCity;
-        this.postalCode = postalCode;
+        this.community = community;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.hospitalId = hospitalId;
     }
 
     public String getHospitalName() {
@@ -39,40 +37,35 @@ public class Hospital  {
         this.hospitalName = hospitalName;
     }
 
-    public String getHospitalCommunity() {
-        return hospitalCommunity;
+    public String getCommunity() {
+        return community;
     }
 
-    public void setHospitalCommunity(String hospitalCommunity) {
-        this.hospitalCommunity = hospitalCommunity;
-    }
-
-    public Long getHospitalCode() {
-        return hospitalCode;
-    }
-
-    public void setHospitalCode(Long hospitalCode) {
-        this.hospitalCode = hospitalCode;
-    }
-
-    public String getHospitalCity() {
-        return hospitalCity;
-    }
-
-    public void setHospitalCity(String hospitalCity) {
-        this.hospitalCity = hospitalCity;
-    }
-
-    public Long getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(Long postalCode) {
-        this.postalCode = postalCode;
+    public void setCommunity(String community) {
+        this.community = community;
     }
     
-    
-    
-    
-    
+    public Long getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(Long zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Long getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(Long hsopitalId) {
+        this.hospitalId = hsopitalId;
+    }
 }
