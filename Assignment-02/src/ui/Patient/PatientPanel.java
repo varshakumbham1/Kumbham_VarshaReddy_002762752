@@ -270,7 +270,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
         String communityName = tfCommunityName.getText();
         //hospitalNames = new ArrayList();
-        for(Hospital hospital:HospitalDirectory.getListOfHospitals()) {
+        for(Hospital hospital : HospitalDirectory.getListOfHospitals()) {
             if(hospital.getHospitalCommunity().equals(communityName)) {
                 hospitalNames.add(hospital.getHospitalName());
             }

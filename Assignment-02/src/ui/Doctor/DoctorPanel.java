@@ -7,13 +7,16 @@ package ui.Doctor;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import model.Doctor;
 import model.Encounter;
 import model.Patient;
 import model.PatientDirectory;
 import model.VitalSigns;
+import ui.HomeFrame;
 
 /**
  *
@@ -27,7 +30,7 @@ public class DoctorPanel extends javax.swing.JPanel {
     int flag;
     int patientRecordIndex;
     DefaultTableModel tblEncounterModel;
-    static ArrayList<Patient> patients = new ArrayList<Patient>();
+    //static ArrayList<Patient> patients = new ArrayList<Patient>();
     //PatientDirectory listOfPatients = new PatientDirectory(patients);
     static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
     public DoctorPanel(Doctor d) {
@@ -86,6 +89,7 @@ public class DoctorPanel extends javax.swing.JPanel {
         dcEncounterDate = new com.toedter.calendar.JDateChooser();
         dcEncounterDate_U = new com.toedter.calendar.JDateChooser();
         txtEncounterDoctorName = new javax.swing.JTextField();
+        btnLogOut = new javax.swing.JButton();
 
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
@@ -189,12 +193,19 @@ public class DoctorPanel extends javax.swing.JPanel {
 
         dcEncounterDate_U.setDateFormatString("dd-MM-yyyy\n");
 
+        btnLogOut.setText("Logout");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblEncounterDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,16 +266,20 @@ public class DoctorPanel extends javax.swing.JPanel {
                                                     .addComponent(txtHeartRate_U)
                                                     .addComponent(txtEncounterDoctorName_U)
                                                     .addComponent(txtTemperature_U)))))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(286, 286, 286)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtEncounterPatientName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtEncounterId_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(286, 286, 286)
+                                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtEncounterPatientName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtEncounterId_U, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLogOut)
+                                .addGap(37, 37, 37))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(btnAddEncounter))
@@ -281,7 +296,9 @@ public class DoctorPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPatientID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnGetPatientID))
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLogOut)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
@@ -361,12 +378,17 @@ public class DoctorPanel extends javax.swing.JPanel {
         try {
             patientRecordIndex = 0;
                 String patientId = txtPatientID.getText();
+                int val = PatientDirectory.getPatients().size();
+                System.out.print("PatientDirectory" + val);
                 if (patientId.isEmpty()) {
                     JOptionPane.showMessageDialog(this,
                             "Enter Patient Id",
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
+                    
+                    
+                    
                     for (Patient p : PatientDirectory.getPatients()) {
                         if (p.getId().equals(patientId)) {
                             txtEncounterPatientName.setText(p.getName());
@@ -383,6 +405,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                                 JOptionPane.ERROR_MESSAGE);
                     } else {
                         tblEncounterModel.setRowCount(0);
+                        System.out.print("Patient Directory" + PatientDirectory.getPatients().size());
                         for(Patient p : PatientDirectory.getPatients()){
                             if (p.getId().equals(patientId)){
                                 for(Encounter en : p.getEncounterHistory().getEncounters()){
@@ -399,6 +422,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                     }
                 }
         } catch (Exception ex) {
+            System.out.print(ex.toString());
        }
     }//GEN-LAST:event_btnGetPatientIDActionPerformed
 
@@ -550,11 +574,20 @@ public class DoctorPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnUpdateEncounterActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        JFrame doctorFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        doctorFrame.dispose();
+        HomeFrame hf = new HomeFrame();
+        hf.setVisible(true);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEncounter;
     private javax.swing.JButton btnEditEncounter;
     private javax.swing.JButton btnGetPatientID;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnUpdateEncounter;
     private javax.swing.JButton btnViewEncounter;
     private com.toedter.calendar.JDateChooser dcEncounterDate;
