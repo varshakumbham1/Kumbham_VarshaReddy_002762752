@@ -15,6 +15,7 @@ import model.Community;
 import model.Doctor;
 import model.DoctorDirectory;
 import model.Encounter;
+import model.EncounterHistory;
 import model.Hospital;
 import model.HospitalDirectory;
 import model.Patient;
@@ -44,7 +45,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     HospitalDirectory listOfHospitals = new HospitalDirectory();
     DoctorDirectory listOfDoctors = new DoctorDirectory();
     static ArrayList<Patient> patients = new ArrayList<Patient>();
-    PatientDirectory listOfPatients = new PatientDirectory(patients);
+    //PatientDirectory listOfPatients = new PatientDirectory(patients);
     static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
     public void setCityCombobox(){
         jComboBoxHospitalCity.removeAllItems();
@@ -1098,10 +1099,11 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEncounterPatientAge)
-                    .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtEncounterPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblEncounterPatientAge_U)
-                        .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtEncounterPatientAge_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEncounterPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEncounterPatientAge_U))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -1305,37 +1307,51 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
             } else {
-                for (Patient p : listOfPatients.getPatients()) {
+                for (Patient p : PatientDirectory.getPatients()) {
                     if (p.getId().equals(patientId)) {
                         txtEncounterPatientName.setText(p.getName());
                         int age = p.getAge();
                         txtEncounterPatientAge.setText(String.valueOf(age));
                         patientRecordIndex = 1;
                         break;
-                    } 
+                    }
                 }
-                if(patientRecordIndex == 0){
+                if (patientRecordIndex == 0) {
                     JOptionPane.showMessageDialog(this,
                             "No Patient Record Found for Patient Id : " + " " + patientId,
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);
-                }
-                else if(!encounterList.isEmpty() && patientRecordIndex == 1) {
+                } else if (!encounterList.isEmpty() && patientRecordIndex == 1) {
                     tblEncounterModel.setRowCount(0);
-                    for (Encounter en : encounterList) {
-                        if (en.getPatientId().equals(patientId)) {
-                            SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
-                            String date = dateformat.format(en.getEncounterDate());
-                            Object[] data = {en.getEncounterId(), date, en.getPatientName(), en.getPatientAge(),
-                                en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(), 
-                                en.getVitalSigns().getHeartRate(), en.getDoctorName()};
-                            tblEncounterModel.addRow(data);
-                            //System.out.println(en.getPatientId());
+                    for(Patient p : PatientDirectory.getPatients()){
+                        if (p.getId().equals(patientId)){
+                            for(Encounter en : p.getEncounterHistory().getEncounters()){
+                                SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+                                String date = dateformat.format(en.getEncounterDate());
+                                Object[] data = {en.getEncounterId(), date, en.getPatientName(), en.getPatientAge(),
+                                    en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(),
+                                    en.getVitalSigns().getHeartRate(), en.getDoctorName()};
+                                tblEncounterModel.addRow(data);
+                                System.out.println(en.getPatientId());
+                            }
                         }
                     }
+//                    for (Encounter en : encounterList) {
+//                        if (en.getPatientId().equals(patientId)) {
+//                            SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+//                            String date = dateformat.format(en.getEncounterDate());
+//                            Object[] data = {en.getEncounterId(), date, en.getPatientName(), en.getPatientAge(),
+//                                en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(),
+//                                en.getVitalSigns().getHeartRate(), en.getDoctorName()};
+//
+//                            tblEncounterModel.addRow(data);
+//                            System.out.println(en.getPatientId());
+//                        }
+//                    }
                 }
             }
         } catch (Exception ex) {
+            
         }  
     }//GEN-LAST:event_btnGetPatientIDActionPerformed
 
@@ -1362,6 +1378,11 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, doctorName, encounterDate);
+                for(Patient p: PatientDirectory.getPatients()){
+                    if(p.getId().equals(patientId)){
+                        p.getEncounterHistory().getEncounters().add(encounter);
+                    }
+                }
                 encounterList.add(encounter);
                 System.out.println(patientId);
                 JOptionPane.showMessageDialog(this,
@@ -1543,7 +1564,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             String postalcode = tfPatientPostalCode.getText();
             String username = tfPatientUserName.getText();
             String password = tfPatientPassword.getText();
-            String role = "Patient";
+            EncounterHistory encounterHistory = new EncounterHistory();
             if (name.isEmpty() || id.isEmpty() || age.isEmpty()
                 || houseNo.isEmpty() || cellphone.isEmpty() || city.isEmpty() || community.isEmpty() ||
                 postalcode.isEmpty() || username.isEmpty() || password.isEmpty()) {
@@ -1553,7 +1574,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
                 flag = 1;
             } else {
-                for (Patient p : listOfPatients.getPatients()) {
+                for (Patient p : PatientDirectory.getPatients()) {
                     if (p.getId().equals(tfPatientId.getText())) {
                         JOptionPane.showMessageDialog(this, "Patient already exists!");
                         flag = 2;
@@ -1565,8 +1586,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
 
-                patient = new Patient(cellphone, houseNo, community, city, postalcodeVal, name, id, ageVal, gender, role, username, password);
-                listOfPatients.getPatients().add(patient);
+                patient = new Patient(cellphone, houseNo, community, city, postalcodeVal, name, id, ageVal, gender, username, password, encounterHistory);
+                PatientDirectory.getPatients().add(patient);
                 Object[] data = {name, id, age, gender, houseNo, community, city, postalcode};
                 tblPatientModel.addRow(data);
 

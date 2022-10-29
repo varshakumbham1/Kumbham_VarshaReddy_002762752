@@ -1348,10 +1348,12 @@
                           </Group>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="lblEncounterPatientAge" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="txtEncounterPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Component id="txtEncounterPatientAge_U" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtEncounterPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEncounterPatientAge_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
