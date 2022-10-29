@@ -10,9 +10,9 @@ import java.util.List;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
-public class Hospital {
+public class Hospital  {
     private String hospitalName;
     private String hospitalCommunity;
     private Long hospitalCode;

@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class Doctor extends Person{
 //    private String name;

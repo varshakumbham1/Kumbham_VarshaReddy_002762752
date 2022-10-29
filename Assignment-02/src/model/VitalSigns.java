@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class VitalSigns {
     private String bloodPressure;

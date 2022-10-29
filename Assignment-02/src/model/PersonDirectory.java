@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class PersonDirectory {
     List<Person> listOfPersons;

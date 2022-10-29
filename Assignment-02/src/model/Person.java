@@ -7,13 +7,14 @@ package model;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class Person {
     private String name;
     private String id;
     private int age;
     private String gender;
+//    private String role;
     private String userName;
     private String passWord;
 
@@ -25,6 +26,7 @@ public class Person {
         this.id = id;
         this.age = age;
         this.gender = gender;
+        //this.role = role;
         this.userName = userName;
         this.passWord = passWord;
     }
@@ -60,6 +62,14 @@ public class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+//    public String getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 
     public String getUserName() {
         return userName;

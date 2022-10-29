@@ -4,7 +4,7 @@
  */
 package ui;
 
-import java.awt.LayoutManager;
+
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,10 +23,11 @@ import ui.Doctor.DoctorPanel;
 import ui.Hospital.HospitalAdminFrame;
 import ui.Patient.PatientFrame;
 import ui.Patient.PatientPanel;
+import ui.Systemadmin.SystemAdminFrame;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class HomeFrame extends javax.swing.JFrame {
 
@@ -67,7 +68,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabelRole.setText("Role");
+        jLabelRole.setText("Select Role:");
 
         jComboBoxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "System Admin", "Community Admin", "Hospital Admin", "Doctor", "Patient" }));
         jComboBoxRole.addActionListener(new java.awt.event.ActionListener() {
@@ -95,23 +96,21 @@ public class HomeFrame extends javax.swing.JFrame {
             jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jHomePanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jHomePanelLayout.createSequentialGroup()
+                        .addComponent(jLabelRole)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxRole, 0, 1, Short.MAX_VALUE))
                     .addGroup(jHomePanelLayout.createSequentialGroup()
                         .addComponent(jLabelUsername)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jHomePanelLayout.createSequentialGroup()
-                        .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jHomePanelLayout.createSequentialGroup()
-                                .addComponent(jLabelPassword)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jHomePanelLayout.createSequentialGroup()
-                                .addComponent(jLabelRole)
-                                .addGap(55, 55, 55)
-                                .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(576, Short.MAX_VALUE))))
+                        .addComponent(jLabelPassword)
+                        .addGap(30, 30, 30)
+                        .addGroup(jHomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(tfPassword))))
+                .addContainerGap(580, Short.MAX_VALUE))
             .addGroup(jHomePanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(btnLogin)
@@ -166,10 +165,12 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String role = (String) jComboBoxRole.getSelectedItem();
+        
         String username = tfUsername.getText();
         char[] password = tfPassword.getPassword();
         String passwordString = String.valueOf(password);
         HospitalAdminFrame hospitalAdminFrame;
+        SystemAdminFrame systemAdminFrame;
         if(username.isEmpty() || password.length == 0) {
             JOptionPane.showMessageDialog(this,
                         "Enter username & password",
@@ -179,8 +180,8 @@ public class HomeFrame extends javax.swing.JFrame {
         else {
             this.setVisible(false);
             if(role.equals("Community Admin") 
-                    && username.equals("commadmin")
-                    && passwordString.equals("commadmin")) {
+                    && username.equals("cadmin")
+                    && passwordString.equals("cadmin")) {
                 CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
                 communityAdminFrame.setVisible(true);
             }
@@ -192,8 +193,9 @@ public class HomeFrame extends javax.swing.JFrame {
                 
             }
             else if (role.equals("Patient")) {
-                for(Patient p: PatientDirectory.getPatients()) {
-                    if(username.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) {
+                for(Patient p: PatientDirectory.getListOfPatients()) {
+                    if(username.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) 
+                    {
                         PatientFrame patientFrame = new PatientFrame();
                         PatientPanel patientPanel = new PatientPanel(p);
                         patientFrame.setContentPane(patientPanel);
@@ -211,6 +213,12 @@ public class HomeFrame extends javax.swing.JFrame {
                     }
                 }
             }
+            else if (role.equals("System Admin") 
+                    && username.equals("sadmin")
+                    && passwordString.equals("sadmin")) {
+                systemAdminFrame = new SystemAdminFrame();
+                systemAdminFrame.setVisible(true);
+            }
             else {
                 this.setVisible(true);
                 JOptionPane.showMessageDialog(this,
@@ -220,7 +228,6 @@ public class HomeFrame extends javax.swing.JFrame {
             }
             revalidate();
         }
-            
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed

@@ -10,10 +10,10 @@ import java.util.List;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class HospitalDirectory {
-    private static ArrayList<Hospital> listOfHospitals;  
+    public static ArrayList<Hospital> listOfHospitals;  
 
     public HospitalDirectory() {
         listOfHospitals = new ArrayList<Hospital>();

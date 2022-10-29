@@ -4,33 +4,15 @@
  */
 package ui.Doctor;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import model.Doctor;
-import model.Encounter;
-import model.Hospital;
-import model.Patient;
-import model.PatientDirectory;
-import model.VitalSigns;
-
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class DoctorFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorFrame
      */
-    int flag;
-    int patientRecordIndex;
-    DefaultTableModel tblEncounterModel;
-    static ArrayList<Patient> patients = new ArrayList<Patient>();
-    PatientDirectory listOfPatients = new PatientDirectory(patients);
-    static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
     public DoctorFrame() {
         initComponents();
     }
@@ -50,11 +32,11 @@ public class DoctorFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 839, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2020, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();

@@ -4,19 +4,19 @@
  */
 package ui.Community;
 
-import javax.swing.JPanel;
 import model.City;
 import model.Community;
+import model.House;
 import ui.HomeFrame;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class CommunityAdminFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form CommunityAdminFrame
+     * Creates new form NewJFrame
      */
     HomeFrame homeFrame;
     public CommunityAdminFrame() {
@@ -33,18 +33,35 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jSplitPaneCommunity = new javax.swing.JSplitPane();
-        jPanelCommunity = new javax.swing.JPanel();
+        jSplitPaneCommunity1 = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
+        jButtonLogoutCommunityAdminPanel = new javax.swing.JButton();
         jButtonAddCommunity = new javax.swing.JButton();
+        jButtonAddHouse = new javax.swing.JButton();
         jButtonAddCity = new javax.swing.JButton();
-        btnLogoutCommunityAdminPanel = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonLogoutCommunityAdminPanel.setText("LogOut");
+        jButtonLogoutCommunityAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogoutCommunityAdminPanelActionPerformed(evt);
+            }
+        });
 
         jButtonAddCommunity.setText("Add Community");
         jButtonAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddCommunityActionPerformed(evt);
+            }
+        });
+
+        jButtonAddHouse.setText("Add House");
+        jButtonAddHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddHouseActionPerformed(evt);
             }
         });
 
@@ -55,99 +72,130 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        btnLogoutCommunityAdminPanel.setText("Logout");
-        btnLogoutCommunityAdminPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutCommunityAdminPanelActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelCommunityLayout = new javax.swing.GroupLayout(jPanelCommunity);
-        jPanelCommunity.setLayout(jPanelCommunityLayout);
-        jPanelCommunityLayout.setHorizontalGroup(
-            jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCommunityLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonAddCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAddCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(jPanelCommunityLayout.createSequentialGroup()
-                .addComponent(btnLogoutCommunityAdminPanel)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonLogoutCommunityAdminPanel)
+                    .addComponent(jButtonAddHouse)
+                    .addComponent(jButtonAddCity)
+                    .addComponent(jButtonAddCommunity))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanelCommunityLayout.setVerticalGroup(
-            jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCommunityLayout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnLogoutCommunityAdminPanel)
-                .addGap(136, 136, 136)
+                .addComponent(jButtonLogoutCommunityAdminPanel)
+                .addGap(172, 172, 172)
                 .addComponent(jButtonAddCity)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddCommunity)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAddHouse)
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
-        jSplitPaneCommunity.setTopComponent(jPanelCommunity);
+        jSplitPaneCommunity1.setLeftComponent(jPanel2);
+
+        jLabel2.setText("Welcome!");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(jLabel2)
+                .addContainerGap(331, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(jLabel2)
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+
+        jSplitPaneCommunity1.setRightComponent(jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jSplitPaneCommunity1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jSplitPaneCommunity)
-                .addContainerGap())
+            .addComponent(jSplitPaneCommunity1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonLogoutCommunityAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutCommunityAdminPanelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        HomeFrame hf = new HomeFrame();
+        hf.setVisible(true);
+    }//GEN-LAST:event_jButtonLogoutCommunityAdminPanelActionPerformed
+
     private void jButtonAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCommunityActionPerformed
         // TODO add your handling code here:
         AddCommunityPanel addCommunityPanel = new AddCommunityPanel();
-        jSplitPaneCommunity.setRightComponent(addCommunityPanel);
+        jSplitPaneCommunity1.setRightComponent(addCommunityPanel);
+        
+        addCommunityPanel.tblModel.setRowCount(0);
+        for(Community c: AddCommunityPanel.communities){
+            Object[] data = {c.getCommunityName(), c.getCityName(), c.getPostalCode()};
+            addCommunityPanel.tblModel.addRow(data);
+        }
     }//GEN-LAST:event_jButtonAddCommunityActionPerformed
 
     private void jButtonAddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddCityActionPerformed
         // TODO add your handling code here:
         AddCityPanel addCityPanel = new AddCityPanel();
-        jSplitPaneCommunity.setRightComponent(addCityPanel);
+        jSplitPaneCommunity1.setRightComponent(addCityPanel);
+        
+        addCityPanel.tblModel.setRowCount(0);
+        for(City c: AddCityPanel.cities){
+            Object[] data = {c.getCityName(), c.getCityState()};
+            addCityPanel.tblModel.addRow(data);
+        }
     }//GEN-LAST:event_jButtonAddCityActionPerformed
 
-    private void btnLogoutCommunityAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutCommunityAdminPanelActionPerformed
-
-        this.dispose();
-        HomeFrame hf = new HomeFrame();
-        hf.setVisible(true);
-    }//GEN-LAST:event_btnLogoutCommunityAdminPanelActionPerformed
+    private void jButtonAddHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddHouseActionPerformed
+        // TODO add your handling code here:
+        AddHousePanel addHousePanel = new AddHousePanel();
+        jSplitPaneCommunity1.setRightComponent(addHousePanel);
+        
+        addHousePanel.tblModel.setRowCount(0);
+        for(House h : addHousePanel.houses){
+            Object[]  data = {h.getHouseNo(),h.getCityName(),h.getCommunityName(),h.getPostalCode()};
+            addHousePanel.tblModel.addRow(data);
+        }
+    }//GEN-LAST:event_jButtonAddHouseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +223,9 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CommunityAdminFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -185,11 +236,14 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogoutCommunityAdminPanel;
     private javax.swing.JButton jButtonAddCity;
     private javax.swing.JButton jButtonAddCommunity;
+    private javax.swing.JButton jButtonAddHouse;
+    private javax.swing.JButton jButtonLogoutCommunityAdminPanel;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelCommunity;
-    private javax.swing.JSplitPane jSplitPaneCommunity;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSplitPane jSplitPaneCommunity1;
     // End of variables declaration//GEN-END:variables
 }

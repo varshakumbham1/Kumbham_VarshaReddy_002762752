@@ -1,8 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
-import model.Patient;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,25 +9,26 @@ import model.Patient;
 
 /**
  *
- * @author varshareddykumbham
+ * @author devikaboddu
  */
 public class PatientDirectory {
-    private static List<Patient> patients;
+    private static ArrayList<Patient> listOfPatients;
 
+   
     public PatientDirectory() {
-        patients = new ArrayList<Patient>();
+        listOfPatients = new ArrayList<Patient>();
     }
 
-    public PatientDirectory(List<Patient> patients) {
-        this.patients = patients;
+    public PatientDirectory(ArrayList<Patient> listOfPatients) {
+        this.listOfPatients = listOfPatients;
     }
 
-    public static List<Patient> getPatients() {
-        return patients;
+    public static ArrayList<Patient> getListOfPatients() {
+        return listOfPatients;
     }
 
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
+    public void setListOfPatients(ArrayList<Patient> listOfPatients) {
+        this.listOfPatients = listOfPatients;
     }
     
 }
