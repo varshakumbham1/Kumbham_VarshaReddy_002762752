@@ -18,7 +18,7 @@ import ui.HomeFrame;
 
 /**
  *
- * @author devikaboddu
+ * @author varshareddy
  */
 public class AddCityPanel extends javax.swing.JPanel {
 
