@@ -880,11 +880,11 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Patient ID", "Age", "Gender", "House No.", "Community", "City"
+                "Name", "Patient ID", "Age", "Gender", "House No.", "Community", "City", "ZipCode", "PhoneNo."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1667,7 +1667,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
                 patient = new Patient(cellphone, houseNo, community, city, postalcodeVal, name, id, ageVal, gender, role, username, password, encounterHistory);
                 listOfPatients.getPatients().add(patient);
-                Object[] data = {name, id, age, gender, houseNo, community, city, postalcode};
+                Object[] data = {name, id, age, gender, houseNo, community, city, postalcode, cellphone};
                 tblPatientModel.addRow(data);
 
                 JOptionPane.showMessageDialog(this, "Patient Information saved!");
