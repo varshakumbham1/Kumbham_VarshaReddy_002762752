@@ -16,6 +16,7 @@ import model.Patient;
 import model.PatientDirectory;
 import model.VitalSigns;
 import ui.HomeFrame;
+import ui.Hospital.HospitalAdminFrame;
 import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**

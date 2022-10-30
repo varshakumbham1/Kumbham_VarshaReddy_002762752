@@ -22,6 +22,7 @@ import ui.Community.AddCityPanel;
 import ui.Community.AddCommunityPanel;
 import ui.HomeFrame;
 import ui.Hospital.HospitalAdminFrame;
+import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
@@ -102,11 +103,31 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             Object[] data = {c.getCommunityName(), c.getZipcode(), c.getCityName()};
             tableModelCommunity.addRow(data);
         }
-        
+        displayHospitalTable();
+        displayPatientTable();
+        displayDoctorTable();  
+    }
+    public void displayHospitalTable() {
         tblModel.setRowCount(0);
-        for(Hospital h: HospitalAdminFrame.hospitals){
-            Object[] data = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
-            tblModel.addRow(data);
+        for(Hospital h: HospitalAdminFrame.hospitals) {
+            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
+            tblModel.addRow(row_data);
+        }
+    }
+    
+    public void displayPatientTable() {
+        tblPatientModel.setRowCount(0);
+        for(Patient p: HospitalAdminFrame.patients) {
+            Object[] row_data = {p.getName(), p.getId(), p.getAge(), p.getGender(), p.getStreetAddress(),p.getCommunity(),p.getCity()};
+            tblPatientModel.addRow(row_data);
+        }
+    }
+    
+    public void displayDoctorTable() {
+        doctorTblModel.setRowCount(0);
+        for(Doctor d: HospitalAdminFrame.doctors) {
+            Object[] row_data = {d.getName(), d.getId(), d.getAge(), d.getGender(), d.getHospitalName(), d.getHospitalDepartment(), d.getPhoneNumber()};
+            doctorTblModel.addRow(row_data);
         }
     }
 
@@ -1556,11 +1577,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         Object[] data = {name, community, code, city, postalCode};
         tblModel.addRow(data);
         setHospitalNameComboBox();
-        tblModel.setRowCount(0);
-        for(Hospital h: HospitalAdminFrame.hospitals){
-            Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
-            tblModel.addRow(hdata);
-        }
+        displayHospitalTable();
+        displayDoctorTable();
     }//GEN-LAST:event_btnAddHospitalActionPerformed
 
     private void jComboBoxHospitalCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHospitalCityActionPerformed
@@ -1621,6 +1639,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
         doctorTblModel.addRow(data);
         setDoctorCombobox();
+        displayDoctorTable();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnGetPatientIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetPatientIDActionPerformed
@@ -1942,6 +1961,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 tfPatientPassword.setText("");
 
             }
+            displayPatientTable();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,
                 "Enter All Fields",
@@ -1997,12 +2017,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     Object[] row = {c.getCommunityName(), c.getZipcode(), c.getCityName()};
                     tableModelCommunity.addRow(row);
                 }
-                tblModel.setRowCount(0);
-                for(Hospital h: HospitalAdminFrame.hospitals){
-                    Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
-                    tblModel.addRow(hdata);
-                }
+                displayHospitalTable();
                 setCityCombobox();
+                displayPatientTable();
             }
         } catch (Exception ex) {
 
@@ -2104,11 +2121,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
                 setCityCombobox();
-                tblModel.setRowCount(0);
-                for(Hospital h: HospitalAdminFrame.hospitals){
-                    Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
-                    tblModel.addRow(hdata);
-                }
+                displayHospitalTable();
+                displayPatientTable();
             }
             setCityCombobox();
         }

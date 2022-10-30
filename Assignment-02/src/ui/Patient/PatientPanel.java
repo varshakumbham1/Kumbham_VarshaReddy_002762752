@@ -19,6 +19,7 @@ import model.HospitalDirectory;
 import model.Patient;
 import model.VitalSigns;
 import ui.HomeFrame;
+import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
@@ -46,7 +47,7 @@ public class PatientPanel extends javax.swing.JPanel {
         getDoctorsTblModel = (DefaultTableModel)tableGetDoctors.getModel();
         tblEncounterModel = (DefaultTableModel) tableGetEncounterHistory.getModel();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -303,9 +304,8 @@ public class PatientPanel extends javax.swing.JPanel {
                 en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(),
                 en.getVitalSigns().getHeartRate(), en.getDoctorName()};
             tblEncounterModel.addRow(data);
-            System.out.println(en.getPatientId());                    
-                    }
-        
+            System.out.println(en.getPatientId());
+        }
     }//GEN-LAST:event_btnGetEncounterHistoryActionPerformed
 
     private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
@@ -317,8 +317,6 @@ public class PatientPanel extends javax.swing.JPanel {
         Encounter e = new Encounter(encounterId, patient.getName(), patient.getAge(), patient.getId(), vitalSigns, 
              doctorName, encounterDate);
         patient.getEncounterHistory().getEncounters().add(e);
-        
-        
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
     private void tableGetDoctorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableGetDoctorsMouseClicked

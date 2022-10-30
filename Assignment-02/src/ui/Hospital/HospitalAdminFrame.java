@@ -75,8 +75,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         }
     }
     
-    
-
     public HospitalAdminFrame() {
         initComponents();
         setCityCombobox();
@@ -85,13 +83,34 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         tblEncounterModel = (DefaultTableModel) tableEncounterHistory.getModel();
         tblPatientModel = (DefaultTableModel) tablePatientDetails.getModel();
         doctorTblModel = (DefaultTableModel)tableDoctors.getModel();
-        
+        displayHospitalTable();       
+        displayPatientTable(); 
+        displayDoctorTable();
+    }
+    public void displayHospitalTable() {
         tblModel.setRowCount(0);
         for(Hospital h: listOfHospitals.getHospitals()) {
             Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
             tblModel.addRow(row_data);
         }
     }
+    
+    public void displayPatientTable() {
+        tblPatientModel.setRowCount(0);
+        for(Patient p: listOfPatients.getPatients()) {
+            Object[] row_data = {p.getName(), p.getId(), p.getAge(), p.getGender(), p.getStreetAddress(),p.getCommunity(),p.getCity()};
+            tblPatientModel.addRow(row_data);
+        }
+    }
+    
+    public void displayDoctorTable() {
+        doctorTblModel.setRowCount(0);
+        for(Doctor d: listOfDoctors.getDoctors()) {
+            Object[] row_data = {d.getName(), d.getId(), d.getAge(), d.getGender(), d.getHospitalName(), d.getHospitalDepartment(), d.getPhoneNumber()};
+            doctorTblModel.addRow(row_data);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -134,7 +153,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         tfPhoneNumber = new javax.swing.JTextField();
         rdButtonMale = new javax.swing.JRadioButton();
         rdButtonFemale = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddDoctor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableDoctors = new javax.swing.JTable();
         jComboBoxHospitalName = new javax.swing.JComboBox<>();
@@ -362,7 +381,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddHospital)
-                .addContainerGap(1812, Short.MAX_VALUE))
+                .addContainerGap(17991, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Hospital", jPanelAddHospitals);
@@ -398,10 +417,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Add Doctor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAddDoctor.setText("Add Doctor");
+        btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAddDoctorActionPerformed(evt);
             }
         });
 
@@ -476,7 +495,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jButton2))
+                        .addComponent(btnAddDoctor))
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelPassword)))
@@ -526,8 +545,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addComponent(jLabelPassword)
                     .addComponent(tfDoctorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addComponent(jButton2)
-                .addContainerGap(1676, Short.MAX_VALUE))
+                .addComponent(btnAddDoctor)
+                .addContainerGap(17855, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
@@ -882,7 +901,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(rdMale_update)
                         .addComponent(rdFemale_update)
                         .addComponent(rdOther_update)))
-                .addContainerGap(1214, Short.MAX_VALUE))
+                .addContainerGap(17393, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
@@ -1151,7 +1170,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addComponent(btnUpdateEncounter))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1257, Short.MAX_VALUE))
+                .addContainerGap(17436, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Encounter", jPanelAddEncounters);
@@ -1412,7 +1431,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbPatientGenderMaleActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
         // TODO add your handling code here:
         String name = tfDoctorName.getText();
         String id = tfDoctorId.getText();
@@ -1431,7 +1450,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
         doctorTblModel.addRow(data);
         setDoctorCombobox();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        displayDoctorTable();
+    }//GEN-LAST:event_btnAddDoctorActionPerformed
 
     private void rdButtonFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdButtonFemaleActionPerformed
         // TODO add your handling code here:
@@ -1452,11 +1472,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         hospital = new Hospital(name, community, code, city, postalCode);
         listOfHospitals.getHospitals().add(hospital);
         
-        tblModel.setRowCount(0);
-        for(Hospital h: HospitalDirectory.getHospitals()){
-            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
-            tblModel.addRow(row_data);
-        }
+        displayHospitalTable();
         setHospitalNameComboBox();
     }//GEN-LAST:event_btnAddHospitalActionPerformed
 
@@ -1671,6 +1687,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddDoctor;
     private javax.swing.JButton btnAddEncounter;
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnAddPatient;
@@ -1688,7 +1705,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbBoxEncounterDoctorName;
     private com.toedter.calendar.JDateChooser dcEncounterDate;
     private com.toedter.calendar.JDateChooser dcEncounterDate_U;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBoxHospitalCity;
