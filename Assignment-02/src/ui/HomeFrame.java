@@ -88,7 +88,7 @@ public class HomeFrame extends javax.swing.JFrame {
                     .addGroup(jPanelMainFrameLayout.createSequentialGroup()
                         .addGap(280, 280, 280)
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelMainFrameLayout.setVerticalGroup(
             jPanelMainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +110,7 @@ public class HomeFrame extends javax.swing.JFrame {
                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addComponent(btnLogin)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,6 +144,7 @@ public class HomeFrame extends javax.swing.JFrame {
         String role = (String)(cmbBoxRole.getSelectedItem());
         this.setVisible(false);
         if(userName.isEmpty() || password.length == 0) {
+            this.setVisible(true);
             JOptionPane.showMessageDialog(this,
                 "Enter username & password",
                 "Try Again",
@@ -188,6 +189,13 @@ public class HomeFrame extends javax.swing.JFrame {
                 && passwordString.equals("sadmin")) {
                 SystemAdminFrame systemAdminFrame = new SystemAdminFrame();
                 systemAdminFrame.setVisible(true);
+            }
+            else {
+                this.setVisible(true);
+                JOptionPane.showMessageDialog(this,
+                "Invalid Credentials",
+                "Try Again",
+                JOptionPane.ERROR_MESSAGE);
             }
             revalidate();
         }

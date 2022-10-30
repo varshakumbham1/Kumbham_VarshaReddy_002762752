@@ -273,51 +273,50 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     private void btnEditCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCommunityActionPerformed
         // TODO add your handling code here:
         txtCommunityName_U.setEditable(true);
-//        txtZipCode_U.setEditable(true);
-//        cmbBoxSelectCity_U.setEnabled(true);
-//        cmbBoxSelectCity_U.removeAllItems();
-//        for(City c: AddCityPanel.cityList){
-//            cmbBoxSelectCity_U.addItem(c.getCityName());
-//        }
+        txtZipCode_U.setEditable(true);
     }//GEN-LAST:event_btnEditCommunityActionPerformed
 
     private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
         // TODO add your handling code here:
-        int row = tableCommunityDetails.getSelectedRow();
-        String community = txtCommunityName_U.getText();
-        String zipcode = txtZipCode_U.getText();
-//        String city = cmbBoxSelectCity_U.getSelectedItem().toString();
+        try {
+            int row = tableCommunityDetails.getSelectedRow();
+            String community = txtCommunityName_U.getText();
+            String zipcode = txtZipCode_U.getText();
+    //        String city = cmbBoxSelectCity_U.getSelectedItem().toString();
 
-        if(community.isEmpty() || zipcode.isEmpty()){
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            Community selectedCommunity = communityList.get(row);
-            Community updatedCommunity = new Community(community, Long.parseLong(zipcode), selectedCommunity.getCityName());
-            communityList.remove(row);
-            communityList.add(row, updatedCommunity);
-            tableModel.removeRow(row);
-            Object[] data = {community, zipcode, selectedCommunity.getCityName()};
-            tableModel.insertRow(row, data);
-            for(City c: AddCityPanel.cityList) {
-                if(c.getCityName().equals(selectedCommunity.getCityName())) {
-                    //communities = c.getCommunities();
-                    for(Community comm:c.getCommunities()) {
-                        if(comm.getCommunityName().equals(selectedCommunity.getCommunityName())){
-                            comm.setCommunityName(community);
-                            comm.setCityName(selectedCommunity.getCityName());
-                            comm.setZipCode(Long.parseLong(zipcode));
-                            break;
+            if(community.isEmpty() || zipcode.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                Community selectedCommunity = communityList.get(row);
+                Community updatedCommunity = new Community(community, Long.parseLong(zipcode), selectedCommunity.getCityName());
+                communityList.remove(row);
+                communityList.add(row, updatedCommunity);
+                tableModel.removeRow(row);
+                Object[] data = {community, zipcode, selectedCommunity.getCityName()};
+                tableModel.insertRow(row, data);
+                for(City c: AddCityPanel.cityList) {
+                    if(c.getCityName().equals(selectedCommunity.getCityName())) {
+                        //communities = c.getCommunities();
+                        for(Community comm:c.getCommunities()) {
+                            if(comm.getCommunityName().equals(selectedCommunity.getCommunityName())){
+                                comm.setCommunityName(community);
+                                comm.setCityName(selectedCommunity.getCityName());
+                                comm.setZipCode(Long.parseLong(zipcode));
+                                break;
+                            }
                         }
                     }
-                }
-                else {
-                    communities = new ArrayList();
+                    else {
+                        communities = new ArrayList();
+                    }
                 }
             }
+        }
+        catch(Exception ex) { 
         }
 
     }//GEN-LAST:event_btnUpdateCommunityActionPerformed

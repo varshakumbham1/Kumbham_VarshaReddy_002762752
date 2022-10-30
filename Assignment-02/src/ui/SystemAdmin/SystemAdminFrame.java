@@ -45,9 +45,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     
     DefaultTableModel tableModelCity;
     DefaultTableModel tableModelCommunity;
-    public static ArrayList<City> cityList;
-    
-    public static List<Community> communities;
     
     public void setCityCombobox() {
         jComboBoxHospitalCity.removeAllItems();
@@ -2237,12 +2234,12 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 AddCommunityPanel.communityList.add(community);
                 for(City c: AddCityPanel.cityList) {
                     if(c.getCityName().equals(city)) {
-                        communities = c.getCommunities();
-                        communities.add(community);
-                        c.setCommunities(communities);
+                        AddCommunityPanel.communities = c.getCommunities();
+                        AddCommunityPanel.communities.add(community);
+                        c.setCommunities(AddCommunityPanel.communities);
                     }
                     else {
-                        communities = new ArrayList();
+                        AddCommunityPanel.communities = new ArrayList();
                     }
                 }
                 Object[] data = {communityName, zipCode, city};
@@ -2295,19 +2292,22 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         }
         else{
             List<Community> communities = new ArrayList<Community>();
-            for(City c: cityList){
-                if(cityList.indexOf(c) == row){
+            for(City c: AddCityPanel.cityList){
+                if(AddCityPanel.cityList.indexOf(c) == row){
                     communities = c.getCommunities();
                     break;
                 }
             }
             City updatedCity = new City(city, communities, state);
-            cityList.remove(row);
-            cityList.add(row, updatedCity);
+            AddCityPanel.cityList.remove(row);
+            AddCityPanel.cityList.add(row, updatedCity);
             tableModelCity.removeRow(row);
             Object[] data = {city, state};
             tableModelCity.insertRow(row, data);
         }
+        displayHospitalTable();
+        setCityCombobox();
+        displayPatientTable();
     }//GEN-LAST:event_btnUpdateCityActionPerformed
 
     private void txtState_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtState_UActionPerformed
@@ -2391,9 +2391,12 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     }
                 }
                 else {
-                    communities = new ArrayList();
+                    AddCommunityPanel.communities = new ArrayList();
                 }
             }
+            setCityCombobox();
+            displayHospitalTable();
+            displayPatientTable();
         }
     }//GEN-LAST:event_btnUpdateCommunityActionPerformed
 
@@ -2488,6 +2491,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             Object[] data = {hospitalName, hospitalCommunity, hospitalCode, hospitalCity, zipcode};
             tblModel.insertRow(row, data);
             setHospitalNameComboBox();
+            displayHospitalTable();
+            displayDoctorTable();
         }
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
@@ -2626,6 +2631,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             doctorTblModel.removeRow(row);
             doctorTblModel.insertRow(row, data);
             setDoctorCombobox();
+            displayDoctorTable();
         }
     }//GEN-LAST:event_btnUpdateDoctorActionPerformed
 
@@ -2711,6 +2717,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 patientCity, zipcode, patientPhNo};
             tblPatientModel.removeRow(row);
             tblPatientModel.insertRow(row, data);
+            displayPatientTable();
         }
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
 

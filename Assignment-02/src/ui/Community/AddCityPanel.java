@@ -55,6 +55,12 @@ public class AddCityPanel extends javax.swing.JPanel {
 
         lblState.setText("State");
 
+        txtCityName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCityNameActionPerformed(evt);
+            }
+        });
+
         btnSaveCity.setText("Add City");
         btnSaveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,30 +238,34 @@ public class AddCityPanel extends javax.swing.JPanel {
 
     private void btnUpdateCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCityActionPerformed
         // TODO add your handling code here:
-        int row = tableCityDetails.getSelectedRow();
-        String city = txtCityName_U.getText();
-        String state = txtState_U.getText();
+        try {
+            int row = tableCityDetails.getSelectedRow();
+            String city = txtCityName_U.getText();
+            String state = txtState_U.getText();
 
-        if(city.isEmpty() || state.isEmpty()){
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            List<Community> communities = new ArrayList<Community>();
-            for(City c: cityList){
-                if(cityList.indexOf(c) == row){
-                    communities = c.getCommunities();
-                    break;
-                }
+            if(city.isEmpty() || state.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
             }
-            City updatedCity = new City(city, communities, state);
-            cityList.remove(row);
-            cityList.add(row, updatedCity);
-            tableModel.removeRow(row);
-            Object[] data = {city, state};
-            tableModel.insertRow(row, data);
+            else{
+                List<Community> communities = new ArrayList<Community>();
+                for(City c: cityList){
+                    if(cityList.indexOf(c) == row){
+                        communities = c.getCommunities();
+                        break;
+                    }
+                }
+                City updatedCity = new City(city, communities, state);
+                cityList.remove(row);
+                cityList.add(row, updatedCity);
+                tableModel.removeRow(row);
+                Object[] data = {city, state};
+                tableModel.insertRow(row, data);
+            }
+        }
+        catch(Exception ex) { 
         }
     }//GEN-LAST:event_btnUpdateCityActionPerformed
 
@@ -268,6 +278,10 @@ public class AddCityPanel extends javax.swing.JPanel {
         txtCityName_U.setEditable(true);
         txtState_U.setEditable(true);
     }//GEN-LAST:event_btnEditCityActionPerformed
+
+    private void txtCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCityNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

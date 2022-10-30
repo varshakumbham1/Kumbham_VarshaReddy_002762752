@@ -1714,16 +1714,25 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         String name = tfHospitalName.getText();
-        Long code = Long.valueOf(tfHospitalCode.getText());
+        String code = tfHospitalCode.getText();
+        //Long code = Long.valueOf();
         String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
         //String city = tfHospitalCity.getText();
         String city = (String) jComboBoxHospitalCity.getSelectedItem();
         Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
-        hospital = new Hospital(name, community, postalCode, city, code);
-        listOfHospitals.getHospitals().add(hospital);
-        
-        displayHospitalTable();
-        setHospitalNameComboBox();
+        if(name.isEmpty() || code.isEmpty() || community.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                        "Enter all Fields",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            Long hospitalcode = Long.valueOf(code);
+            hospital = new Hospital(name, community, postalCode, city, hospitalcode);
+            listOfHospitals.getHospitals().add(hospital);
+            displayHospitalTable();
+            setHospitalNameComboBox();
+        }
     }//GEN-LAST:event_btnAddHospitalActionPerformed
 
     private void tfHospitalPostalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalPostalCodeActionPerformed
@@ -1874,6 +1883,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tblModel.removeRow(row);
             Object[] data = {hospitalName, hospitalCommunity, hospitalCode, hospitalCity, zipcode};
             tblModel.insertRow(row, data);
+            displayHospitalTable();
             setHospitalNameComboBox();
         }
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
@@ -2012,6 +2022,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             doctorTblModel.removeRow(row);
             doctorTblModel.insertRow(row, data);
             setDoctorCombobox();
+            displayDoctorTable();
         }
 
     }//GEN-LAST:event_btnUpdateDoctorActionPerformed
