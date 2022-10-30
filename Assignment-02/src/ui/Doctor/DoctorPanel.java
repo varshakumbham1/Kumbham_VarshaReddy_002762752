@@ -32,6 +32,8 @@ public class DoctorPanel extends javax.swing.JPanel {
     public DoctorPanel(Doctor d) {
         initComponents();
         tblEncounterModel = (DefaultTableModel)tableEncounterHistory.getModel();
+        txtEncounterDoctorName.setEditable(false);
+        txtEncounterDoctorName.setText(d.getName());
     }
 
     /**
@@ -369,9 +371,9 @@ public class DoctorPanel extends javax.swing.JPanel {
         try {
             //patientRecordIndex = 0;
             String patientId = txtPatientID.getText();
-            int val = PatientDirectory.getPatients().size();
-            System.out.print("PatientDirectory" + val);
-            for (Patient p : PatientDirectory.getPatients()) {
+            //int val = PatientDirectory.getPatients().size();
+            //System.out.print("PatientDirectory" + val);
+            for (Patient p : HospitalAdminFrame.patients) {
                 if (p.getId().equals(patientId)) {
                     txtEncounterPatientName.setText(p.getName());
                     int age = p.getAge();
@@ -382,7 +384,7 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
             tblEncounterModel.setRowCount(0);
 
-            for(Patient p : PatientDirectory.getPatients()){
+            for(Patient p : HospitalAdminFrame.patients){
                 if (p.getId().equals(patientId)){
                     for(Encounter en : p.getEncounterHistory().getEncounters()){
                         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");

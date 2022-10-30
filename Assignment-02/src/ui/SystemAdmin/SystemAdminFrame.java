@@ -23,7 +23,6 @@ import ui.Community.AddCommunityPanel;
 import static ui.Community.AddCommunityPanel.communityList;
 import ui.HomeFrame;
 import ui.Hospital.HospitalAdminFrame;
-import static ui.Hospital.HospitalAdminFrame.encounterList;
 
 /**
  *
@@ -44,8 +43,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     Hospital hospital;
     DefaultTableModel tblModel;
     
-    public static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
-    
     DefaultTableModel tableModelCity;
     DefaultTableModel tableModelCommunity;
     public static ArrayList<City> cityList;
@@ -55,9 +52,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     public void setCityCombobox() {
         jComboBoxHospitalCity.removeAllItems();
         cbPatientCity.removeAllItems();
+        
         for (City city : AddCityPanel.cityList) {
             jComboBoxHospitalCity.addItem(city.getCityName());
             cbPatientCity.addItem(city.getCityName());
+             
         }
     }
 
@@ -159,6 +158,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         btnEditCity = new javax.swing.JButton();
+        btnDeleteCity = new javax.swing.JButton();
         jPanelAddCommunity = new javax.swing.JPanel();
         lblCommunityName = new javax.swing.JLabel();
         txtCommunityName = new javax.swing.JTextField();
@@ -176,6 +176,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         txtCommunityName_U = new javax.swing.JTextField();
         txtZipCode_U = new javax.swing.JTextField();
+        btnDeleteCommunity = new javax.swing.JButton();
         jPanelAddHospitals = new javax.swing.JPanel();
         jLabelHospitalName = new javax.swing.JLabel();
         jLabelHospitalCommunity = new javax.swing.JLabel();
@@ -203,6 +204,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         tfHospitalPostalCode_U = new javax.swing.JTextField();
         jComboBoxHospitalCity_U = new javax.swing.JComboBox<>();
         jComboBoxHospitalCommunity_U = new javax.swing.JComboBox<>();
+        btnDeleteHospital = new javax.swing.JButton();
         jPaneladdDoctors = new javax.swing.JPanel();
         jLabelDoctoreName = new javax.swing.JLabel();
         jLabelDoctorId = new javax.swing.JLabel();
@@ -244,6 +246,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jComboBoxHospitalName_U = new javax.swing.JComboBox<>();
         rdButtonMale_U = new javax.swing.JRadioButton();
         rdButtonFemale_U = new javax.swing.JRadioButton();
+        btnDeleteDoctor = new javax.swing.JButton();
         jPanelAddPatients = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -297,6 +300,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         tfPatientId_update = new javax.swing.JTextField();
+        btnDeletePatient = new javax.swing.JButton();
         jPanelAddEncounters = new javax.swing.JPanel();
         txtPatientID = new javax.swing.JTextField();
         btnGetPatientID = new javax.swing.JButton();
@@ -339,6 +343,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         btnEditEncounter = new javax.swing.JButton();
         btnUpdateEncounter = new javax.swing.JButton();
         dcEncounterDate_U = new com.toedter.calendar.JDateChooser();
+        btnDeleteEncounter = new javax.swing.JButton();
         btnLogoutHospitalAdminFrame = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -414,6 +419,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteCity.setText("Delete City");
+        btnDeleteCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAddCityLayout = new javax.swing.GroupLayout(jPanelAddCity);
         jPanelAddCity.setLayout(jPanelAddCityLayout);
         jPanelAddCityLayout.setHorizontalGroup(
@@ -421,6 +433,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             .addGroup(jPanelAddCityLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAddCityLayout.createSequentialGroup()
+                        .addComponent(btnDeleteCity)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelAddCityLayout.createSequentialGroup()
                         .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,7 +465,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addGroup(jPanelAddCityLayout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(btnSaveCity, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 509, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84))))
         );
@@ -487,7 +502,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnEditCity)
                         .addGap(12, 12, 12)
                         .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 4450, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteCity)
+                .addGap(0, 4415, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("City", jPanelAddCity);
@@ -553,6 +570,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteCommunity.setText("Delete");
+        btnDeleteCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCommunityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAddCommunityLayout = new javax.swing.GroupLayout(jPanelAddCommunity);
         jPanelAddCommunity.setLayout(jPanelAddCommunityLayout);
         jPanelAddCommunityLayout.setHorizontalGroup(
@@ -578,25 +602,27 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                 .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelAddCommunityLayout.createSequentialGroup()
                                 .addGap(41, 41, 41)
-                                .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(165, 165, 165)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(69, 69, 69)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAddCommunityLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEditCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnViewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(79, 79, 79)
                         .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel26))
-                        .addGap(76, 76, 76)
-                        .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(469, Short.MAX_VALUE))
+                            .addGroup(jPanelAddCommunityLayout.createSequentialGroup()
+                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnEditCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnViewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(79, 79, 79)
+                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel26))
+                                .addGap(76, 76, 76)
+                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnDeleteCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanelAddCommunityLayout.setVerticalGroup(
             jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -630,7 +656,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(btnUpdateCommunity)
-                .addContainerGap(4462, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteCommunity)
+                .addContainerGap(4427, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Community", jPanelAddCommunity);
@@ -741,6 +769,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteHospital.setText("Delete");
+        btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteHospitalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAddHospitalsLayout = new javax.swing.GroupLayout(jPanelAddHospitals);
         jPanelAddHospitals.setLayout(jPanelAddHospitalsLayout);
         jPanelAddHospitalsLayout.setHorizontalGroup(
@@ -787,6 +822,10 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfHospitalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfHospitalName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxHospitalCommunity_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfHospitalPostalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
                         .addComponent(jComboBoxHospitalCity_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
@@ -794,12 +833,10 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditHospital)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateHospital))
-                    .addComponent(tfHospitalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHospitalName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxHospitalCommunity_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHospitalPostalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
+                        .addComponent(btnUpdateHospital)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeleteHospital)))
+                .addGap(18, 18, 18))
         );
         jPanelAddHospitalsLayout.setVerticalGroup(
             jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -834,16 +871,17 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     .addComponent(jLabel28)
                     .addComponent(tfHospitalName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(tfHospitalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfHospitalCode_U, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jComboBoxHospitalCity_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewHospital)
                     .addComponent(btnEditHospital)
-                    .addComponent(btnUpdateHospital))
+                    .addComponent(btnUpdateHospital)
+                    .addComponent(btnDeleteHospital))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33)
@@ -969,6 +1007,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         btnGenderGroup.add(rdButtonFemale_U);
         rdButtonFemale_U.setText("Female");
 
+        btnDeleteDoctor.setText("Delete");
+        btnDeleteDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDoctorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPaneladdDoctorsLayout = new javax.swing.GroupLayout(jPaneladdDoctors);
         jPaneladdDoctors.setLayout(jPaneladdDoctorsLayout);
         jPaneladdDoctorsLayout.setHorizontalGroup(
@@ -1022,7 +1067,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnEditDoctor)
                                 .addComponent(btnViewDoctor)
-                                .addComponent(btnUpdateDoctor))
+                                .addComponent(btnUpdateDoctor)
+                                .addComponent(btnDeleteDoctor))
                             .addGap(19, 19, 19))))
                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
@@ -1113,13 +1159,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditDoctor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateDoctor))
+                        .addComponent(btnUpdateDoctor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDeleteDoctor))
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
-                                .addComponent(tfDoctorName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
+                            .addComponent(tfDoctorName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
@@ -1330,6 +1376,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jLabel42.setText("Patient Id");
 
+        btnDeletePatient.setText("Delete");
+        btnDeletePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletePatientActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAddPatientsLayout = new javax.swing.GroupLayout(jPanelAddPatients);
         jPanelAddPatients.setLayout(jPanelAddPatientsLayout);
         jPanelAddPatientsLayout.setHorizontalGroup(
@@ -1372,9 +1425,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                                 .addComponent(cbPatientCity, javax.swing.GroupLayout.Alignment.LEADING, 0, 105, Short.MAX_VALUE))
                                             .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(tfPatientPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(tfPatientUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(tfPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(cbPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jLabel5)
                                     .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -1413,19 +1466,21 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfPatientName_update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
-                                        .addComponent(btnViewPatient)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnEditPatient)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdatePatient))
-                                    .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
                                         .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfPatientId_update, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(67, 67, 67)
                                 .addComponent(jLabel3))
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(476, Short.MAX_VALUE))
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
+                                .addComponent(btnViewPatient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditPatient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdatePatient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeletePatient)))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanelAddPatientsLayout.setVerticalGroup(
             jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1466,16 +1521,17 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(cbPatientCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
                             .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
-                                .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(cbPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(tfPatientPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)
+                                .addComponent(cbPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addComponent(tfPatientPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
-                                .addGap(70, 70, 70)
+                                .addGap(41, 41, 41)
                                 .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(tfPatientUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
@@ -1530,7 +1586,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnViewPatient)
                             .addComponent(btnEditPatient)
-                            .addComponent(btnUpdatePatient))))
+                            .addComponent(btnUpdatePatient)
+                            .addComponent(btnDeletePatient))))
                 .addGap(20, 20, 20)
                 .addComponent(btnAddPatient)
                 .addGap(36, 36, 36)
@@ -1647,6 +1704,15 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        dcEncounterDate_U.setDateFormatString("dd-MM-yyyy");
+
+        btnDeleteEncounter.setText("Delete");
+        btnDeleteEncounter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteEncounterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAddEncountersLayout = new javax.swing.GroupLayout(jPanelAddEncounters);
         jPanelAddEncounters.setLayout(jPanelAddEncountersLayout);
         jPanelAddEncountersLayout.setHorizontalGroup(
@@ -1690,10 +1756,12 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(btnViewEncounter)
-                                .addGap(41, 41, 41)
+                                .addGap(12, 12, 12)
                                 .addComponent(btnEditEncounter)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnUpdateEncounter))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnUpdateEncounter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeleteEncounter))
                             .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                                 .addGap(145, 145, 145)
                                 .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1732,7 +1800,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(454, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanelAddEncountersLayout.setVerticalGroup(
             jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1815,7 +1883,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnViewEncounter)
                             .addComponent(btnEditEncounter)
-                            .addComponent(btnUpdateEncounter))))
+                            .addComponent(btnUpdateEncounter)
+                            .addComponent(btnDeleteEncounter))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(4109, Short.MAX_VALUE))
@@ -1954,7 +2023,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     private void btnGetPatientIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetPatientIDActionPerformed
         // TODO add your handling code here:
         try {
-
+            int size = HospitalAdminFrame.patients.size();
             patientRecordIndex = 0;
             String patientId = txtPatientID.getText();
             if (patientId.isEmpty()) {
@@ -1980,8 +2049,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         "No Patient Record Found for Patient Id : " + " " + patientId,
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-                } else if (!encounterList.isEmpty() && patientRecordIndex == 1) {
-
+                } else if (!HospitalAdminFrame.encounterList.isEmpty() && patientRecordIndex == 1) {
                     tblEncounterModel.setRowCount(0);
                     for(Patient p : HospitalAdminFrame.patients){
                         if (p.getId().equals(patientId)){
@@ -2830,13 +2898,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     //                }
                 //            }
             int row = tableEncounterHistory.getSelectedRow();
-            Encounter selectedEncounter = encounterList.get(row);
+            Encounter selectedEncounter = HospitalAdminFrame.encounterList.get(row);
             VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
             Encounter updatedEncounter = new Encounter(encounterId, name, Integer.parseInt(age),
                 selectedEncounter.getPatientId(),
                 updatedVitalSigns, doctorName, encounterDate);
-            encounterList.remove(row);
-            encounterList.add(row, updatedEncounter);
+            HospitalAdminFrame.encounterList.remove(row);
+            HospitalAdminFrame.encounterList.add(row, updatedEncounter);
             tblEncounterModel.removeRow(row);
             SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
             String date = dateformat.format(encounterDate);
@@ -2886,13 +2954,14 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             } else {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
-                Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, doctorName, encounterDate);
+                Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, 
+                        doctorName, encounterDate);
                 for(Patient p: HospitalAdminFrame.patients){
                     if(p.getId().equals(patientId)){
                         p.getEncounterHistory().getEncounters().add(encounter);
                     }
                 }
-                encounterList.add(encounter);
+                HospitalAdminFrame.encounterList.add(encounter);
                 System.out.println(patientId);
 
                 JOptionPane.showMessageDialog(this,
@@ -2904,6 +2973,59 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnAddEncounterActionPerformed
+
+    private void btnDeleteEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEncounterActionPerformed
+        // TODO add your handling code here:
+        int row = tableEncounterHistory.getSelectedRow();
+        tblEncounterModel.removeRow(row);
+        HospitalAdminFrame.encounterList.remove(row);
+    }//GEN-LAST:event_btnDeleteEncounterActionPerformed
+
+    private void btnDeleteCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCityActionPerformed
+        // TODO add your handling code here:
+        int row = tableCityDetails.getSelectedRow();
+        tableModelCity.removeRow(row);
+        AddCityPanel.cityList.remove(row);
+        loadComboBoxData();
+    }//GEN-LAST:event_btnDeleteCityActionPerformed
+
+    private void btnDeleteCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCommunityActionPerformed
+        // TODO add your handling code here:
+        int row = tableCommunityDetails.getSelectedRow();
+        String community = (String) tableCommunityDetails.getValueAt(row, 0);
+        tableModelCommunity.removeRow(row);
+        AddCommunityPanel.communityList.remove(row);
+        for(City city : AddCityPanel.cityList) {
+            for(Community comm:city.getCommunities()) {
+                if(comm.getCommunityName().equals(community)) {
+                    city.getCommunities().remove(comm);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnDeleteCommunityActionPerformed
+
+    private void btnDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteHospitalActionPerformed
+        // TODO add your handling code here:
+        int row = tableHospitals.getSelectedRow();
+        tblModel.removeRow(row);
+        HospitalAdminFrame.hospitals.remove(row);
+        setHospitalNameComboBox();
+    }//GEN-LAST:event_btnDeleteHospitalActionPerformed
+
+    private void btnDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDoctorActionPerformed
+        // TODO add your handling code here:
+        int row = tableDoctors.getSelectedRow();
+        doctorTblModel.removeRow(row);
+        HospitalAdminFrame.doctors.remove(row);
+        setDoctorCombobox();
+    }//GEN-LAST:event_btnDeleteDoctorActionPerformed
+
+    private void btnDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletePatientActionPerformed
+        // TODO add your handling code here:
+        int row = tablePatientDetails.getSelectedRow();
+        tblPatientModel.removeRow(row);
+        HospitalAdminFrame.patients.remove(row);
+    }//GEN-LAST:event_btnDeletePatientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2945,6 +3067,12 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddEncounter;
     private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnAddPatient;
+    private javax.swing.JButton btnDeleteCity;
+    private javax.swing.JButton btnDeleteCommunity;
+    private javax.swing.JButton btnDeleteDoctor;
+    private javax.swing.JButton btnDeleteEncounter;
+    private javax.swing.JButton btnDeleteHospital;
+    private javax.swing.JButton btnDeletePatient;
     private javax.swing.JButton btnEditCity;
     private javax.swing.JButton btnEditCommunity;
     private javax.swing.JButton btnEditDoctor;

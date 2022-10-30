@@ -166,7 +166,7 @@ public class HomeFrame extends javax.swing.JFrame {
                 hospitalAdminFrame.setVisible(true);
             }
             else if (role.equals("Patient")) {
-                for(Patient p: PatientDirectory.getPatients()) {
+                for(Patient p: HospitalAdminFrame.patients) {
                     if(userName.equals(p.getUserName()) && passwordString.equals(p.getPassWord())) {
                         PatientFrame patientFrame = new PatientFrame();
                         PatientPanel patientPanel = new PatientPanel(p);
@@ -176,7 +176,7 @@ public class HomeFrame extends javax.swing.JFrame {
                 }
             }
             else if (role.equals("Doctor")) {
-                for(Doctor d: DoctorDirectory.getDoctors()) {
+                for(Doctor d: HospitalAdminFrame.doctors) {
                     if(userName.equals(d.getUserName()) && passwordString.equals(d.getPassWord())) {
                         DoctorFrame doctorFrame = new DoctorFrame();
                         DoctorPanel doctorPanel = new DoctorPanel(d);
