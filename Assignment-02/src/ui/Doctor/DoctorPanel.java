@@ -4,8 +4,11 @@
  */
 package ui.Doctor;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -362,8 +365,6 @@ public class DoctorPanel extends javax.swing.JPanel {
         try {
             //patientRecordIndex = 0;
             String patientId = txtPatientID.getText();
-            //int val = PatientDirectory.getPatients().size();
-            //System.out.print("PatientDirectory" + val);
             for (Patient p : HospitalAdminFrame.patients) {
                 if (p.getId().equals(patientId)) {
                     txtEncounterPatientName.setText(p.getName());
@@ -541,8 +542,13 @@ public class DoctorPanel extends javax.swing.JPanel {
             txtEncounterDoctorName_U.setText(doctorName);
             txtEncounterDoctorName_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(DoctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnViewEncounterActionPerformed
 

@@ -482,7 +482,6 @@ public class PatientPanel extends javax.swing.JPanel {
     private void btnGetDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetDoctorsActionPerformed
         // TODO add your handling code here:
 
-//        String communityName = tfCommunityName.getText();
         String communityName = (String) cbPatientCommunity.getSelectedItem();
         hospitalNames = new ArrayList();
         //System.out.println(HospitalDirectory.getHospitals());
@@ -606,6 +605,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         tfPatientName.setEditable(true);
@@ -634,6 +634,13 @@ public class PatientPanel extends javax.swing.JPanel {
         }
         cbPatientCity.setSelectedIndex(index);
         cbPatientCommunity.setSelectedIndex(commIndex);
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed

@@ -231,8 +231,11 @@ public class AddCityPanel extends javax.swing.JPanel {
             txtState_U.setText(state);
             txtState_U.setEditable(false);
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCityActionPerformed
 

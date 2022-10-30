@@ -4,10 +4,13 @@
  */
 package ui.SystemAdmin;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.City;
@@ -429,25 +432,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                        .addComponent(btnDeleteCity)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                        .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditCity, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnViewCity, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(161, 161, 161)
-                        .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtState_U, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelAddCityLayout.createSequentialGroup()
                         .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAddCityLayout.createSequentialGroup()
                                 .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -462,7 +446,24 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                                 .addComponent(btnSaveCity, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                        .addGap(84, 84, 84))
+                    .addGroup(jPanelAddCityLayout.createSequentialGroup()
+                        .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnDeleteCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdateCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(btnEditCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(btnViewCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                        .addGap(161, 161, 161)
+                        .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAddCityLayout.createSequentialGroup()
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelAddCityLayout.createSequentialGroup()
+                                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtState_U, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelAddCityLayout.setVerticalGroup(
             jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,10 +481,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(btnSaveCity, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(17, 17, 17)
+                .addComponent(btnViewCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addGroup(jPanelAddCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
                             .addComponent(txtCityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -492,14 +494,12 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabel32)
                             .addComponent(txtState_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelAddCityLayout.createSequentialGroup()
-                        .addComponent(btnViewCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEditCity)
-                        .addGap(12, 12, 12)
+                        .addComponent(btnEditCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDeleteCity)
-                .addGap(0, 4442, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeleteCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4440, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("City", jPanelAddCity);
@@ -2121,8 +2121,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            }
-            else {
+            } else {
 
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
@@ -2190,7 +2189,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 displayHospitalTable();
                 setCityCombobox();
                 displayPatientTable();
-                
+
             }
         } catch (Exception ex) {
 
@@ -2254,8 +2253,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
             txtState_U.setText(state);
             txtState_U.setEditable(false);
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCityActionPerformed
 
@@ -2285,9 +2287,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             Object[] data = {city, state};
             tableModelCity.insertRow(row, data);
             JOptionPane.showMessageDialog(this,
-                        "City Data Updated",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
+                    "City Data Updated",
+                    "Success",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         displayHospitalTable();
         setCityCombobox();
@@ -2323,20 +2325,18 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
             txtZipCode_U.setText(zipcode);
             txtZipCode_U.setEditable(false);
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCommunityActionPerformed
 
     private void btnEditCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCommunityActionPerformed
         // TODO add your handling code here:
         txtCommunityName_U.setEditable(true);
-        //        txtZipCode_U.setEditable(true);
-        //        cmbBoxSelectCity_U.setEnabled(true);
-        //        cmbBoxSelectCity_U.removeAllItems();
-        //        for(City c: AddCityPanel.cityList){
-        //            cmbBoxSelectCity_U.addItem(c.getCityName());
-        //        }
+        txtZipCode_U.setEditable(true);
     }//GEN-LAST:event_btnEditCommunityActionPerformed
 
     private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
@@ -2378,9 +2378,9 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             displayHospitalTable();
             displayPatientTable();
             JOptionPane.showMessageDialog(this,
-                        "Community Data Updated",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
+                    "Community Data Updated",
+                    "Success",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnUpdateCommunityActionPerformed
 
@@ -2415,36 +2415,46 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             tfHospitalPostalCode_U.setText(zipcode);
             tfHospitalPostalCode_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewHospitalActionPerformed
 
     private void btnEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditHospitalActionPerformed
         // TODO add your handling code here:
-        int index = 0;
-        int commIndex = 0;
-        int row = tableHospitals.getSelectedRow();
-        String hospitalCommunity = tblModel.getValueAt(row, 1).toString();
-        String hospitalCity = tblModel.getValueAt(row, 3).toString();
-        tfHospitalName_U.setEditable(true);
-        tfHospitalCode_U.setEditable(false);
-        tfHospitalPostalCode_U.setEditable(true);
-        jComboBoxHospitalCity_U.setEnabled(true);
-        jComboBoxHospitalCity_U.removeAllItems();
-        for (City city : AddCityPanel.cityList) {
-            jComboBoxHospitalCity_U.addItem(city.getCityName());
-            if (hospitalCity.equals(city.getCityName())) {
-                index = AddCityPanel.cityList.indexOf(city);
-                for (Community c : city.getCommunities()) {
-                    if (c.getCommunityName().equals(hospitalCommunity)) {
-                        commIndex = city.getCommunities().indexOf(c);
+        try {
+            int index = 0;
+            int commIndex = 0;
+            int row = tableHospitals.getSelectedRow();
+            String hospitalCommunity = tblModel.getValueAt(row, 1).toString();
+            String hospitalCity = tblModel.getValueAt(row, 3).toString();
+            tfHospitalName_U.setEditable(true);
+            tfHospitalCode_U.setEditable(false);
+            tfHospitalPostalCode_U.setEditable(true);
+            jComboBoxHospitalCity_U.setEnabled(true);
+            jComboBoxHospitalCity_U.removeAllItems();
+            for (City city : AddCityPanel.cityList) {
+                jComboBoxHospitalCity_U.addItem(city.getCityName());
+                if (hospitalCity.equals(city.getCityName())) {
+                    index = AddCityPanel.cityList.indexOf(city);
+                    for (Community c : city.getCommunities()) {
+                        if (c.getCommunityName().equals(hospitalCommunity)) {
+                            commIndex = city.getCommunities().indexOf(c);
+                        }
                     }
                 }
             }
+            jComboBoxHospitalCity_U.setSelectedIndex(index);
+            jComboBoxHospitalCommunity_U.setSelectedIndex(commIndex);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
-        jComboBoxHospitalCity_U.setSelectedIndex(index);
-        jComboBoxHospitalCommunity_U.setSelectedIndex(commIndex);
     }//GEN-LAST:event_btnEditHospitalActionPerformed
 
     private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
@@ -2557,32 +2567,42 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             tfPhoneNumber_U.setText(doctorPhNo);
             tfPhoneNumber_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDoctorActionPerformed
 
     private void btnEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDoctorActionPerformed
         // TODO add your handling code here:
-        int index = 0;
-        int row = tableDoctors.getSelectedRow();
-        String hospitalName = doctorTblModel.getValueAt(row, 4).toString();
-        tfDoctorName_U.setEditable(true);
-        tfDoctorId_U.setEditable(false);
-        tfAge_U.setEditable(true);
-        rdButtonMale_U.setEnabled(true);
-        rdButtonFemale_U.setEnabled(true);
-        jComboBoxHospitalName_U.removeAllItems();
-        for (Hospital hsptl : HospitalAdminFrame.hospitals) {
-            jComboBoxHospitalName_U.addItem(hsptl.getHospitalName());
-            if (hospitalName.equals(hsptl.getHospitalName())) {
-                index = HospitalAdminFrame.hospitals.indexOf(hsptl);
+        try {
+            int index = 0;
+            int row = tableDoctors.getSelectedRow();
+            String hospitalName = doctorTblModel.getValueAt(row, 4).toString();
+            tfDoctorName_U.setEditable(true);
+            tfDoctorId_U.setEditable(false);
+            tfAge_U.setEditable(true);
+            rdButtonMale_U.setEnabled(true);
+            rdButtonFemale_U.setEnabled(true);
+            jComboBoxHospitalName_U.removeAllItems();
+            for (Hospital hsptl : HospitalAdminFrame.hospitals) {
+                jComboBoxHospitalName_U.addItem(hsptl.getHospitalName());
+                if (hospitalName.equals(hsptl.getHospitalName())) {
+                    index = HospitalAdminFrame.hospitals.indexOf(hsptl);
+                }
             }
+            jComboBoxHospitalName_U.setSelectedIndex(index);
+            jComboBoxHospitalName_U.setEditable(true);
+            tfDepartment_U.setEditable(true);
+            tfPhoneNumber_U.setEditable(true);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
-        jComboBoxHospitalName_U.setSelectedIndex(index);
-        jComboBoxHospitalName_U.setEditable(true);
-        tfDepartment_U.setEditable(true);
-        tfPhoneNumber_U.setEditable(true);
     }//GEN-LAST:event_btnEditDoctorActionPerformed
 
     private void btnUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDoctorActionPerformed
@@ -2775,43 +2795,53 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             tfPatientPostalCode_update.setText(patientPhNo);
             tfPatientPostalCode_update.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewPatientActionPerformed
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
-        int index = 0;
-        int commIndex = 0;
-        int row = tablePatientDetails.getSelectedRow();
-        String community = tblPatientModel.getValueAt(row, 5).toString();
-        String city = tblPatientModel.getValueAt(row, 6).toString();
-        tfPatientId_update.setEditable(false);
-        tfPatientName_update.setEditable(true);
-        tfCellPhone_update.setEditable(true);
-        tfAge_update.setEditable(true);
-        rdMale_update.setEnabled(true);
-        rdFemale_update.setEnabled(true);
-        rdOther_update.setEnabled(true);
-        tfHouseNo_update.setEditable(true);
-        tfPatientPostalCode_update.setEditable(true);
-        tfPatientPostalCode_update.setEditable(true);
-        cbPatientCity_update.setEnabled(true);
-        cbPatientCity_update.removeAllItems();
-        for (City c : AddCityPanel.cityList) {
-            cbPatientCity_update.addItem(c.getCityName());
-            if (city.equals(c.getCityName())) {
-                index = AddCityPanel.cityList.indexOf(c);
-                for (Community comm : c.getCommunities()) {
-                    if (community.equals(comm.getCommunityName())) {
-                        commIndex = c.getCommunities().indexOf(comm);
+        try {
+            int index = 0;
+            int commIndex = 0;
+            int row = tablePatientDetails.getSelectedRow();
+            String community = tblPatientModel.getValueAt(row, 5).toString();
+            String city = tblPatientModel.getValueAt(row, 6).toString();
+            tfPatientId_update.setEditable(false);
+            tfPatientName_update.setEditable(true);
+            tfCellPhone_update.setEditable(true);
+            tfAge_update.setEditable(true);
+            rdMale_update.setEnabled(true);
+            rdFemale_update.setEnabled(true);
+            rdOther_update.setEnabled(true);
+            tfHouseNo_update.setEditable(true);
+            tfPatientPostalCode_update.setEditable(true);
+            tfPatientPostalCode_update.setEditable(true);
+            cbPatientCity_update.setEnabled(true);
+            cbPatientCity_update.removeAllItems();
+            for (City c : AddCityPanel.cityList) {
+                cbPatientCity_update.addItem(c.getCityName());
+                if (city.equals(c.getCityName())) {
+                    index = AddCityPanel.cityList.indexOf(c);
+                    for (Community comm : c.getCommunities()) {
+                        if (community.equals(comm.getCommunityName())) {
+                            commIndex = c.getCommunities().indexOf(comm);
+                        }
                     }
                 }
             }
+            cbPatientCity_update.setSelectedIndex(index);
+            cbPatientCommunity_update.setSelectedIndex(commIndex);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
-        cbPatientCity_update.setSelectedIndex(index);
-        cbPatientCommunity_update.setSelectedIndex(commIndex);
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void txtEncounterPatientAge_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEncounterPatientAge_UActionPerformed
@@ -2865,8 +2895,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             txtEncounterDoctorName_U.setText(doctorName);
             txtEncounterDoctorName_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(SystemAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnViewEncounterActionPerformed
 
@@ -2985,58 +3020,100 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnDeleteEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteEncounterActionPerformed
         // TODO add your handling code here:
-        int row = tableEncounterHistory.getSelectedRow();
-        tblEncounterModel.removeRow(row);
-        HospitalAdminFrame.encounterList.remove(row);
+        try {
+            int row = tableEncounterHistory.getSelectedRow();
+            tblEncounterModel.removeRow(row);
+            HospitalAdminFrame.encounterList.remove(row);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteEncounterActionPerformed
 
     private void btnDeleteCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCityActionPerformed
         // TODO add your handling code here:
-        int row = tableCityDetails.getSelectedRow();
-        tableModelCity.removeRow(row);
-        AddCityPanel.cityList.remove(row);
-        loadComboBoxData();
+        try {
+            int row = tableCityDetails.getSelectedRow();
+            tableModelCity.removeRow(row);
+            AddCityPanel.cityList.remove(row);
+            loadComboBoxData();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteCityActionPerformed
 
     private void btnDeleteCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCommunityActionPerformed
         // TODO add your handling code here:
-        int index = 0;
-        int row = tableCommunityDetails.getSelectedRow();
-        String community = (String) tableCommunityDetails.getValueAt(row, 0);
-        tableModelCommunity.removeRow(row);
-        AddCommunityPanel.communityList.remove(row);
-        for (City city : AddCityPanel.cityList) {
-            for (Community comm : city.getCommunities()) {
-                if (comm.getCommunityName().equals(community)) {
-                    index = city.getCommunities().indexOf((comm));
-                    city.getCommunities().remove(index);
-                    break;
+        try {
+            int index = 0;
+            int row = tableCommunityDetails.getSelectedRow();
+            String community = (String) tableCommunityDetails.getValueAt(row, 0);
+            tableModelCommunity.removeRow(row);
+            AddCommunityPanel.communityList.remove(row);
+            for (City city : AddCityPanel.cityList) {
+                for (Community comm : city.getCommunities()) {
+                    if (comm.getCommunityName().equals(community)) {
+                        index = city.getCommunities().indexOf((comm));
+                        city.getCommunities().remove(index);
+                        break;
+                    }
                 }
             }
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteCommunityActionPerformed
 
     private void btnDeleteHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteHospitalActionPerformed
         // TODO add your handling code here:
-        int row = tableHospitals.getSelectedRow();
-        tblModel.removeRow(row);
-        HospitalAdminFrame.hospitals.remove(row);
-        setHospitalNameComboBox();
+        try {
+            int row = tableHospitals.getSelectedRow();
+            tblModel.removeRow(row);
+            HospitalAdminFrame.hospitals.remove(row);
+            setHospitalNameComboBox();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteHospitalActionPerformed
 
     private void btnDeleteDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDoctorActionPerformed
         // TODO add your handling code here:
-        int row = tableDoctors.getSelectedRow();
-        doctorTblModel.removeRow(row);
-        HospitalAdminFrame.doctors.remove(row);
-        setDoctorCombobox();
+        try {
+            int row = tableDoctors.getSelectedRow();
+            doctorTblModel.removeRow(row);
+            HospitalAdminFrame.doctors.remove(row);
+            setDoctorCombobox();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeleteDoctorActionPerformed
 
     private void btnDeletePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletePatientActionPerformed
         // TODO add your handling code here:
-        int row = tablePatientDetails.getSelectedRow();
-        tblPatientModel.removeRow(row);
-        HospitalAdminFrame.patients.remove(row);
+        try {
+            int row = tablePatientDetails.getSelectedRow();
+            tblPatientModel.removeRow(row);
+            HospitalAdminFrame.patients.remove(row);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Please select a row to view",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDeletePatientActionPerformed
 
     private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed

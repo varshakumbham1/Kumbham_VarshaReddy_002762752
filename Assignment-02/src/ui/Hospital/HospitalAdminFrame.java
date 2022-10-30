@@ -4,9 +4,12 @@
  */
 package ui.Hospital;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.City;
@@ -1845,14 +1848,18 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfHospitalPostalCode_U.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnViewHospitalActionPerformed
 
     private void btnEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditHospitalActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         int row = tableHospitals.getSelectedRow();
@@ -1876,7 +1883,13 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         }
         jComboBoxHospitalCity_U.setSelectedIndex(index);
         jComboBoxHospitalCommunity_U.setSelectedIndex(commIndex);
-
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditHospitalActionPerformed
 
     private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
@@ -1991,13 +2004,17 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfPhoneNumber_U.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDoctorActionPerformed
 
     private void btnEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDoctorActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int row = tableDoctors.getSelectedRow();
         String hospitalName = doctorTblModel.getValueAt(row, 4).toString();
@@ -2017,6 +2034,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         jComboBoxHospitalName_U.setEditable(true);
         tfDepartment_U.setEditable(true);
         tfPhoneNumber_U.setEditable(true);
+        } catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditDoctorActionPerformed
 
     private void btnUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDoctorActionPerformed
@@ -2212,13 +2235,17 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             tfPatientPostalCode_update.setEditable(false);
 
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewPatientActionPerformed
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        try {
         int index = 0;
         int commIndex = 0;
         int row = tablePatientDetails.getSelectedRow();
@@ -2249,6 +2276,13 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         }
         cbPatientCity_update.setSelectedIndex(index);
         cbPatientCommunity_update.setSelectedIndex(commIndex);
+        }
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void txtHeartRate_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeartRate_UActionPerformed
@@ -2298,8 +2332,14 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             txtEncounterDoctorName_U.setText(doctorName);
             txtEncounterDoctorName_U.setEditable(false);
 
-        } catch (Exception ex) {
-
+        } 
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+        } catch (ParseException ex) {
+            Logger.getLogger(HospitalAdminFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnViewEncounterActionPerformed

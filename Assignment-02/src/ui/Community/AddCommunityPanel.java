@@ -252,22 +252,17 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             String community = tableModel.getValueAt(row, 0).toString();
             String zipcode = tableModel.getValueAt(row, 1).toString();
             String city = tableModel.getValueAt(row, 2).toString();
-
-//            cmbBoxSelectCity_U.removeAllItems();
-//            //           for(City c: AddCityPanel.cityList){
-//                cmbBoxSelectCity_U.addItem(city);
-//                //           }
-//            //            cmbBoxSelectCity_U.getItemAt(row);
-//            cmbBoxSelectCity_U.setEnabled(false);
-
             txtCommunityName_U.setText(community);
             txtCommunityName_U.setEditable(false);
 
             txtZipCode_U.setText(zipcode);
             txtZipCode_U.setEditable(false);
         }
-        catch(Exception ex){
-
+        catch(ArrayIndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(this,
+                        "Please select a row to view",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnViewCommunityActionPerformed
 
