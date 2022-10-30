@@ -17,14 +17,11 @@ import model.Community;
  */
 public class AddCityPanel extends javax.swing.JPanel {
 
-    static Iterable<City> cities;
-
     /**
      * Creates new form AddCityPanel
      */
     DefaultTableModel tableModel;
     public static ArrayList<City> cityList = new ArrayList<City>();
-
     public AddCityPanel() {
         initComponents();
         tableModel = (DefaultTableModel) tableCityDetails.getModel();

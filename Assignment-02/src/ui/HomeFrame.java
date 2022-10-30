@@ -15,6 +15,7 @@ import ui.Doctor.DoctorPanel;
 import ui.Hospital.HospitalAdminFrame;
 import ui.Patient.PatientFrame;
 import ui.Patient.PatientPanel;
+import ui.SystemAdmin.SystemAdminFrame;
 
 /**
  *
@@ -184,14 +185,12 @@ public class HomeFrame extends javax.swing.JFrame {
                     }
                 }
             }
-            //        if(role.equalsIgnoreCase("Community Admin")){
-                //            CommunityAdminFrame communityAdminFrame = new CommunityAdminFrame();
-                //            communityAdminFrame.setVisible(true);
-                //        }
-            //        else if(role.equalsIgnoreCase("Hospital Admin")){
-                //            HospitalAdminFrame hospitalAdminFrame = new HospitalAdminFrame();
-                //            hospitalAdminFrame.setVisible(true);
-                //        }
+            else if (role.equals("Sys Admin")
+                && userName.equals("sadmin")
+                && passwordString.equals("sadmin")) {
+                SystemAdminFrame systemAdminFrame = new SystemAdminFrame();
+                systemAdminFrame.setVisible(true);
+            }
             revalidate();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
