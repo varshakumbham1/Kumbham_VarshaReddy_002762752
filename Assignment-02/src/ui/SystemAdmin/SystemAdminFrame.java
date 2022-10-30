@@ -117,7 +117,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     public void displayPatientTable() {
         tblPatientModel.setRowCount(0);
         for(Patient p: HospitalAdminFrame.patients) {
-            Object[] row_data = {p.getName(), p.getId(), p.getAge(), p.getGender(), p.getStreetAddress(),p.getCommunity(),p.getCity()};
+            Object[] row_data = {p.getName(), p.getId(), p.getAge(), p.getGender(), 
+                p.getStreetAddress(),p.getCommunity(),p.getCity(), p.getPostalCode(), p.getPhoneNumber()};
             tblPatientModel.addRow(row_data);
         }
     }
@@ -2466,6 +2467,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnEditHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditHospitalActionPerformed
         // TODO add your handling code here:
+        int index = 0;
+        int commIndex = 0;
+        int row = tableHospitals.getSelectedRow();
+        String hospitalCommunity = tblModel.getValueAt(row, 1).toString();
+        String hospitalCity = tblModel.getValueAt(row, 3).toString();
         tfHospitalName_U.setEditable(true);
         tfHospitalCode_U.setEditable(false);
         tfHospitalPostalCode_U.setEditable(true);
@@ -2473,7 +2479,17 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jComboBoxHospitalCity_U.removeAllItems();
         for (City city : AddCityPanel.cityList) {
             jComboBoxHospitalCity_U.addItem(city.getCityName());
+            if(hospitalCity.equals(city.getCityName())){
+                index = AddCityPanel.cityList.indexOf(city);
+                for(Community c: city.getCommunities()){
+                    if(c.getCommunityName().equals(hospitalCommunity)){
+                        commIndex = city.getCommunities().indexOf(c);
+                    }
+                }
+            }
         }
+        jComboBoxHospitalCity_U.setSelectedIndex(index);
+        jComboBoxHospitalCommunity_U.setSelectedIndex(commIndex);
     }//GEN-LAST:event_btnEditHospitalActionPerformed
 
     private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
@@ -2586,16 +2602,22 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnEditDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDoctorActionPerformed
         // TODO add your handling code here:
+        int index = 0;
+        int row = tableDoctors.getSelectedRow();
+        String hospitalName = doctorTblModel.getValueAt(row, 4).toString();
         tfDoctorName_U.setEditable(true);
         tfDoctorId_U.setEditable(false);
         tfAge_U.setEditable(true);
         rdButtonMale_U.setEnabled(true);
         rdButtonFemale_U.setEnabled(true);
-
         jComboBoxHospitalName_U.removeAllItems();
-        for(Hospital hsptl:HospitalAdminFrame.hospitals) {
+        for (Hospital hsptl : HospitalAdminFrame.hospitals) {
             jComboBoxHospitalName_U.addItem(hsptl.getHospitalName());
+            if(hospitalName.equals(hsptl.getHospitalName())){
+                index = HospitalAdminFrame.hospitals.indexOf(hsptl);
+            }
         }
+        jComboBoxHospitalName_U.setSelectedIndex(index);
         jComboBoxHospitalName_U.setEditable(true);
         tfDepartment_U.setEditable(true);
         tfPhoneNumber_U.setEditable(true);
@@ -2783,6 +2805,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        int index = 0;
+        int commIndex = 0;
+        int row = tablePatientDetails.getSelectedRow();
+        String community = tblPatientModel.getValueAt(row, 5).toString();
+        String city = tblPatientModel.getValueAt(row, 6).toString();
         tfPatientId_update.setEditable(false);
         tfPatientName_update.setEditable(true);
         tfCellPhone_update.setEditable(true);
@@ -2792,13 +2819,22 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         rdOther_update.setEnabled(true);
         tfHouseNo_update.setEditable(true);
         tfPatientPostalCode_update.setEditable(true);
+        tfPatientPostalCode_update.setEditable(true);
         cbPatientCity_update.setEnabled(true);
         cbPatientCity_update.removeAllItems();
-        for (City city : AddCityPanel.cityList) {
-            cbPatientCity_update.addItem(city.getCityName());
+        for (City c : AddCityPanel.cityList) {
+            cbPatientCity_update.addItem(c.getCityName());
+            if(city.equals(c.getCityName())){
+                index = AddCityPanel.cityList.indexOf(c);
+                for(Community comm: c.getCommunities()){
+                    if(community.equals(comm.getCommunityName())){
+                        commIndex = c.getCommunities().indexOf(comm);
+                    }
+                }
+            }
         }
-
-        tfPatientPostalCode_update.setEditable(true);
+        cbPatientCity_update.setSelectedIndex(index);
+        cbPatientCommunity_update.setSelectedIndex(commIndex);
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void txtEncounterPatientAge_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEncounterPatientAge_UActionPerformed

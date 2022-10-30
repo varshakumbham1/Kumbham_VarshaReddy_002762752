@@ -14,11 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.Community;
 import model.Doctor;
-import model.DoctorDirectory;
 import model.Encounter;
 import model.EncounterHistory;
 import model.Hospital;
-import model.HospitalDirectory;
 import model.Patient;
 import model.VitalSigns;
 import ui.Community.AddCityPanel;
@@ -499,14 +497,14 @@ public class PatientPanel extends javax.swing.JPanel {
 //        String communityName = tfCommunityName.getText();
         String communityName = (String) cbPatientCommunity.getSelectedItem();
         hospitalNames = new ArrayList();
-        System.out.println(HospitalDirectory.getHospitals());
-        for(Hospital hospital:HospitalDirectory.getHospitals()) {
+        //System.out.println(HospitalDirectory.getHospitals());
+        for(Hospital hospital:HospitalAdminFrame.hospitals) {
             if(hospital.getCommunity().equals(communityName)) {
                 hospitalNames.add(hospital.getHospitalName());
             }
         }
         System.out.println(hospitalNames);
-        for(Doctor doctor:DoctorDirectory.getDoctors()) {
+        for(Doctor doctor:HospitalAdminFrame.doctors) {
             String hospitalName = doctor.getHospitalName();
             if(hospitalNames.contains(hospitalName)) {
                 Object[] data = {doctor.getName(), doctor.getId(), doctor.getGender(),
@@ -603,6 +601,8 @@ public class PatientPanel extends javax.swing.JPanel {
 
     private void btnEditPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPatientActionPerformed
         // TODO add your handling code here:
+        int index = 0;
+        int commIndex = 0;
         tfPatientName.setEditable(true);
         tfPatientId.setEditable(false);
         tfPatientAge.setEditable(true);
@@ -616,6 +616,19 @@ public class PatientPanel extends javax.swing.JPanel {
         tfPatientPostalCode.setEditable(true);  
         tfPatientUsername.setEditable(true);
         tfPatientPassword.setEditable(true);
+        for (City city : AddCityPanel.cityList) {
+            cbPatientCity.addItem(city.getCityName());
+            if(cbPatientCity.getSelectedItem().equals(city.getCityName())){
+                index = AddCityPanel.cityList.indexOf(city);
+                for(Community c: city.getCommunities()){
+                    if(c.getCommunityName().equals(cbPatientCommunity.getSelectedItem())){
+                        commIndex = city.getCommunities().indexOf(c);
+                    }
+                }
+            }
+        }
+        cbPatientCity.setSelectedIndex(index);
+        cbPatientCommunity.setSelectedIndex(commIndex);
     }//GEN-LAST:event_btnEditPatientActionPerformed
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed

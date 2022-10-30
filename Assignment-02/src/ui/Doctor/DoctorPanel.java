@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Doctor;
 import model.Encounter;
 import model.Patient;
-import model.PatientDirectory;
+
 import model.VitalSigns;
 import ui.HomeFrame;
 import ui.Hospital.HospitalAdminFrame;
@@ -407,7 +407,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                 //
                 //
                 //
-                //                    for (Patient p : PatientDirectory.getPatients()) {
+                //                    for (Patient p : HospitalAdminFrame.patients) {
                     //                        if (p.getId().equals(patientId)) {
                         //                            txtEncounterPatientName.setText(p.getName());
                         //                            int age = p.getAge();
@@ -423,8 +423,8 @@ public class DoctorPanel extends javax.swing.JPanel {
                         //                                JOptionPane.ERROR_MESSAGE);
                     //                    } else {
                     //                        tblEncounterModel.setRowCount(0);
-                    //                        System.out.print("Patient Directory" + PatientDirectory.getPatients().size());
-                    //                        for(Patient p : PatientDirectory.getPatients()){
+                    //                        System.out.print("Patient Directory" + HospitalAdminFrame.patients.size());
+                    //                        for(Patient p : HospitalAdminFrame.patients){
                         //                            if (p.getId().equals(patientId)){
                             //                                for(Encounter en : p.getEncounterHistory().getEncounters()){
                                 //                                    SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
@@ -467,7 +467,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, doctorName, encounterDate);
-                for(Patient p: PatientDirectory.getPatients()){
+                for(Patient p: HospitalAdminFrame.patients){
                     if(p.getId().equals(patientId)){
                         p.getEncounterHistory().getEncounters().add(encounter);
                     }
@@ -603,7 +603,7 @@ public class DoctorPanel extends javax.swing.JPanel {
                 temperature, bloodPressure,
                 heartRate, doctorName};
             tblEncounterModel.insertRow(row, data);
-            for(Patient p: PatientDirectory.getPatients()){
+            for(Patient p: HospitalAdminFrame.patients){
                 if(p.getId().equals(selectedEncounter.getPatientId())){
                     for(Encounter e: p.getEncounterHistory().getEncounters()){
                         if(e.getEncounterId().equals(encounterId)){

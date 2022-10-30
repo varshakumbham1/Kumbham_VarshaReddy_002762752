@@ -6,9 +6,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import model.Doctor;
-import model.DoctorDirectory;
 import model.Patient;
-import model.PatientDirectory;
 import ui.Community.CommunityAdminFrame;
 import ui.Doctor.DoctorFrame;
 import ui.Doctor.DoctorPanel;
