@@ -138,7 +138,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
         
         addCommunityPanel.tableModel.setRowCount(0);
         for(Community c: communityList){
-            Object[] data = {c.getCommunityName(), c.getCityName(), c.getZipcode()};
+            Object[] data = {c.getCommunityName(), c.getZipcode(), c.getCityName()};
             addCommunityPanel.tableModel.addRow(data);
         }
         

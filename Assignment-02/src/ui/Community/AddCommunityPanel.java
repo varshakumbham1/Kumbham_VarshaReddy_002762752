@@ -22,7 +22,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
      */
     public static List<Community> communities;
     DefaultTableModel tableModel;
-    static ArrayList<Community> communityList = new ArrayList<Community>();
+    public static ArrayList<Community> communityList = new ArrayList<Community>();
     public AddCommunityPanel() {
         initComponents();
         tableModel = (DefaultTableModel)tableCommunityDetails.getModel();

@@ -13,17 +13,15 @@ import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.Community;
 import model.Doctor;
-import model.DoctorDirectory;
 import model.Encounter;
 import model.EncounterHistory;
 import model.Hospital;
-import model.HospitalDirectory;
 import model.Patient;
-import model.PatientDirectory;
 import model.VitalSigns;
 import ui.Community.AddCityPanel;
-import static ui.Community.AddCityPanel.cityList;
+import ui.Community.AddCommunityPanel;
 import ui.HomeFrame;
+import ui.Hospital.HospitalAdminFrame;
 
 /**
  *
@@ -43,11 +41,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     DefaultTableModel doctorTblModel;
     Hospital hospital;
     DefaultTableModel tblModel;
-    HospitalDirectory listOfHospitals = new HospitalDirectory();
     
-    static ArrayList<Patient> patients = new ArrayList<Patient>();
-    PatientDirectory listOfPatients = new PatientDirectory(patients);
-    DoctorDirectory listOfDoctors = new DoctorDirectory();
     public static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
     
     DefaultTableModel tableModelCity;
@@ -68,13 +62,13 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
     public void setHospitalNameComboBox() {
         jComboBoxHospitalName.removeAllItems();
-        for(Hospital hsptl:listOfHospitals.getHospitals()) {
+        for(Hospital hsptl:HospitalAdminFrame.hospitals) {
             jComboBoxHospitalName.addItem(hsptl.getHospitalName());
         }
     }
     public void setDoctorCombobox() {
         cmbBoxEncounterDoctorName.removeAllItems();
-        for (Doctor doctor : listOfDoctors.getDoctors()) {
+        for (Doctor doctor : HospitalAdminFrame.doctors) {
             cmbBoxEncounterDoctorName.addItem(doctor.getName());
         }
     }
@@ -88,7 +82,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     public SystemAdminFrame() {
         initComponents();
         setCityCombobox();
-        
+        loadComboBoxData();
+        setHospitalNameComboBox();
         tblModel = (DefaultTableModel) tableHospitals.getModel();
         tblEncounterModel = (DefaultTableModel) tableEncounterHistory.getModel();
         tblPatientModel = (DefaultTableModel) tablePatientDetails.getModel();
@@ -100,6 +95,18 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         for(City c: AddCityPanel.cityList){
             Object[] row_data = {c.getCityName(), c.getState()};
             tableModelCity.addRow(row_data);
+        }
+        
+        tableModelCommunity.setRowCount(0);
+        for(Community c: AddCommunityPanel.communityList){
+            Object[] data = {c.getCommunityName(), c.getZipcode(), c.getCityName()};
+            tableModelCommunity.addRow(data);
+        }
+        
+        tblModel.setRowCount(0);
+        for(Hospital h: HospitalAdminFrame.hospitals){
+            Object[] data = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
+            tblModel.addRow(data);
         }
     }
 
@@ -159,7 +166,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         tfHospitalCode = new javax.swing.JTextField();
         tfHospitalName = new javax.swing.JTextField();
         tfHospitalPostalCode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAddHospital = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableHospitals = new javax.swing.JTable();
         jComboBoxHospitalCity = new javax.swing.JComboBox<>();
@@ -592,10 +599,10 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Add Hospital");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHospital.setText("Add Hospital");
+        btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddHospitalActionPerformed(evt);
             }
         });
 
@@ -661,7 +668,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(jButton1)
+                .addComponent(btnAddHospital)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelAddHospitalsLayout.setVerticalGroup(
@@ -691,7 +698,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabelHospitalPostalCode)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAddHospital)
                 .addContainerGap(1812, Short.MAX_VALUE))
         );
 
@@ -1536,7 +1543,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfHospitalPostalCodeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         String name = tfHospitalName.getText();
         Long code = Long.valueOf(tfHospitalCode.getText());
@@ -1545,11 +1552,16 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         String city = (String) jComboBoxHospitalCity.getSelectedItem();
         Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
         hospital = new Hospital(name, community, code, city, postalCode);
-        listOfHospitals.getHospitals().add(hospital);
+        HospitalAdminFrame.hospitals.add(hospital);
         Object[] data = {name, community, code, city, postalCode};
         tblModel.addRow(data);
         setHospitalNameComboBox();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        tblModel.setRowCount(0);
+        for(Hospital h: HospitalAdminFrame.hospitals){
+            Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
+            tblModel.addRow(hdata);
+        }
+    }//GEN-LAST:event_btnAddHospitalActionPerformed
 
     private void jComboBoxHospitalCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHospitalCityActionPerformed
         // TODO add your handling code here:
@@ -1605,7 +1617,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         String passWord = tfDoctorPassword.getText();
         String role = "Doctor";
         doctor = new Doctor(hospitalName, department, phoneNumber, name, id, age, gender, role, userName, passWord);
-        listOfDoctors.getDoctors().add(doctor);
+        HospitalAdminFrame.doctors.add(doctor);
         Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
         doctorTblModel.addRow(data);
         setDoctorCombobox();
@@ -1623,7 +1635,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             } else {
-                for (Patient p : listOfPatients.getPatients()) {
+                for (Patient p : HospitalAdminFrame.patients) {
                     if (p.getId().equals(patientId)) {
 
                         txtEncounterPatientName.setText(p.getName());
@@ -1643,7 +1655,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 } else if (!encounterList.isEmpty() && patientRecordIndex == 1) {
 
                     tblEncounterModel.setRowCount(0);
-                    for(Patient p : listOfPatients.getPatients()){
+                    for(Patient p : HospitalAdminFrame.patients){
                         if (p.getId().equals(patientId)){
                             for(Encounter en : p.getEncounterHistory().getEncounters()){
                                 SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
@@ -1703,7 +1715,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(encounterId, patientName, age, patientId, vitalSigns, doctorName, encounterDate);
-                for(Patient p: listOfPatients.getPatients()){
+                for(Patient p: HospitalAdminFrame.patients){
                     if(p.getId().equals(patientId)){
                         p.getEncounterHistory().getEncounters().add(encounter);
                     }
@@ -1901,7 +1913,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
                 flag = 1;
             } else {
-                for (Patient p : listOfPatients.getPatients()) {
+                for (Patient p : HospitalAdminFrame.patients) {
                     if (p.getId().equals(tfPatientId.getText())) {
                         JOptionPane.showMessageDialog(this, "Patient already exists!");
                         flag = 2;
@@ -1914,7 +1926,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
 
                 patient = new Patient(cellphone, houseNo, community, city, postalcodeVal, name, id, ageVal, gender, role, username, password, encounterHistory);
-                listOfPatients.getPatients().add(patient);
+                HospitalAdminFrame.patients.add(patient);
                 Object[] data = {name, id, age, gender, houseNo, community, city, postalcode};
                 tblPatientModel.addRow(data);
 
@@ -1978,6 +1990,19 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "City Data Saved",
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
+                loadComboBoxData();
+                setCityCombobox();
+                tableModelCommunity.setRowCount(0);
+                for(Community c: AddCommunityPanel.communityList){
+                    Object[] row = {c.getCommunityName(), c.getZipcode(), c.getCityName()};
+                    tableModelCommunity.addRow(row);
+                }
+                tblModel.setRowCount(0);
+                for(Hospital h: HospitalAdminFrame.hospitals){
+                    Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
+                    tblModel.addRow(hdata);
+                }
+                setCityCombobox();
             }
         } catch (Exception ex) {
 
@@ -2060,7 +2085,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
             else{
                 Community community = new Community(communityName, Long.parseLong(zipCode), city);
-                communityList.add(community);
+                AddCommunityPanel.communityList.add(community);
                 for(City c: AddCityPanel.cityList) {
                     if(c.getCityName().equals(city)) {
                         communities = c.getCommunities();
@@ -2078,7 +2103,14 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Community Data Saved",
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
+                setCityCombobox();
+                tblModel.setRowCount(0);
+                for(Hospital h: HospitalAdminFrame.hospitals){
+                    Object[] hdata = {h.getHospitalName(),h.getCommunity(),h.getZipcode(),h.getCity(),h.getZipcode()};
+                    tblModel.addRow(hdata);
+                }
             }
+            setCityCombobox();
         }
         catch(Exception ex){
 
@@ -2153,6 +2185,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCommunity;
     private javax.swing.JButton btnAddEncounter;
+    private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnAddPatient;
     private javax.swing.JButton btnEditCity;
     private javax.swing.JButton btnEditCommunity;
@@ -2177,7 +2210,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbBoxSelectCity_U;
     private com.toedter.calendar.JDateChooser dcEncounterDate;
     private com.toedter.calendar.JDateChooser dcEncounterDate_U;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

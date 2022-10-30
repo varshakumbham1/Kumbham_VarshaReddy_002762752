@@ -41,11 +41,16 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     DefaultTableModel doctorTblModel;
     Hospital hospital;
     DefaultTableModel tblModel;
-    HospitalDirectory listOfHospitals = new HospitalDirectory();
     
-    static ArrayList<Patient> patients = new ArrayList<Patient>();
+    public static ArrayList<Hospital> hospitals = new ArrayList<Hospital>();
+    HospitalDirectory listOfHospitals = new HospitalDirectory(hospitals);
+    
+    public static ArrayList<Patient> patients = new ArrayList<Patient>();
     PatientDirectory listOfPatients = new PatientDirectory(patients);
-    DoctorDirectory listOfDoctors = new DoctorDirectory();
+    
+    public static ArrayList<Doctor> doctors = new ArrayList<Doctor>();
+    DoctorDirectory listOfDoctors = new DoctorDirectory(doctors);
+    
     public static ArrayList<Encounter> encounterList = new ArrayList<Encounter>();
     
     public void setCityCombobox() {
@@ -75,12 +80,17 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     public HospitalAdminFrame() {
         initComponents();
         setCityCombobox();
-        
+        setHospitalNameComboBox();
         tblModel = (DefaultTableModel) tableHospitals.getModel();
         tblEncounterModel = (DefaultTableModel) tableEncounterHistory.getModel();
         tblPatientModel = (DefaultTableModel) tablePatientDetails.getModel();
         doctorTblModel = (DefaultTableModel)tableDoctors.getModel();
-
+        
+        tblModel.setRowCount(0);
+        for(Hospital h: listOfHospitals.getHospitals()) {
+            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
+            tblModel.addRow(row_data);
+        }
     }
 
     /**
@@ -104,7 +114,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         tfHospitalCode = new javax.swing.JTextField();
         tfHospitalName = new javax.swing.JTextField();
         tfHospitalPostalCode = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAddHospital = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableHospitals = new javax.swing.JTable();
         jComboBoxHospitalCity = new javax.swing.JComboBox<>();
@@ -252,10 +262,10 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Add Hospital");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHospital.setText("Add Hospital");
+        btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddHospitalActionPerformed(evt);
             }
         });
 
@@ -321,7 +331,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(jButton1)
+                .addComponent(btnAddHospital)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelAddHospitalsLayout.setVerticalGroup(
@@ -351,7 +361,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabelHospitalPostalCode)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAddHospital)
                 .addContainerGap(1812, Short.MAX_VALUE))
         );
 
@@ -1431,7 +1441,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdButtonMaleActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         String name = tfHospitalName.getText();
         Long code = Long.valueOf(tfHospitalCode.getText());
@@ -1441,10 +1451,14 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
         hospital = new Hospital(name, community, code, city, postalCode);
         listOfHospitals.getHospitals().add(hospital);
-        Object[] data = {name, community, code, city, postalCode};
-        tblModel.addRow(data);
+        
+        tblModel.setRowCount(0);
+        for(Hospital h: HospitalDirectory.getHospitals()){
+            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
+            tblModel.addRow(row_data);
+        }
         setHospitalNameComboBox();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddHospitalActionPerformed
 
     private void tfHospitalPostalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalPostalCodeActionPerformed
         // TODO add your handling code here:
@@ -1658,6 +1672,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEncounter;
+    private javax.swing.JButton btnAddHospital;
     private javax.swing.JButton btnAddPatient;
     private javax.swing.JButton btnEditEncounter;
     private javax.swing.ButtonGroup btnGenderGroup;
@@ -1673,7 +1688,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbBoxEncounterDoctorName;
     private com.toedter.calendar.JDateChooser dcEncounterDate;
     private com.toedter.calendar.JDateChooser dcEncounterDate_U;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

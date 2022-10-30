@@ -16,7 +16,6 @@ public class DoctorDirectory {
     private static List<Doctor> doctors; 
 
     public DoctorDirectory() {
-        doctors = new ArrayList<Doctor>();
     }
 
     public DoctorDirectory(List<Doctor> doctors) {
