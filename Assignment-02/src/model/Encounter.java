@@ -18,13 +18,25 @@ public class Encounter {
     private VitalSigns vitalSigns;
     private String doctorName;
     private Date encounterDate;
-
+    
+    private static int count = 0;
     public Encounter() {
     }
 
-    public Encounter(String encounterId, String patientName, int patientAge, String patientId, VitalSigns vitalSigns, 
+    public Encounter(String patientName, int patientAge, String patientId, VitalSigns vitalSigns, 
             String doctorName, Date encounterDate) {
-        this.encounterId = encounterId;
+        this.encounterId = "E_"+(++count);
+        this.patientName = patientName;
+        this.patientAge = patientAge;
+        this.patientId = patientId;
+        this.vitalSigns = vitalSigns;
+        this.doctorName = doctorName;
+        this.encounterDate = encounterDate;
+    }
+    
+    public Encounter(String encounterId,String patientName, int patientAge, String patientId, VitalSigns vitalSigns, 
+            String doctorName, Date encounterDate) {
+        this.encounterId = this.encounterId;
         this.patientName = patientName;
         this.patientAge = patientAge;
         this.patientId = patientId;

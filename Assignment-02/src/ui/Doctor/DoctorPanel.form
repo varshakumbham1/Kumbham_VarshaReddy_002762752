@@ -19,11 +19,10 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jScrollPane4" alignment="1" min="-2" pref="722" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblEncounterDoctorName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="txtPatientID" min="-2" pref="113" max="-2" attributes="0"/>
@@ -31,80 +30,80 @@
                                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lblEncounterPatientName" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
                                       <Component id="lblEncounterPatientAge" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                       <Component id="lblTemperature" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                       <Component id="lblBP" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                       <Component id="lblHR" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="lblEncounterDoctorName" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtEncounterPatientName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnGetPatientID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEncounterPatientAge" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="txtEncounterID" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="txtTemperature" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="txtBP" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtEncounterPatientName" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btnGetPatientID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEncounterPatientAge" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="txtTemperature" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="txtBP" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="txtEncounterDoctorName" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="dcEncounterDate" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="txtHR" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="txtEncounterDoctorName" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="dcEncounterDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="btnAddEncounter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="btnViewEncounter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="btnEditEncounter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnUpdateEncounter" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="jLabel25" min="-2" pref="207" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="txtEncounterPatientAge_U" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="txtEncounterPatientName_U" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="txtEncounterId_U" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="dcEncounterDate_U" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="lblEncountePatientName_U" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblTemperature_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBP_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblHeartRate_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterDoctorName_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterPatientAge_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterDate_U" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblEncounterId_U" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="btnViewEncounter" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="btnEditEncounter" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="btnUpdateEncounter" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="jLabel25" min="-2" pref="207" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="txtEncounterPatientAge_U" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <Component id="txtEncounterPatientName_U" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                      <Component id="txtEncounterId_U" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <Component id="dcEncounterDate_U" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblTemperature_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblBP_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblHeartRate_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblEncounterDoctorName_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblEncounterPatientAge_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblEncounterDate_U" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblEncounterId_U" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtBP_U" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtHeartRate_U" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEncounterDoctorName_U" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtTemperature_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtBP_U" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtHeartRate_U" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEncounterDoctorName_U" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtTemperature_U" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="btnAddEncounter" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -135,21 +134,16 @@
                           <Component id="txtEncounterPatientAge" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEncounterID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <Component id="dcEncounterDate" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblTemperature" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtTemperature" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblBP" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtBP" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -160,11 +154,11 @@
                           <Component id="txtHR" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblEncounterDoctorName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEncounterDoctorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblEncounterDoctorName" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEncounterDoctorName" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnAddEncounter" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -225,9 +219,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jScrollPane4" min="-2" pref="248" max="-2" attributes="0"/>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -257,17 +251,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtEncounterPatientAge">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Encounter ID"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Encounter Date"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEncounterID">
     </Component>
     <Component class="javax.swing.JLabel" name="lblTemperature">
       <Properties>

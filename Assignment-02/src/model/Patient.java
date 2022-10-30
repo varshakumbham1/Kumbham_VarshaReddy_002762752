@@ -1,4 +1,5 @@
 package model;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -15,7 +16,8 @@ public class Patient extends Person{
     private String city;
     private Long zipcode;
     private EncounterHistory encounterHistory;
-
+    
+    private static int count = 0;
     public Patient() {
     }
 
@@ -28,7 +30,17 @@ public class Patient extends Person{
         this.encounterHistory = encounterHistory;
     }
 
-    public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, String name, String id, int age, String gender, String role, String userName, String password, EncounterHistory encounterHistory) {
+    public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, String name, int age, String gender, String role, String userName, String password, EncounterHistory encounterHistory) {
+        super(name, "P_"+(++count), age, gender, role, userName, password);
+        this.phoneNumber = phoneNumber;
+        this.streetAddress = streetAddress;
+        this.community = community;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.encounterHistory = encounterHistory;
+    }
+    
+    public Patient(String phoneNumber, String streetAddress, String community, String city, Long zipcode, String name,String id, int age, String gender, String role, String userName, String password, EncounterHistory encounterHistory) {
         super(name, id, age, gender, role, userName, password);
         this.phoneNumber = phoneNumber;
         this.streetAddress = streetAddress;
