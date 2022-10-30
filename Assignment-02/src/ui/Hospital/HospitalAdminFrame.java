@@ -1620,9 +1620,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-                flag = 1;
             }
-            if (flag == 0) {
+            else {
 
                 int ageVal = Integer.parseInt(tfPatientAge.getText());
                 Long postalcodeVal = Long.valueOf(tfPatientPostalCode.getText());
@@ -1633,7 +1632,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 Object[] data = {name, id, age, gender, houseNo, community, city, postalcode, cellphone};
                 tblPatientModel.addRow(data);
 
-                JOptionPane.showMessageDialog(this, "Patient Information saved!");
+                JOptionPane.showMessageDialog(this, "Patient Data saved!");
 
                 tfPatientName.setText("");
                 tfPatientAge.setText("");
@@ -1682,25 +1681,42 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
         // TODO add your handling code here:
-        String name = tfDoctorName.getText();
-//        String id = tfDoctorId.getText();
-        int age = Integer.parseInt((tfAge.getText()));
-        rdButtonMale.setActionCommand("Male");
-        rdButtonFemale.setActionCommand("Female");
-        String gender = btnGenderGroup.getSelection().getActionCommand();
-        String hospitalName = (String) jComboBoxHospitalName.getSelectedItem();
-        String department = tfDepartment.getText();
-        String phoneNumber = tfPhoneNumber.getText();
-        String userName = tfDoctorUserName.getText();
-        String passWord = tfDoctorPassword.getText();
-        String role = "Doctor";
-        doctor = new Doctor(hospitalName, department, phoneNumber, name, age, gender, role, userName, passWord);
-        String id = doctor.getId();
-        listOfDoctors.getDoctors().add(doctor);
-        Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
-        doctorTblModel.addRow(data);
-        setDoctorCombobox();
-        displayDoctorTable();
+        try {
+            String name = tfDoctorName.getText();
+            String age = tfAge.getText();
+            //int age = Integer.parseInt((tfAge.getText()));
+            rdButtonMale.setActionCommand("Male");
+            rdButtonFemale.setActionCommand("Female");
+            String gender = btnGenderGroup.getSelection().getActionCommand();
+            String hospitalName = (String) jComboBoxHospitalName.getSelectedItem();
+            String department = tfDepartment.getText();
+            String phoneNumber = tfPhoneNumber.getText();
+            String userName = tfDoctorUserName.getText();
+            String passWord = tfDoctorPassword.getText();
+            String role = "Doctor";
+
+            if(name.isEmpty() || age.isEmpty() || gender.isEmpty() || hospitalName.isEmpty()
+                    || department.isEmpty() || phoneNumber.isEmpty() || phoneNumber.isEmpty()
+                    || userName.isEmpty() || passWord.isEmpty()){
+
+            }
+            else {
+                int doctorAge = Integer.parseInt(age);
+                doctor = new Doctor(hospitalName, department, phoneNumber, name, doctorAge, gender, role, userName, passWord);
+                String id = doctor.getId();
+                listOfDoctors.getDoctors().add(doctor);
+                Object[] data = {name, id, age, gender, hospitalName, department, phoneNumber};
+                doctorTblModel.addRow(data);
+                setDoctorCombobox();
+                displayDoctorTable();
+                JOptionPane.showMessageDialog(this,
+                        "Doctor Data Saved",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        catch(Exception ex) {
+        }
     }//GEN-LAST:event_btnAddDoctorActionPerformed
 
     private void rdButtonFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdButtonFemaleActionPerformed
@@ -1713,25 +1729,31 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
-        String name = tfHospitalName.getText();
-        String code = tfHospitalCode.getText();
-        //Long code = Long.valueOf();
-        String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
-        //String city = tfHospitalCity.getText();
-        String city = (String) jComboBoxHospitalCity.getSelectedItem();
-        Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
-        if(name.isEmpty() || code.isEmpty() || community.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                        "Enter all Fields",
-                        "Try Again",
-                        JOptionPane.ERROR_MESSAGE);
+        try {
+            String name = tfHospitalName.getText();
+            String code = tfHospitalCode.getText();
+            String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
+            String city = (String) jComboBoxHospitalCity.getSelectedItem();
+            Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
+            if(name.isEmpty() || code.isEmpty() || community.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                            "Enter all Fields",
+                            "Try Again",
+                            JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                Long hospitalcode = Long.valueOf(code);
+                hospital = new Hospital(name, community, postalCode, city, hospitalcode);
+                listOfHospitals.getHospitals().add(hospital);
+                displayHospitalTable();
+                setHospitalNameComboBox();
+                JOptionPane.showMessageDialog(this,
+                        "Hospital Data Saved",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        else {
-            Long hospitalcode = Long.valueOf(code);
-            hospital = new Hospital(name, community, postalCode, city, hospitalcode);
-            listOfHospitals.getHospitals().add(hospital);
-            displayHospitalTable();
-            setHospitalNameComboBox();
+        catch(Exception ex) {
         }
     }//GEN-LAST:event_btnAddHospitalActionPerformed
 
@@ -1859,32 +1881,40 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
         // TODO add your handling code here:
-        int row = tableHospitals.getSelectedRow();
-        String hospitalName = tfHospitalName_U.getText();
-        String hospitalCode = tfHospitalCode_U.getText();
-        String hospitalCity = jComboBoxHospitalCity_U.getSelectedItem().toString();
-        String hospitalCommunity = jComboBoxHospitalCommunity_U.getSelectedItem().toString();
-        String zipcode = tfHospitalPostalCode_U.getText();
+        try {
+            int row = tableHospitals.getSelectedRow();
+            String hospitalName = tfHospitalName_U.getText();
+            String hospitalCode = tfHospitalCode_U.getText();
+            String hospitalCity = jComboBoxHospitalCity_U.getSelectedItem().toString();
+            String hospitalCommunity = jComboBoxHospitalCommunity_U.getSelectedItem().toString();
+            String zipcode = tfHospitalPostalCode_U.getText();
 
-        if(hospitalName.isEmpty() || hospitalCode.isEmpty() || hospitalCity.isEmpty()
-            || hospitalCommunity.isEmpty() || zipcode.isEmpty()){
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
+            if(hospitalName.isEmpty() || hospitalCode.isEmpty() || hospitalCity.isEmpty()
+                || hospitalCommunity.isEmpty() || zipcode.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
+                    Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
+
+                listOfHospitals.getHospitals().remove(row);
+                listOfHospitals.getHospitals().add(row, updatedHospital);
+
+                tblModel.removeRow(row);
+                Object[] data = {hospitalName, hospitalCommunity, hospitalCode, hospitalCity, zipcode};
+                tblModel.insertRow(row, data);
+                displayHospitalTable();
+                setHospitalNameComboBox();
+                JOptionPane.showMessageDialog(this,
+                        "Hospital Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        else{
-            Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
-                Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
-
-            listOfHospitals.getHospitals().remove(row);
-            listOfHospitals.getHospitals().add(row, updatedHospital);
-
-            tblModel.removeRow(row);
-            Object[] data = {hospitalName, hospitalCommunity, hospitalCode, hospitalCity, zipcode};
-            tblModel.insertRow(row, data);
-            displayHospitalTable();
-            setHospitalNameComboBox();
+        catch(Exception ex) {
         }
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
@@ -1991,38 +2021,46 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnUpdateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateDoctorActionPerformed
         // TODO add your handling code here:
-        int row = tableDoctors.getSelectedRow();
-        String doctorName = tfDoctorName_U.getText();
-        String doctorId = tfDoctorId_U.getText();
-        String doctorAge = tfAge_U.getText();
+        try {
+            int row = tableDoctors.getSelectedRow();
+            String doctorName = tfDoctorName_U.getText();
+            String doctorId = tfDoctorId_U.getText();
+            String doctorAge = tfAge_U.getText();
 
-        rdButtonMale_U.setActionCommand("Male");
-        rdButtonFemale_U.setActionCommand("Female");
-        String doctorGender = btnGenderGroup.getSelection().getActionCommand();
-        String hospitalName = jComboBoxHospitalName_U.getSelectedItem().toString();
-        String doctorDepartment = tfDepartment_U.getText();
-        String doctorPhNo = tfPhoneNumber_U.getText();
+            rdButtonMale_U.setActionCommand("Male");
+            rdButtonFemale_U.setActionCommand("Female");
+            String doctorGender = btnGenderGroup.getSelection().getActionCommand();
+            String hospitalName = jComboBoxHospitalName_U.getSelectedItem().toString();
+            String doctorDepartment = tfDepartment_U.getText();
+            String doctorPhNo = tfPhoneNumber_U.getText();
 
-        if(doctorName.isEmpty() || doctorId.isEmpty() || doctorAge.isEmpty() || doctorGender.isEmpty()
-            || hospitalName.isEmpty() || doctorDepartment.isEmpty() || doctorPhNo.isEmpty()){
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
+            if(doctorName.isEmpty() || doctorId.isEmpty() || doctorAge.isEmpty() || doctorGender.isEmpty()
+                || hospitalName.isEmpty() || doctorDepartment.isEmpty() || doctorPhNo.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                Doctor selectedDoctor = listOfDoctors.getDoctors().get(row);
+                Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName, doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
+                    selectedDoctor.getUserName(), selectedDoctor.getPassWord());
+
+                listOfDoctors.getDoctors().remove(row);
+                listOfDoctors.getDoctors().add(row, updatedDoctor);
+
+                Object[] data = {doctorName, doctorId, doctorAge, doctorGender, hospitalName, doctorDepartment, doctorPhNo};
+                doctorTblModel.removeRow(row);
+                doctorTblModel.insertRow(row, data);
+                setDoctorCombobox();
+                displayDoctorTable();
+                JOptionPane.showMessageDialog(this,
+                        "Doctor Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        else{
-            Doctor selectedDoctor = listOfDoctors.getDoctors().get(row);
-            Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName, doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
-                selectedDoctor.getUserName(), selectedDoctor.getPassWord());
-
-            listOfDoctors.getDoctors().remove(row);
-            listOfDoctors.getDoctors().add(row, updatedDoctor);
-
-            Object[] data = {doctorName, doctorId, doctorAge, doctorGender, hospitalName, doctorDepartment, doctorPhNo};
-            doctorTblModel.removeRow(row);
-            doctorTblModel.insertRow(row, data);
-            setDoctorCombobox();
-            displayDoctorTable();
+        catch(Exception ex) {
         }
 
     }//GEN-LAST:event_btnUpdateDoctorActionPerformed
@@ -2073,40 +2111,48 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed
         // TODO add your handling code here:
-        int row = tablePatientDetails.getSelectedRow();
-        String patientId = tfPatientId_update.getText();
-        String patientName = tfPatientName_update.getText();
-        String patientPhNo = tfCellPhone_update.getText();
-        String patientAge = tfAge_update.getText();
+        try {
+            int row = tablePatientDetails.getSelectedRow();
+            String patientId = tfPatientId_update.getText();
+            String patientName = tfPatientName_update.getText();
+            String patientPhNo = tfCellPhone_update.getText();
+            String patientAge = tfAge_update.getText();
 
-        rdMale_update.setActionCommand("Male");
-        rdFemale_update.setActionCommand("Female");
-        rdOther_update.setActionCommand("Female");
-        String patientGender = btnGenderGroup.getSelection().getActionCommand();
-        String houseNo = tfHouseNo_update.getText();
-        String patientCity = cbPatientCity_update.getSelectedItem().toString();
-        String patientCommunity = cbPatientCommunity_update.getSelectedItem().toString();
-        String zipcode = tfPatientPostalCode_update.getText();
+            rdMale_update.setActionCommand("Male");
+            rdFemale_update.setActionCommand("Female");
+            rdOther_update.setActionCommand("Female");
+            String patientGender = btnGenderGroup.getSelection().getActionCommand();
+            String houseNo = tfHouseNo_update.getText();
+            String patientCity = cbPatientCity_update.getSelectedItem().toString();
+            String patientCommunity = cbPatientCommunity_update.getSelectedItem().toString();
+            String zipcode = tfPatientPostalCode_update.getText();
 
-        if(patientId.isEmpty() || patientName.isEmpty() || patientPhNo.isEmpty() || patientAge.isEmpty()
-            || patientGender.isEmpty() || houseNo.isEmpty() || patientCity.isEmpty() || patientCommunity.isEmpty()
-            || zipcode.isEmpty()){
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
+            if(patientId.isEmpty() || patientName.isEmpty() || patientPhNo.isEmpty() || patientAge.isEmpty()
+                || patientGender.isEmpty() || houseNo.isEmpty() || patientCity.isEmpty() || patientCommunity.isEmpty()
+                || zipcode.isEmpty()){
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                Patient selectedPatient = listOfPatients.getPatients().get(row);
+                Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
+                patientId, Integer.parseInt(patientAge), patientGender, "Patient", selectedPatient.getUserName(),
+                    selectedPatient.getPassWord(), selectedPatient.getEncounterHistory());
+                listOfPatients.getPatients().remove(row);
+                listOfPatients.getPatients().add(row, updatedPatient);
+                Object[] data = {patientName, patientId, patientAge, patientGender, houseNo, patientCommunity,
+                    patientCity, zipcode, patientPhNo};
+                tblPatientModel.removeRow(row);
+                tblPatientModel.insertRow(row, data);
+                JOptionPane.showMessageDialog(this,
+                        "Patient Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        else{
-            Patient selectedPatient = listOfPatients.getPatients().get(row);
-            Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,
-            patientId, Integer.parseInt(patientAge), patientGender, "Patient", selectedPatient.getUserName(),
-                selectedPatient.getPassWord(), selectedPatient.getEncounterHistory());
-            listOfPatients.getPatients().remove(row);
-            listOfPatients.getPatients().add(row, updatedPatient);
-            Object[] data = {patientName, patientId, patientAge, patientGender, houseNo, patientCommunity,
-                patientCity, zipcode, patientPhNo};
-            tblPatientModel.removeRow(row);
-            tblPatientModel.insertRow(row, data);
+        catch(Exception ex) {
         }
 
     }//GEN-LAST:event_btnUpdatePatientActionPerformed
@@ -2271,65 +2317,63 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
     private void btnUpdateEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEncounterActionPerformed
         // TODO add your handling code here:
-        String encounterId = txtEncounterId_U.getText();
-        Date encounterDate = dcEncounterDate_U.getDate();
-        String name = txtEncounterPatientName_U.getText();
-        String age = txtEncounterPatientAge_U.getText();
-        String temperature = txtTemperature_U.getText();
-        String bloodPressure = txtBP_U.getText();
-        String heartRate = txtHeartRate_U.getText();
-        String doctorName = txtEncounterDoctorName_U.getText();
+        try {
+            String encounterId = txtEncounterId_U.getText();
+            Date encounterDate = dcEncounterDate_U.getDate();
+            String name = txtEncounterPatientName_U.getText();
+            String age = txtEncounterPatientAge_U.getText();
+            String temperature = txtTemperature_U.getText();
+            String bloodPressure = txtBP_U.getText();
+            String heartRate = txtHeartRate_U.getText();
+            String doctorName = txtEncounterDoctorName_U.getText();
 
-        if (name.isEmpty() || age.isEmpty()
-            || encounterDate.toString().isEmpty() || temperature.isEmpty() || bloodPressure.isEmpty()
-            || heartRate.isEmpty() || doctorName.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                "Enter all Fields",
-                "Try Again",
-                JOptionPane.ERROR_MESSAGE);
-        } else {
-            //            for (Encounter en : encounterList) {
-                //                if (en.getEncounterId().equals(txtEncounterId_U.getText())) {
-                    //                    VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
-                    //                    Encounter encounter = new Encounter(encounterId, name, Integer.parseInt(age),
-                        //                            en.getPatientId(), vitalSigns, doctorName, encounterDate);
-                    //                    int index = encounterList.indexOf(en);
-                    //                    encounterList.remove(index);
-                    //                    encounterList.add(index, encounter);
-                    //                }
-                //            }
-            int row = tableEncounterHistory.getSelectedRow();
-            Encounter selectedEncounter = encounterList.get(row);
-            VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
-            Encounter updatedEncounter = new Encounter( encounterId,name, Integer.parseInt(age),
-                selectedEncounter.getPatientId(),
-                updatedVitalSigns, doctorName, encounterDate);
-            encounterList.remove(row);
-            encounterList.add(row, updatedEncounter);
-            tblEncounterModel.removeRow(row);
-            SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
-            String date = dateformat.format(encounterDate);
-            
-            Object[] data = {encounterId, date, name, age,
-                temperature, bloodPressure,
-                heartRate, doctorName};
-            tblEncounterModel.insertRow(row, data);
-            for(Patient p: listOfPatients.getPatients()){
-                if(p.getId().equals(selectedEncounter.getPatientId())){
-                    for(Encounter e: p.getEncounterHistory().getEncounters()){
-                        if(e.getEncounterId().equals(encounterId)){
-                            e.setDoctorName(doctorName);
-                            e.setEncounterDate(encounterDate);
-                            e.setEncounterId(encounterId);
-                            e.setPatientAge(Integer.parseInt(age));
-                            e.setPatientId(selectedEncounter.getPatientId());
-                            e.setPatientName(name);
-                            e.setVitalSigns(updatedVitalSigns);
-                            break;
+            if (name.isEmpty() || age.isEmpty()
+                || encounterDate.toString().isEmpty() || temperature.isEmpty() || bloodPressure.isEmpty()
+                || heartRate.isEmpty() || doctorName.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                    "Enter all Fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);
+            } else {
+                int row = tableEncounterHistory.getSelectedRow();
+                Encounter selectedEncounter = encounterList.get(row);
+                VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
+                Encounter updatedEncounter = new Encounter( encounterId,name, Integer.parseInt(age),
+                    selectedEncounter.getPatientId(),
+                    updatedVitalSigns, doctorName, encounterDate);
+                encounterList.remove(row);
+                encounterList.add(row, updatedEncounter);
+                tblEncounterModel.removeRow(row);
+                SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+                String date = dateformat.format(encounterDate);
+
+                Object[] data = {encounterId, date, name, age,
+                    temperature, bloodPressure,
+                    heartRate, doctorName};
+                tblEncounterModel.insertRow(row, data);
+                for(Patient p: listOfPatients.getPatients()){
+                    if(p.getId().equals(selectedEncounter.getPatientId())){
+                        for(Encounter e: p.getEncounterHistory().getEncounters()){
+                            if(e.getEncounterId().equals(encounterId)){
+                                e.setDoctorName(doctorName);
+                                e.setEncounterDate(encounterDate);
+                                e.setEncounterId(encounterId);
+                                e.setPatientAge(Integer.parseInt(age));
+                                e.setPatientId(selectedEncounter.getPatientId());
+                                e.setPatientName(name);
+                                e.setVitalSigns(updatedVitalSigns);
+                                break;
+                            }
                         }
                     }
                 }
+                JOptionPane.showMessageDialog(this,
+                        "Encounter Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
+        }
+        catch(Exception ex) {
         }
 
     }//GEN-LAST:event_btnUpdateEncounterActionPerformed

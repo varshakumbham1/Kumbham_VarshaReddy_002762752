@@ -229,6 +229,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             else {
                 communities = new ArrayList();
             }
+            
         }
             Object[] data = {communityName, zipCode, city};
             tableModel.addRow(data);
@@ -282,8 +283,7 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             int row = tableCommunityDetails.getSelectedRow();
             String community = txtCommunityName_U.getText();
             String zipcode = txtZipCode_U.getText();
-    //        String city = cmbBoxSelectCity_U.getSelectedItem().toString();
-
+            
             if(community.isEmpty() || zipcode.isEmpty()){
                 JOptionPane.showMessageDialog(this,
                     "Enter all Fields",
@@ -314,6 +314,10 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                         communities = new ArrayList();
                     }
                 }
+            JOptionPane.showMessageDialog(this,
+                        "Community Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) { 

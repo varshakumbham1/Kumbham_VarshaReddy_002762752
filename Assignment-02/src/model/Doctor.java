@@ -13,7 +13,7 @@ public class Doctor extends Person{
     private String hospitalDepartment;
     private String phoneNumber;
     
-    public static int count = 0;
+    private static int count = 0;
     public Doctor() {
         //super.setId("D_"+(++count));
     }

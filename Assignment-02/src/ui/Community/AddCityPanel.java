@@ -263,6 +263,10 @@ public class AddCityPanel extends javax.swing.JPanel {
                 tableModel.removeRow(row);
                 Object[] data = {city, state};
                 tableModel.insertRow(row, data);
+                JOptionPane.showMessageDialog(this,
+                        "City Data Updated",
+                        "Success",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         }
         catch(Exception ex) { 
