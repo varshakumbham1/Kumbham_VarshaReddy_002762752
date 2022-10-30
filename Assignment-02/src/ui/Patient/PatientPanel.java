@@ -67,14 +67,14 @@ public class PatientPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableGetEncounterHistory = new javax.swing.JTable();
-        btnGetEncounterHistory = new javax.swing.JButton();
-        btnBookAppointment = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtEncounterID = new javax.swing.JTextField();
         dcEncounterDate = new com.toedter.calendar.JDateChooser();
         lblEncounterDoctorName = new javax.swing.JLabel();
         tfDoctorName = new javax.swing.JTextField();
+        btnBookAppointment = new javax.swing.JButton();
+        btnGetEncounterHistory = new javax.swing.JButton();
 
         jLabelPatientName.setText("Patient Name");
 
@@ -139,12 +139,13 @@ public class PatientPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tableGetEncounterHistory);
 
-        btnGetEncounterHistory.setText("Get Encounter History");
-        btnGetEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGetEncounterHistoryActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Encounter ID");
+
+        jLabel2.setText("Encounter Date");
+
+        dcEncounterDate.setDateFormatString("dd-MM-yyyy");
+
+        lblEncounterDoctorName.setText("Doctor Name");
 
         btnBookAppointment.setText("Book Appointment");
         btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -153,13 +154,12 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Encounter ID");
-
-        jLabel2.setText("Encounter Date");
-
-        dcEncounterDate.setDateFormatString("dd-MM-yyyy");
-
-        lblEncounterDoctorName.setText("Doctor Name");
+        btnGetEncounterHistory.setText("Get Encounter History");
+        btnGetEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGetEncounterHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,32 +171,24 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(dcEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblEncounterDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tfDoctorName)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEncounterID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dcEncounterDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnBookAppointment)
-                                    .addComponent(btnGetEncounterHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblEncounterDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfDoctorName)))
+                        .addContainerGap(604, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +200,16 @@ public class PatientPanel extends javax.swing.JPanel {
                                     .addComponent(tfCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnGetDoctors))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(13, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGetEncounterHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBookAppointment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,16 +241,17 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEncounterDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(btnBookAppointment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(195, 195, 195))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
                         .addComponent(btnGetEncounterHistory)
-                        .addGap(115, 115, 115))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -293,6 +294,26 @@ public class PatientPanel extends javax.swing.JPanel {
         hf.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void tableGetDoctorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableGetDoctorsMouseClicked
+        // TODO add your handling code here:
+        int row = tableGetDoctors.getSelectedRow();        
+        String doctorName = getDoctorsTblModel.getValueAt(row, 0).toString();
+        tfDoctorName.setText(doctorName);
+    }//GEN-LAST:event_tableGetDoctorsMouseClicked
+
+    private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
+        // TODO add your handling code here:
+        VitalSigns vitalSigns = new VitalSigns();
+        String encounterId = txtEncounterID.getText();
+        String doctorName = tfDoctorName.getText();
+        Date encounterDate = dcEncounterDate.getDate();
+        Encounter e = new Encounter(encounterId, patient.getName(), patient.getAge(), patient.getId(), vitalSigns,
+            doctorName, encounterDate);
+        encounterList.add(e);
+        patient.getEncounterHistory().getEncounters().add(e);
+
+    }//GEN-LAST:event_btnBookAppointmentActionPerformed
+
     private void btnGetEncounterHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetEncounterHistoryActionPerformed
         // TODO add your handling code here:
         //String patientId = txtEnterPatientId.getText();
@@ -306,25 +327,8 @@ public class PatientPanel extends javax.swing.JPanel {
             tblEncounterModel.addRow(data);
             System.out.println(en.getPatientId());
         }
+
     }//GEN-LAST:event_btnGetEncounterHistoryActionPerformed
-
-    private void btnBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookAppointmentActionPerformed
-        // TODO add your handling code here:
-        VitalSigns vitalSigns = new VitalSigns();
-        String encounterId = txtEncounterID.getText(); 
-        String doctorName = tfDoctorName.getText();
-        Date encounterDate = dcEncounterDate.getDate();
-        Encounter e = new Encounter(encounterId, patient.getName(), patient.getAge(), patient.getId(), vitalSigns, 
-             doctorName, encounterDate);
-        patient.getEncounterHistory().getEncounters().add(e);
-    }//GEN-LAST:event_btnBookAppointmentActionPerformed
-
-    private void tableGetDoctorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableGetDoctorsMouseClicked
-        // TODO add your handling code here:
-        int row = tableGetDoctors.getSelectedRow();        
-        String doctorName = getDoctorsTblModel.getValueAt(row, 0).toString();
-        tfDoctorName.setText(doctorName);
-    }//GEN-LAST:event_tableGetDoctorsMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

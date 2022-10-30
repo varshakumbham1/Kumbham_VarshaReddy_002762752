@@ -16,49 +16,49 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnUpdateCity" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                  <Component id="btnEditCity" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                  <Component id="btnViewCity" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txtCityName_U" min="-2" pref="145" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel2" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txtState_U" min="-2" pref="145" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lblState" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtState" min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblCityName" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCityName" min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="btnSaveCity" min="-2" pref="111" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="422" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblCityName" min="-2" pref="106" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtCityName" min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnUpdateCity" pref="112" max="32767" attributes="0"/>
-                          <Component id="btnViewCity" max="32767" attributes="0"/>
-                          <Component id="btnEditCity" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jLabel2" pref="87" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtState_U" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="txtCityName_U" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblState" min="-2" pref="106" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtState" min="-2" pref="114" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="btnSaveCity" min="-2" pref="111" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,6 +67,20 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="298" max="-2" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCityName_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtState_U" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblCityName" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
@@ -79,24 +93,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnSaveCity" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnViewCity" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnEditCity" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnUpdateCity" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="267" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnViewCity" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="txtCityName_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtState_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnEditCity" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnUpdateCity" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

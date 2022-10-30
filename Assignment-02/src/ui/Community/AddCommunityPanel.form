@@ -18,101 +18,104 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="lblSelectCity" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="cmbBoxSelectCity" min="-2" pref="114" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblCommunityName" min="-2" pref="122" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCommunityName" min="-2" pref="136" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblZipCode" min="-2" pref="122" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtZipCode" min="-2" pref="136" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnAddCommunity" min="-2" pref="133" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnUpdateCommunity" alignment="0" pref="92" max="32767" attributes="0"/>
-                                  <Component id="btnEditCommunity" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnViewCommunity" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="lblSelectCity" min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cmbBoxSelectCity" min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblCommunityName" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtCommunityName" min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblZipCode" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtZipCode" min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="btnAddCommunity" min="-2" pref="133" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnEditCommunity" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnUpdateCommunity" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Component id="btnViewCommunity" min="-2" pref="92" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtCommunityName_U" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="txtZipCode_U" min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtZipCode_U" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtCommunityName_U" alignment="0" max="32767" attributes="0"/>
-                      <Component id="cmbBoxSelectCity_U" alignment="0" pref="117" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblSelectCity" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="cmbBoxSelectCity" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="btnViewCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCommunityName_U" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCommunityName" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtCommunityName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblZipCode" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="txtZipCode" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnAddCommunity" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnEditCommunity" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblSelectCity" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="cmbBoxSelectCity" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCommunityName" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="txtCommunityName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblZipCode" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="txtZipCode" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAddCommunity" min="-2" pref="31" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="148" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnViewCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbBoxSelectCity_U" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnEditCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCommunityName_U" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtZipCode_U" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnUpdateCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="135" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="btnUpdateCommunity" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -217,16 +220,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Edit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditCommunityActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateCommunity">
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="City"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateCommunityActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -241,21 +245,9 @@
     <Component class="javax.swing.JTextField" name="txtCommunityName_U">
     </Component>
     <Component class="javax.swing.JTextField" name="txtZipCode_U">
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbBoxSelectCity_U">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtZipCode_UActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
