@@ -55,6 +55,8 @@ public class AddCommunityPanel extends javax.swing.JPanel {
         txtCommunityName_U = new javax.swing.JTextField();
         txtZipCode_U = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(205, 216, 231));
+
         lblCommunityName.setText("Community Name");
 
         txtCommunityName.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +76,8 @@ public class AddCommunityPanel extends javax.swing.JPanel {
 
         lblZipCode.setText("Zip Code");
 
+        btnAddCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnAddCommunity.setText("Add Community");
         btnAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +95,8 @@ public class AddCommunityPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableCommunityDetails);
 
+        btnViewCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnViewCommunity.setText("View");
         btnViewCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +104,8 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEditCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnEditCommunity.setText("Edit");
         btnEditCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +113,8 @@ public class AddCommunityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateCommunity.setText("Update");
         btnUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,25 +194,29 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                             .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewCommunity)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnEditCommunity)
-                        .addGap(21, 21, 21)
-                        .addComponent(btnUpdateCommunity))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnViewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
                         .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

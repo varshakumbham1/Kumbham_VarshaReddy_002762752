@@ -357,10 +357,18 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(205, 216, 231));
+
+        jTabbedPane1.setBackground(new java.awt.Color(205, 216, 231));
+
+        jPanelAddCity.setBackground(new java.awt.Color(205, 216, 231));
+
         lblCityName.setText("City Name");
 
         lblState.setText("State");
 
+        btnSaveCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnSaveCity.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveCity.setText("Add City");
         btnSaveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,6 +394,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(tableCityDetails);
 
+        btnViewCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewCity.setForeground(new java.awt.Color(255, 255, 255));
         btnViewCity.setText("View City");
         btnViewCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,6 +403,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateCity.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateCity.setText("Update City");
         btnUpdateCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +422,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jLabel32.setText("State");
 
+        btnEditCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditCity.setForeground(new java.awt.Color(255, 255, 255));
         btnEditCity.setText("Edit City");
         btnEditCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,6 +431,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeleteCity.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteCity.setText("Delete City");
         btnDeleteCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -504,6 +520,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("City", jPanelAddCity);
 
+        jPanelAddCommunity.setBackground(new java.awt.Color(205, 216, 231));
+
         lblCommunityName.setText("Community Name");
 
         lblSelectCity.setText("Select City");
@@ -517,6 +535,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         lblZipCode.setText("Zip Code");
 
+        btnAddCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnAddCommunity.setText("Add Community");
         btnAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -534,6 +554,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tableCommunityDetails);
 
+        btnViewCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnViewCommunity.setText("View");
         btnViewCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,6 +563,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnEditCommunity.setText("Edit");
         btnEditCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,6 +572,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateCommunity.setText("Update");
         btnUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -565,6 +591,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeleteCommunity.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteCommunity.setText("Delete");
         btnDeleteCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -602,21 +630,19 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAddCommunityLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
+                        .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEditCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnViewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79)
                         .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAddCommunityLayout.createSequentialGroup()
-                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnEditCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnViewCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(79, 79, 79)
-                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel27)
-                                    .addComponent(jLabel26))
-                                .addGap(76, 76, 76)
-                                .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnDeleteCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel26))
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanelAddCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCommunityName_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtZipCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanelAddCommunityLayout.setVerticalGroup(
@@ -658,6 +684,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Community", jPanelAddCommunity);
 
+        jPanelAddHospitals.setBackground(new java.awt.Color(205, 216, 231));
+
         jLabelHospitalName.setText("Hospital Name");
 
         jLabelHospitalCommunity.setText("Hospital Community");
@@ -672,6 +700,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -711,6 +741,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnViewHospital.setText("View");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -718,6 +750,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnEditHospital.setText("Edit");
         btnEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -725,6 +759,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateHospital.setText("Update");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,6 +792,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeleteHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteHospital.setText("Delete");
         btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -881,6 +919,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Hospital", jPanelAddHospitals);
 
+        jPaneladdDoctors.setBackground(new java.awt.Color(205, 216, 231));
+
         jLabelDoctoreName.setText("Doctor name");
 
         jLabelAge.setText("Age");
@@ -934,6 +974,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jLabelPassword.setText("Password");
 
+        btnViewDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDoctor.setText("View");
         btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -941,6 +983,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDoctor.setText("Edit");
         btnEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -948,6 +992,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateDoctor.setText("Update");
         btnUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -983,6 +1029,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         btnGenderGroup.add(rdButtonFemale_U);
         rdButtonFemale_U.setText("Female");
 
+        btnDeleteDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeleteDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteDoctor.setText("Delete");
         btnDeleteDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -990,6 +1038,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnAddDoctor.setText("Add Doctor");
         btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1183,6 +1233,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
 
+        jPanelAddPatients.setBackground(new java.awt.Color(205, 216, 231));
         jPanelAddPatients.setPreferredSize(new java.awt.Dimension(1114, 2000));
 
         jLabel4.setText("Patient Name :");
@@ -1252,6 +1303,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnAddPatient.setText("Add Patient");
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1328,6 +1381,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1335,6 +1390,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnViewPatient.setText("View");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1342,6 +1399,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnEditPatient.setText("Edit");
         btnEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1355,6 +1414,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jLabel42.setText("Patient Id");
 
+        btnDeletePatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeletePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnDeletePatient.setText("Delete");
         btnDeletePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1570,6 +1631,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
 
+        jPanelAddEncounters.setBackground(new java.awt.Color(205, 216, 231));
+
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1600,6 +1663,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1654,6 +1719,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEncounter.setText("View");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1661,6 +1728,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnEditEncounter.setText("Edit");
         btnEditEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1668,6 +1737,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateEncounter.setText("Update");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1677,6 +1748,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         dcEncounterDate_U.setDateFormatString("dd-MM-yyyy");
 
+        btnDeleteEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnDeleteEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteEncounter.setText("Delete");
         btnDeleteEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1867,6 +1940,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             .addComponent(jTabbedPane1)
         );
 
+        btnLogoutHospitalAdminFrame.setBackground(new java.awt.Color(51, 102, 255));
+        btnLogoutHospitalAdminFrame.setForeground(new java.awt.Color(255, 255, 255));
         btnLogoutHospitalAdminFrame.setText("Logout");
         btnLogoutHospitalAdminFrame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1882,7 +1957,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLogoutHospitalAdminFrame))
+                .addComponent(btnLogoutHospitalAdminFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1891,7 +1966,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnLogoutHospitalAdminFrame)
+                .addComponent(btnLogoutHospitalAdminFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

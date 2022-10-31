@@ -153,6 +153,10 @@ public class PatientPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablePatientDetails = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(205, 216, 231));
+
+        btnGetDoctors.setBackground(new java.awt.Color(51, 102, 255));
+        btnGetDoctors.setForeground(new java.awt.Color(255, 255, 255));
         btnGetDoctors.setText("Get Doctors");
         btnGetDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +210,8 @@ public class PatientPanel extends javax.swing.JPanel {
 
         lblEncounterDoctorName.setText("Doctor Name");
 
+        btnBookAppointment.setBackground(new java.awt.Color(51, 102, 255));
+        btnBookAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnBookAppointment.setText("Book Appointment");
         btnBookAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +219,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnGetEncounterHistory.setBackground(new java.awt.Color(51, 102, 255));
+        btnGetEncounterHistory.setForeground(new java.awt.Color(255, 255, 255));
         btnGetEncounterHistory.setText("Get Encounter History");
         btnGetEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +284,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEditPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnEditPatient.setText("Edit");
         btnEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,6 +293,8 @@ public class PatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

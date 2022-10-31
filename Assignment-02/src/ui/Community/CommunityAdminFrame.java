@@ -42,6 +42,12 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jSplitPaneCommunity.setBackground(new java.awt.Color(205, 216, 231));
+
+        jPanelCommunity.setBackground(new java.awt.Color(205, 216, 231));
+
+        jButtonAddCommunity.setBackground(new java.awt.Color(51, 102, 255));
+        jButtonAddCommunity.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAddCommunity.setText("Add Community");
         jButtonAddCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +55,8 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddCity.setBackground(new java.awt.Color(51, 102, 255));
+        jButtonAddCity.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAddCity.setText("Add City");
         jButtonAddCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +64,8 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogoutCommunityAdminPanel.setBackground(new java.awt.Color(51, 102, 255));
+        btnLogoutCommunityAdminPanel.setForeground(new java.awt.Color(255, 255, 255));
         btnLogoutCommunityAdminPanel.setText("Logout");
         btnLogoutCommunityAdminPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,26 +77,27 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
         jPanelCommunity.setLayout(jPanelCommunityLayout);
         jPanelCommunityLayout.setHorizontalGroup(
             jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCommunityLayout.createSequentialGroup()
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addGroup(jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAddCity, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAddCommunity))
+                .addGap(15, 15, 15))
             .addGroup(jPanelCommunityLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonAddCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAddCommunity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(jPanelCommunityLayout.createSequentialGroup()
-                .addComponent(btnLogoutCommunityAdminPanel)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(btnLogoutCommunityAdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCommunityLayout.setVerticalGroup(
             jPanelCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCommunityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnLogoutCommunityAdminPanel)
-                .addGap(136, 136, 136)
-                .addComponent(jButtonAddCity)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAddCommunity)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addComponent(btnLogoutCommunityAdminPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(215, 215, 215)
+                .addComponent(jButtonAddCity, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAddCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(393, Short.MAX_VALUE))
         );
 
         jSplitPaneCommunity.setTopComponent(jPanelCommunity);
@@ -97,7 +108,7 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+                .addComponent(jSplitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
         jPanel1Layout.setVerticalGroup(
@@ -112,21 +123,17 @@ public class CommunityAdminFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

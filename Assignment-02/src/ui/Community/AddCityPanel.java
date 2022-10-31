@@ -51,6 +51,8 @@ public class AddCityPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnEditCity = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(205, 216, 231));
+
         lblCityName.setText("City Name");
 
         lblState.setText("State");
@@ -61,6 +63,8 @@ public class AddCityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSaveCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnSaveCity.setForeground(new java.awt.Color(255, 255, 255));
         btnSaveCity.setText("Add City");
         btnSaveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +90,8 @@ public class AddCityPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableCityDetails);
 
+        btnViewCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewCity.setForeground(new java.awt.Color(255, 255, 255));
         btnViewCity.setText("View City");
         btnViewCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +99,8 @@ public class AddCityPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateCity.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateCity.setText("Update City");
         btnUpdateCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +118,8 @@ public class AddCityPanel extends javax.swing.JPanel {
 
         jLabel2.setText("State");
 
+        btnEditCity.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditCity.setForeground(new java.awt.Color(255, 255, 255));
         btnEditCity.setText("Edit City");
         btnEditCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,8 +194,8 @@ public class AddCityPanel extends javax.swing.JPanel {
                         .addComponent(btnSaveCity, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnViewCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditCity)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditCity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(117, 117, 117))))

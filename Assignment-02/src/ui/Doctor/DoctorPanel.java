@@ -89,6 +89,10 @@ public class DoctorPanel extends javax.swing.JPanel {
         btnUpdateEncounter = new javax.swing.JButton();
         dcEncounterDate_U = new com.toedter.calendar.JDateChooser();
 
+        setBackground(new java.awt.Color(205, 216, 231));
+
+        btnGetPatientID.setBackground(new java.awt.Color(51, 102, 255));
+        btnGetPatientID.setForeground(new java.awt.Color(255, 255, 255));
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +114,8 @@ public class DoctorPanel extends javax.swing.JPanel {
 
         lblEncounterDoctorName.setText("Doctor Name");
 
+        btnAddEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +133,8 @@ public class DoctorPanel extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(tableEncounterHistory);
 
+        btnLogOut.setBackground(new java.awt.Color(51, 102, 255));
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
         btnLogOut.setText("Logout");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +179,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEncounter.setText("View");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +188,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEditEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnEditEncounter.setText("Edit");
         btnEditEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +197,8 @@ public class DoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateEncounter.setText("Update");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

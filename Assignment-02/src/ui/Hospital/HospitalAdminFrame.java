@@ -288,6 +288,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(205, 216, 231));
+
+        jTabbedPane1.setBackground(new java.awt.Color(205, 216, 231));
+
+        jPanelAddHospitals.setBackground(new java.awt.Color(205, 216, 231));
+
         jLabelHospitalName.setText("Hospital Name");
 
         jLabelHospitalCommunity.setText("Hospital Community");
@@ -302,6 +308,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnAddHospital.setText("Add Hospital");
         btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,6 +349,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnViewHospital.setText("View");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +358,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnEditHospital.setText("Edit");
         btnEditHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,6 +367,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHospital.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateHospital.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateHospital.setText("Update");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,7 +423,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAddHospitalsLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(tfHospitalCode))
@@ -498,10 +512,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfHospitalPostalCode_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel30))))
-                .addContainerGap(1641, Short.MAX_VALUE))
+                .addContainerGap(1635, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Hospital", jPanelAddHospitals);
+
+        jPaneladdDoctors.setBackground(new java.awt.Color(205, 216, 231));
 
         jLabelDoctoreName.setText("Doctor name");
 
@@ -532,6 +548,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnAddDoctor.setText("Add Doctor");
         btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -563,6 +581,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jLabelPassword.setText("Password");
 
+        btnViewDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnViewDoctor.setText("View");
         btnViewDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -570,6 +590,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnEditDoctor.setText("Edit");
         btnEditDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -577,6 +599,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateDoctor.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateDoctor.setText("Update");
         btnUpdateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -692,7 +716,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                                 .addComponent(jLabelPassword)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
             .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                     .addGap(164, 164, 164)
@@ -700,7 +724,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnEditDoctor)
                         .addComponent(btnViewDoctor)
                         .addComponent(btnUpdateDoctor))
-                    .addContainerGap(590, Short.MAX_VALUE)))
+                    .addContainerGap(584, Short.MAX_VALUE)))
         );
         jPaneladdDoctorsLayout.setVerticalGroup(
             jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,7 +798,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(tfPhoneNumber_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1502, Short.MAX_VALUE))
+                .addContainerGap(1496, Short.MAX_VALUE))
             .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                     .addGap(350, 350, 350)
@@ -783,11 +807,12 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addComponent(btnEditDoctor)
                     .addGap(18, 18, 18)
                     .addComponent(btnUpdateDoctor)
-                    .addContainerGap(1642, Short.MAX_VALUE)))
+                    .addContainerGap(1636, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
 
+        jPanelAddPatients.setBackground(new java.awt.Color(205, 216, 231));
         jPanelAddPatients.setPreferredSize(new java.awt.Dimension(1114, 2000));
 
         jLabel4.setText("Patient Name :");
@@ -857,6 +882,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnAddPatient.setText("Add Patient");
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -933,6 +960,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdatePatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdatePatient.setText("Update");
         btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -940,6 +969,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnViewPatient.setText("View");
         btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -947,6 +978,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditPatient.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditPatient.setForeground(new java.awt.Color(255, 255, 255));
         btnEditPatient.setText("Edit");
         btnEditPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1001,7 +1034,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnAddPatient))
                     .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1052,7 +1085,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             .addGroup(jPanelAddPatientsLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanelAddPatientsLayout.setVerticalGroup(
             jPanelAddPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,11 +1191,15 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnAddPatient)))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1342, Short.MAX_VALUE))
+                .addContainerGap(1336, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
 
+        jPanelAddEncounters.setBackground(new java.awt.Color(205, 216, 231));
+
+        btnGetPatientID.setBackground(new java.awt.Color(51, 102, 255));
+        btnGetPatientID.setForeground(new java.awt.Color(255, 255, 255));
         btnGetPatientID.setText("Get Patient");
         btnGetPatientID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1193,6 +1230,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnAddEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnAddEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnAddEncounter.setText("Add Encounter");
         btnAddEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1247,6 +1286,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnViewEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnViewEncounter.setText("View");
         btnViewEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1254,6 +1295,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEditEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnEditEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnEditEncounter.setText("Edit");
         btnEditEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1261,6 +1304,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateEncounter.setBackground(new java.awt.Color(51, 102, 255));
+        btnUpdateEncounter.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateEncounter.setText("Update");
         btnUpdateEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1353,7 +1398,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             .addGroup(jPanelAddEncountersLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanelAddEncountersLayout.setVerticalGroup(
             jPanelAddEncountersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1435,7 +1480,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             .addComponent(btnUpdateEncounter))))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1363, Short.MAX_VALUE))
+                .addContainerGap(1357, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Encounter", jPanelAddEncounters);
@@ -1444,13 +1489,20 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1))
         );
 
+        btnLogoutHospitalAdminFrame.setBackground(new java.awt.Color(51, 102, 255));
+        btnLogoutHospitalAdminFrame.setForeground(new java.awt.Color(255, 255, 255));
         btnLogoutHospitalAdminFrame.setText("Logout");
         btnLogoutHospitalAdminFrame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
