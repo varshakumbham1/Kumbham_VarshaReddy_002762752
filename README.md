@@ -29,24 +29,24 @@ Using the application we are able to perform following operations:
 
 1. Patient:
 
-![Patient Sequence Diagramn](./Assignment-2/UML/Sequence%20diagram_Patient.png)
+![Patient Sequence Diagramn](./Assignment-02/UML/Sequence%20diagram_Patient.png)
 
 2. Doctor:
 
-![Doctor Sequence Diagram](./Assignment-2/UML/Sequence%20diagram_Doctor.png)
+![Doctor Sequence Diagram](./Assignment-02/UML/Sequence%20diagram_Doctor.png)
 
 3. Community Admin: 
 
-![Community Admin Sequence Diagram](./Assignment-2/UML/Sequence%20diagram_Community.png)
+![Community Admin Sequence Diagram](./Assignment-02/UML/Sequence%20diagram_Community.png)
 
 4. Hospital Admin:
 
-![Hospital Admin Sequence Diagram](./Assignment-2/UML/Sequence%20diagram_Hospital.png)
+![Hospital Admin Sequence Diagram](./Assignment-02/UML/Sequence%20diagram_Hospital.png)
 
 5. System Admin:
 
-![System Admin Sequence Diagram](./Assignment-2/UML/Sequence%20diagram_System%20Admin.png)
+![System Admin Sequence Diagram](./Assignment-02/UML/Sequence%20diagram_System%20Admin.png)
 
 # Class Diagram
 
-![Class Diagram](./Assignment-2/UML/ClassDiagram.png)
+![Class Diagram](./Assignment-02/UML/ClassDiagram.png)
