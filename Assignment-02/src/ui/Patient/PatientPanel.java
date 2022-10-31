@@ -671,6 +671,35 @@ public class PatientPanel extends javax.swing.JPanel {
                 "Try Again",
                 JOptionPane.ERROR_MESSAGE);
         }
+        else if(!patientName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(patientPhNo.length()!= 10 || !patientPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!patientAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
         else{
             //Patient selectedPatient = listOfPatients.getPatients().get(row);
             Patient updatedPatient = new Patient(patientPhNo, houseNo, patientCommunity, patientCity, Long.parseLong(zipcode), patientName,

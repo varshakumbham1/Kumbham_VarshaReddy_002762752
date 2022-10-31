@@ -203,7 +203,20 @@ public class AddCityPanel extends javax.swing.JPanel {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            } else {
+            } 
+            else if(!cityName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid City",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!state.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid State",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 City city = new City(cityName, communities, state);
                 cityList.add(city);
                 Object[] data = {cityName, state};
@@ -251,6 +264,18 @@ public class AddCityPanel extends javax.swing.JPanel {
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!city.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid City",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!state.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid State",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
             }
             else{
                 List<Community> communities = new ArrayList<Community>();

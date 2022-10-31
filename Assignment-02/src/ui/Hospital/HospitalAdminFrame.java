@@ -621,7 +621,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     .addGroup(jPaneladdDoctorsLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(btnAddDoctor)
-                        .addGap(216, 216, 216)
+                        .addGap(192, 192, 192)
                         .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneladdDoctorsLayout.createSequentialGroup()
                                 .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1507,7 +1507,26 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                         "Enter all Fields",
                         "Try Again",
                         JOptionPane.ERROR_MESSAGE);
-            } else {
+            }
+            else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 int age = Integer.parseInt(patientAge);
                 VitalSigns vitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);
                 Encounter encounter = new Encounter(patientName, age, patientId, vitalSigns, doctorName, encounterDate);
@@ -1575,18 +1594,6 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                             }
                         }
                     }
-//                    for (Encounter en : encounterList) {
-//                        if (en.getPatientId().equals(patientId)) {
-//                            SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
-//                            String date = dateformat.format(en.getEncounterDate());
-//                            Object[] data = {en.getEncounterId(), date, en.getPatientName(), en.getPatientAge(),
-//                                en.getVitalSigns().getTemperature(), en.getVitalSigns().getBloodPressure(),
-//                                en.getVitalSigns().getHeartRate(), en.getDoctorName()};
-//
-//                            tblEncounterModel.addRow(data);
-//                            System.out.println(en.getPatientId());
-//                        }
-//                    }
                 }
             }
         } catch (Exception ex) {
@@ -1622,6 +1629,35 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,
                         "Enter all Fields",
                         "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(cellphone.length()!= 10 || !cellphone.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!age.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
                         JOptionPane.ERROR_MESSAGE);
             }
             else {
@@ -1703,6 +1739,35 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     || userName.isEmpty() || passWord.isEmpty()){
 
             }
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Doctor Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(phoneNumber.length()!= 10 || !phoneNumber.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!age.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!passWord.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{3,6}$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Password"
+                                + "(atleast 1 digit)"
+                                + "(atleast 1 Uppercase letter)"
+                                + "(atleast 1 Lowercase letter)"
+                                + "(Minimum length: 3)"
+                                + "(Maximum length: 6)",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else {
                 int doctorAge = Integer.parseInt(age);
                 doctor = new Doctor(hospitalName, department, phoneNumber, name, doctorAge, gender, role, userName, passWord);
@@ -1737,16 +1802,30 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
             String code = tfHospitalCode.getText();
             String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
             String city = (String) jComboBoxHospitalCity.getSelectedItem();
-            Long postalCode = Long.valueOf(tfHospitalPostalCode.getText());
-            if(name.isEmpty() || code.isEmpty() || community.isEmpty()) {
+            String postalCode = tfHospitalPostalCode.getText();
+            
+            if(name.isEmpty() || code.isEmpty() || community.isEmpty() || postalCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this,
                             "Enter all Fields",
                             "Try Again",
                             JOptionPane.ERROR_MESSAGE);
             }
+            else if(!name.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Hospital Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(postalCode.length()!= 5 || !postalCode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else {
                 Long hospitalcode = Long.valueOf(code);
-                hospital = new Hospital(name, community, postalCode, city, hospitalcode);
+                Long zipCode = Long.valueOf(postalCode);
+                hospital = new Hospital(name, community, zipCode, city, hospitalcode);
                 listOfHospitals.getHospitals().add(hospital);
                 displayHospitalTable();
                 setHospitalNameComboBox();
@@ -1909,6 +1988,18 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!hospitalName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Hospital Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(zipcode.length()!= 5 || !zipcode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
                     Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
@@ -2064,6 +2155,24 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!doctorName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Doctor Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!doctorAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(doctorPhNo.length()!= 10 || !doctorPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Doctor selectedDoctor = listOfDoctors.getDoctors().get(row);
                 Doctor updatedDoctor = new Doctor(hospitalName, doctorDepartment, doctorPhNo, doctorName, doctorId, Integer.parseInt(doctorAge),doctorGender, "Doctor",
@@ -2157,6 +2266,24 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!patientName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Patient Name",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(patientPhNo.length()!= 10 || !patientPhNo.matches("\\d{10}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter valid Phone Number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!patientAge.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Age must be a number",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
             }
             else{
                 Patient selectedPatient = listOfPatients.getPatients().get(row);
@@ -2374,7 +2501,26 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
                     "Enter all Fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
-            } else {
+            }
+            else if(!temperature.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Temperature should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!bloodPressure.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Blood Pressure should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(!heartRate.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(this,
+                        "Heart Rate should be a number",
+                        "Try Again",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else {
                 int row = tableEncounterHistory.getSelectedRow();
                 Encounter selectedEncounter = encounterList.get(row);
                 VitalSigns updatedVitalSigns = new VitalSigns(temperature, bloodPressure, heartRate);

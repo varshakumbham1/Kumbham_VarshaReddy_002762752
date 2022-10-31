@@ -57,6 +57,12 @@ public class AddCommunityPanel extends javax.swing.JPanel {
 
         lblCommunityName.setText("Community Name");
 
+        txtCommunityName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommunityNameActionPerformed(evt);
+            }
+        });
+
         lblSelectCity.setText("Select City");
 
         cmbBoxSelectCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -217,7 +223,19 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                         "Try Again", 
                         JOptionPane.ERROR_MESSAGE);
         }
-        else{
+        else if(!communityName.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Community",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else if(zipCode.length()!= 5 || !zipCode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+        }
+        else {
             Community community = new Community(communityName, Long.parseLong(zipCode), city);
             communityList.add(community);
             for(City c: AddCityPanel.cityList) {
@@ -285,6 +303,18 @@ public class AddCommunityPanel extends javax.swing.JPanel {
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
             }
+            else if(!community.matches("[A-Za-z]*$")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter Valid Community",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(zipcode.length()!= 5 || !zipcode.matches("\\d{5}")){
+                JOptionPane.showMessageDialog(this,
+                        "Please Enter 5 digit Zipcode",
+                        "Try Again", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
             else{
                 Community selectedCommunity = communityList.get(row);
                 Community updatedCommunity = new Community(community, Long.parseLong(zipcode), selectedCommunity.getCityName());
@@ -323,6 +353,10 @@ public class AddCommunityPanel extends javax.swing.JPanel {
     private void txtZipCode_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipCode_UActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtZipCode_UActionPerformed
+
+    private void txtCommunityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommunityNameActionPerformed
 
     private void loadComboBoxData(){
         cmbBoxSelectCity.removeAllItems();
