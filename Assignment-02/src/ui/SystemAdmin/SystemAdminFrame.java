@@ -359,7 +359,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(205, 216, 231));
 
-        jTabbedPane1.setBackground(new java.awt.Color(205, 216, 231));
+        jTabbedPane1.setBackground(new java.awt.Color(51, 102, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanelAddCity.setBackground(new java.awt.Color(205, 216, 231));
 
@@ -801,7 +802,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Hospital Id");
 
         javax.swing.GroupLayout jPanelAddHospitalsLayout = new javax.swing.GroupLayout(jPanelAddHospitals);
         jPanelAddHospitals.setLayout(jPanelAddHospitalsLayout);
@@ -2426,6 +2427,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                     "Success",
                     JOptionPane.INFORMATION_MESSAGE);
         }
+        loadComboBoxData();
         displayHospitalTable();
         setCityCombobox();
         displayPatientTable();
@@ -3261,6 +3263,17 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             int row = tableEncounterHistory.getSelectedRow();
             tblEncounterModel.removeRow(row);
             HospitalAdminFrame.encounterList.remove(row);
+            for(Patient p : HospitalAdminFrame.patients) {
+                for(Encounter en : p.getEncounterHistory().getEncounters()) {
+                    String enId = tblEncounterModel.getValueAt(row, 0).toString();
+                    if(en.getEncounterId().equals(enId)) {
+                        int index = p.getEncounterHistory().getEncounters().indexOf(en);
+                        p.getEncounterHistory().getEncounters().remove(index);
+                        break;
+                    }
+                }
+            }
+            
         } catch (ArrayIndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(this,
                     "Please select a row to view",

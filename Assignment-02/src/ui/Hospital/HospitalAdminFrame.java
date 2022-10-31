@@ -82,6 +82,7 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
         initComponents();
         setCityCombobox();
         setHospitalNameComboBox();
+        setDoctorCombobox();
         tblModel = (DefaultTableModel) tableHospitals.getModel();
         tblEncounterModel = (DefaultTableModel) tableEncounterHistory.getModel();
         tblPatientModel = (DefaultTableModel) tablePatientDetails.getModel();
@@ -290,7 +291,8 @@ public class HospitalAdminFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(205, 216, 231));
 
-        jTabbedPane1.setBackground(new java.awt.Color(205, 216, 231));
+        jTabbedPane1.setBackground(new java.awt.Color(51, 102, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanelAddHospitals.setBackground(new java.awt.Color(205, 216, 231));
 
