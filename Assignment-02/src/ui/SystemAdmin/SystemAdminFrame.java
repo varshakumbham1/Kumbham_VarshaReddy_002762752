@@ -112,7 +112,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     public void displayHospitalTable() {
         tblModel.setRowCount(0);
         for (Hospital h : HospitalAdminFrame.hospitals) {
-            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(), h.getCity(), h.getZipcode()};
+            Object[] row_data = {h.getHospitalName(), h.getCommunity(), h.getHospitalId(),h.getCity(), h.getZipcode()};
             tblModel.addRow(row_data);
         }
     }
@@ -186,8 +186,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jLabelHospitalCommunity = new javax.swing.JLabel();
         jLabelHospitalCity = new javax.swing.JLabel();
         jLabelHospitalPostalCode = new javax.swing.JLabel();
-        jLabelHospitalCode = new javax.swing.JLabel();
-        tfHospitalCode = new javax.swing.JTextField();
         tfHospitalName = new javax.swing.JTextField();
         tfHospitalPostalCode = new javax.swing.JTextField();
         btnAddHospital = new javax.swing.JButton();
@@ -209,6 +207,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jComboBoxHospitalCity_U = new javax.swing.JComboBox<>();
         jComboBoxHospitalCommunity_U = new javax.swing.JComboBox<>();
         btnDeleteHospital = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        tfHospitalCode = new javax.swing.JTextField();
         jPaneladdDoctors = new javax.swing.JPanel();
         jLabelDoctoreName = new javax.swing.JLabel();
         jLabelAge = new javax.swing.JLabel();
@@ -499,7 +499,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addComponent(btnUpdateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDeleteCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4440, Short.MAX_VALUE))
+                .addGap(0, 4443, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("City", jPanelAddCity);
@@ -653,7 +653,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addComponent(btnUpdateCommunity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteCommunity)
-                .addContainerGap(4454, Short.MAX_VALUE))
+                .addContainerGap(4457, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Community", jPanelAddCommunity);
@@ -665,14 +665,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         jLabelHospitalCity.setText("Hospital City");
 
         jLabelHospitalPostalCode.setText("Hospital Postal Code");
-
-        jLabelHospitalCode.setText("Hospital Code");
-
-        tfHospitalCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHospitalCodeActionPerformed(evt);
-            }
-        });
 
         tfHospitalPostalCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -771,6 +763,8 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout jPanelAddHospitalsLayout = new javax.swing.GroupLayout(jPanelAddHospitals);
         jPanelAddHospitals.setLayout(jPanelAddHospitalsLayout);
         jPanelAddHospitalsLayout.setHorizontalGroup(
@@ -781,18 +775,19 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelHospitalPostalCode)
-                            .addComponent(jLabelHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHospitalCommunity)
-                            .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelHospitalPostalCode)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(tfHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                .addComponent(tfHospitalCode)
                                 .addComponent(tfHospitalPostalCode))
-                            .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(tfHospitalCode, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.Alignment.LEADING, 0, 134, Short.MAX_VALUE)))
                         .addGap(40, 40, 40)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAddHospitalsLayout.createSequentialGroup()
@@ -837,19 +832,19 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHospitalName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelHospitalCode)
+                            .addComponent(jLabel1)
                             .addComponent(tfHospitalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelHospitalCity)
                             .addComponent(jComboBoxHospitalCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelHospitalCommunity)
                             .addComponent(jComboBoxHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelAddHospitalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tfHospitalPostalCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHospitalPostalCode)))
@@ -1183,7 +1178,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         .addGroup(jPaneladdDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel41)
                             .addComponent(tfPhoneNumber_U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(4319, Short.MAX_VALUE))
+                .addContainerGap(4322, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Doctor", jPaneladdDoctors);
@@ -1570,7 +1565,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                 .addComponent(btnAddPatient)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4115, Short.MAX_VALUE))
+                .addContainerGap(4118, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Patient", jPanelAddPatients);
@@ -1856,7 +1851,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                             .addComponent(btnDeleteEncounter))))
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4112, Short.MAX_VALUE))
+                .addContainerGap(4115, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Encounter", jPanelAddEncounters);
@@ -1903,10 +1898,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfHospitalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfHospitalCodeActionPerformed
-
     private void tfHospitalPostalCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHospitalPostalCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfHospitalPostalCodeActionPerformed
@@ -1915,11 +1906,11 @@ public class SystemAdminFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String name = tfHospitalName.getText();
-            String code = tfHospitalCode.getText();
             String community = (String) jComboBoxHospitalCommunity.getSelectedItem();
             String city = (String) jComboBoxHospitalCity.getSelectedItem();
             String postalCode = tfHospitalPostalCode.getText();
-            if (name.isEmpty() || code.isEmpty() || community.isEmpty()
+            String hospitalCode = tfHospitalCode.getText();
+            if (name.isEmpty() || community.isEmpty()
                     || city.isEmpty() || postalCode.isEmpty()) {
 
             }
@@ -1936,11 +1927,10 @@ public class SystemAdminFrame extends javax.swing.JFrame {
                         JOptionPane.ERROR_MESSAGE);
             }
             else {
-                Long hospitalCode = Long.valueOf(code);
                 Long hospitalPostalCode = Long.valueOf(postalCode);
                 hospital = new Hospital(name, community, hospitalCode, city, hospitalPostalCode);
                 HospitalAdminFrame.hospitals.add(hospital);
-                Object[] data = {name, community, code, city, postalCode};
+                Object[] data = {name, community, city, postalCode};
                 tblModel.addRow(data);
                 setHospitalNameComboBox();
                 displayHospitalTable();
@@ -2571,7 +2561,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
             }
             else {
                 Hospital updatedHospital = new Hospital(hospitalName, hospitalCommunity,
-                        Long.parseLong(zipcode), hospitalCity, Long.parseLong(hospitalCode));
+                    hospitalCode, hospitalCity, Long.parseLong(zipcode));
 
                 HospitalAdminFrame.hospitals.remove(row);
                 HospitalAdminFrame.hospitals.add(row, updatedHospital);
@@ -3439,6 +3429,7 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxHospitalCommunity_U;
     private javax.swing.JComboBox<String> jComboBoxHospitalName;
     private javax.swing.JComboBox<String> jComboBoxHospitalName_U;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -3484,7 +3475,6 @@ public class SystemAdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDoctoreName;
     private javax.swing.JLabel jLabelGender;
     private javax.swing.JLabel jLabelHospitalCity;
-    private javax.swing.JLabel jLabelHospitalCode;
     private javax.swing.JLabel jLabelHospitalCommunity;
     private javax.swing.JLabel jLabelHospitalName;
     private javax.swing.JLabel jLabelHospitalNameDoctorPanel;

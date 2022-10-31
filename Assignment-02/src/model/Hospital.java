@@ -16,19 +16,20 @@ public class Hospital {
     private String community;
     private Long zipcode;
     private String city;
-    private Long hospitalId;
-
+    private String hospitalId;
+    private static int count = 0;
+    
     public Hospital() {
     }
 
-    public Hospital(String hospitalName, String community, Long zipcode, String city, Long hospitalId) {
+    public Hospital(String hospitalName, String community, String hospitalId, String city, Long zipcode) {
         this.hospitalName = hospitalName;
         this.community = community;
         this.zipcode = zipcode;
         this.city = city;
-        this.hospitalId = hospitalId;
+        this.hospitalId =  hospitalId;
     }
-
+    
     public String getHospitalName() {
         return hospitalName;
     }
@@ -61,11 +62,11 @@ public class Hospital {
         this.city = city;
     }
 
-    public Long getHospitalId() {
+    public String getHospitalId() {
         return hospitalId;
     }
 
-    public void setHospitalId(Long hsopitalId) {
-        this.hospitalId = hsopitalId;
+    public void setHospitalId(String hospitalId) {
+        this.hospitalId = hospitalId;
     }
 }
